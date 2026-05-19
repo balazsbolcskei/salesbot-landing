@@ -1764,6 +1764,9 @@
       });
     } catch(err) { console.error(err); }
 
+    // Store lead for Calendly booking detection
+    pendingLead = { name: payload.name, email: payload.email, rep: payload.rep };
+
     // Init Calendly embed
     const calendlyUrl = rep ? rep.url : 'https://calendly.com/roman-blackholegrowth/salesbot-demo';
     const embedEl = document.getElementById('calendlyEmbed');
@@ -1776,6 +1779,19 @@
 
     this.style.display = 'none';
     document.getElementById('modalSuccess').style.display = 'block';
+  });
+
+  // Calendly booking detection
+  let pendingLead = null;
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.event === 'calendly.event_scheduled' && pendingLead) {
+      fetch('https://ystegwqwuypguvfwcexg.supabase.co/functions/v1/confirm-booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pendingLead),
+      }).catch(function(err) { console.error(err); });
+      pendingLead = null;
+    }
   });
 </script>
 </body>
