@@ -1739,9 +1739,9 @@
     phoneGroup.classList.toggle('has-error', !phoneOk);
     if (!emailOk || !phoneOk) return;
 
-    const btn = this.querySelector('.modal-submit');
-    btn.textContent = 'Küldés...';
-    btn.disabled = true;
+    const submitBtn = this.querySelector('.modal-submit');
+    submitBtn.textContent = 'Küldés...';
+    submitBtn.disabled = true;
 
     const rep = getRep();
     const payload = {
