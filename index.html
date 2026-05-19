@@ -1611,12 +1611,29 @@
     <div class="modal-success" id="modalSuccess">
       <div class="success-icon">✓</div>
       <h3>Megkaptuk!</h3>
-      <p>1 munkanapon belül felvesszük veled a kapcsolatot a demó időpontja ügyében.</p>
+      <p>Foglalj azonnal időpontot a hozzád rendelt értékesítőnkkel:</p>
+      <a id="calendlyBtn" href="#" target="_blank" class="modal-submit" style="display:inline-block;margin-top:20px;text-decoration:none;text-align:center;">Időpont foglalása →</a>
+      <p style="margin-top:16px;font-size:12px;color:var(--ink-mute)">Ha most nem érsz rá, 1 munkanapon belül megkeresünk.</p>
     </div>
   </div>
 </div>
 
 <script>
+  // Rep distribution
+  const REP_MAP = {
+    '/home':    { name: 'Roman Mamedov',            url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' },
+    '/start':   { name: 'Szentes János',             url: 'https://calendly.com/janko-blackholemedia/30min' },
+    '/welcome': { name: 'Boross-Nagy Bogáta Luca',   url: 'https://calendly.com/bogata-nagy/salesbot-demo' },
+    '/go':      { name: 'Bukovics Eszter',           url: 'https://calendly.com/eszter-bukovics/salesbot-hatekony-ai-b2b-business-development-bemutato' },
+  };
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  if (REP_MAP[path]) {
+    localStorage.setItem('sb_rep', JSON.stringify(REP_MAP[path]));
+  }
+  function getRep() {
+    try { return JSON.parse(localStorage.getItem('sb_rep')); } catch(e) { return null; }
+  }
+
   function calcUpdate(){
     const profiles = parseInt(document.getElementById('profileSlider').value);
     const ltp = Math.min(100, Math.max(0, parseFloat(document.getElementById('leadToProposal').value) || 30)) / 100;
@@ -1726,11 +1743,13 @@
     btn.textContent = 'Küldés...';
     btn.disabled = true;
 
+    const rep = getRep();
     const payload = {
       name: document.getElementById('fName').value,
       email: document.getElementById('fEmail').value,
       phone: document.getElementById('fPhone').value,
       company: document.getElementById('fCompany').value,
+      rep: rep ? rep.name : null,
     };
 
     try {
@@ -1740,6 +1759,16 @@
         body: JSON.stringify(payload),
       });
     } catch(err) { console.error(err); }
+
+    // Set Calendly button
+    const btn = document.getElementById('calendlyBtn');
+    if (rep) {
+      btn.href = rep.url;
+      btn.textContent = 'Időpont foglalása ' + rep.name + '-vel →';
+    } else {
+      btn.href = 'https://calendly.com/roman-blackholegrowth/salesbot-demo';
+      btn.textContent = 'Időpont foglalása →';
+    }
 
     this.style.display = 'none';
     document.getElementById('modalSuccess').style.display = 'block';
