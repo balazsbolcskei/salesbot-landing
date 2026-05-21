@@ -5,40 +5,193 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Outsourced Finance — Case Study — SalesBot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFJRMCECFY"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EFJRMCECFY');</script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#070510;color:#f4f0ff;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column}
+  body{background:#070510;color:#f4f0ff;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;line-height:1.6}
   nav{padding:20px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(169,140,255,.2)}
   .logo{font-family:'Familjen Grotesk',sans-serif;font-size:20px;font-weight:700;color:#f4f0ff;text-decoration:none}
   .logo span{color:#a98cff}
   .nav-cta{background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500}
-  main{flex:1;padding:40px 32px;max-width:900px;margin:0 auto;width:100%}
-  h1{font-family:'Familjen Grotesk',sans-serif;font-size:28px;font-weight:600;margin-bottom:8px;color:#f4f0ff}
-  .sub{color:#b8aee0;font-size:14px;margin-bottom:32px}
-  .frame-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(169,140,255,.3);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(124,77,255,.1)}
-  .frame-wrap iframe{display:block;width:100%;height:600px;border:none}
-  .cta-row{margin-top:40px;text-align:center}
-  .btn{display:inline-block;background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-size:15px;font-weight:500}
+  main{flex:1;max-width:860px;margin:0 auto;width:100%;padding:60px 32px}
+  .tag{display:inline-block;background:rgba(169,140,255,.15);color:#a98cff;border:1px solid rgba(169,140,255,.3);border-radius:20px;font-size:12px;font-weight:500;padding:5px 14px;margin-bottom:20px;letter-spacing:.05em;text-transform:uppercase}
+  h1{font-family:'Familjen Grotesk',sans-serif;font-size:38px;font-weight:700;line-height:1.15;margin-bottom:16px;color:#f4f0ff}
+  h1 span{color:#a98cff}
+  .hero-sub{color:#b8aee0;font-size:16px;max-width:660px;margin-bottom:48px}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px}
+  .stat-card{background:rgba(169,140,255,.07);border:1px solid rgba(169,140,255,.18);border-radius:14px;padding:24px 20px;text-align:center}
+  .stat-number{font-family:'Familjen Grotesk',sans-serif;font-size:36px;font-weight:700;color:#a98cff;line-height:1}
+  .stat-label{font-size:12px;color:#9089b8;margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
+  .section{margin-bottom:56px}
+  .section-tag{font-size:11px;font-weight:600;color:#7c4dff;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+  h2{font-family:'Familjen Grotesk',sans-serif;font-size:26px;font-weight:700;margin-bottom:16px;color:#f4f0ff}
+  p{color:#c4bce0;font-size:15px;margin-bottom:14px}
+  p:last-child{margin-bottom:0}
+  .funnel{display:flex;align-items:center;justify-content:center;margin:32px 0;flex-wrap:wrap}
+  .funnel-step{background:#0d0b1e;border:1px solid rgba(169,140,255,.2);border-radius:12px;padding:20px 24px;text-align:center;flex:1;min-width:110px}
+  .funnel-num{font-family:'Familjen Grotesk',sans-serif;font-size:28px;font-weight:700;color:#a98cff}
+  .funnel-lbl{font-size:12px;color:#9089b8;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+  .funnel-arrow{color:rgba(169,140,255,.3);font-size:20px;padding:0 8px;flex-shrink:0}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
+  .step{background:#0d0b1e;border:1px solid rgba(169,140,255,.15);border-radius:12px;padding:18px 14px}
+  .step-num{font-size:11px;font-weight:600;color:#7c4dff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .step-title{font-size:13px;font-weight:600;color:#f4f0ff;margin-bottom:6px;line-height:1.3}
+  .step-desc{font-size:12px;color:#9089b8;line-height:1.5}
+  .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .reason{background:#0d0b1e;border:1px solid rgba(169,140,255,.18);border-radius:12px;padding:20px}
+  .reason-num{font-size:11px;font-weight:600;color:#7c4dff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .reason-title{font-size:14px;font-weight:600;color:#f4f0ff;margin-bottom:6px}
+  .reason-desc{font-size:13px;color:#9089b8;line-height:1.5}
+  .highlight-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+  .hl-card{background:#0d0b1e;border:1px solid rgba(169,140,255,.2);border-radius:14px;padding:24px;text-align:center}
+  .hl-val{font-family:'Familjen Grotesk',sans-serif;font-size:36px;font-weight:700;color:#a98cff}
+  .hl-lbl{font-size:13px;color:#b8aee0;margin-top:6px}
+  .hl-sub{font-size:11px;color:#7a6fa8;margin-top:4px}
+  .cta-section{background:rgba(169,140,255,.06);border:1px solid rgba(169,140,255,.18);border-radius:16px;padding:48px 40px;text-align:center;margin-top:64px}
+  .cta-section h2{font-size:30px;margin-bottom:12px}
+  .cta-section p{color:#b8aee0;font-size:15px;margin-bottom:28px}
+  .btn{display:inline-block;background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:15px 36px;border-radius:10px;text-decoration:none;font-size:15px;font-weight:600}
+  .btn:hover{opacity:.9}
   footer{padding:24px 32px;text-align:center;color:#7a6fa8;font-size:12px;border-top:1px solid rgba(169,140,255,.15)}
-  @media(max-width:600px){main{padding:24px 16px}.frame-wrap iframe{height:420px}nav{padding:16px 20px}}
+  @media(max-width:700px){
+    main{padding:40px 20px}h1{font-size:26px}
+    .stats-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}
+    .reasons{grid-template-columns:1fr}.highlight-row{grid-template-columns:1fr}
+    .funnel{flex-direction:column;gap:8px}.funnel-arrow{transform:rotate(90deg)}
+    .cta-section{padding:32px 20px}nav{padding:16px 20px}
+  }
 </style>
 </head>
 <body>
 <nav>
-  <a href="/" class="logo">Sales<span>Bot</span></a>
-  <a href="/home" class="nav-cta">Book a demo →</a>
+  <a href="/home" class="logo">Sales<span>Bot</span></a>
+  <a href="/home" class="nav-cta">Book a demo &rarr;</a>
 </nav>
 <main>
-  <h1>Outsourced Finance — Case Study</h1>
-  <p class="sub">How SalesBot generated real business results for Outsourced Finance.</p>
-  <div class="frame-wrap">
-    <iframe src="https://gamma.app/embed/gr9qihv3biclfdx" allow="fullscreen" title="Outsourced Finance — Case Study"></iframe>
+
+  <div class="tag">Case Study &middot; Outsourced Finance</div>
+  <h1>2 new clients in 3 months.<br><span>50% proposal close rate.</span></h1>
+  <p class="hero-sub">How SalesBot generated real sales meetings and new clients for a financial services company — fully automatically — in a trust-sensitive B2B market.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">New clients closed</div></div>
+    <div class="stat-card"><div class="stat-number">50%</div><div class="stat-label">Proposal close rate</div></div>
+    <div class="stat-card"><div class="stat-number">56%+</div><div class="stat-label">Lead-to-meeting rate</div></div>
+    <div class="stat-card"><div class="stat-number">1,385</div><div class="stat-label">Connection requests</div></div>
+    <div class="stat-card"><div class="stat-number">47%</div><div class="stat-label">Acceptance rate</div></div>
+    <div class="stat-card"><div class="stat-number">16</div><div class="stat-label">Leads generated</div></div>
   </div>
-  <div class="cta-row">
-    <a href="/home" class="btn">Want results like this? Book a demo →</a>
+
+  <div class="section">
+    <div class="section-tag">Background</div>
+    <h2>Building trust and pipeline in a relationship-driven market</h2>
+    <p>In B2B financial services, finding new clients is not just about visibility. It requires trust, precise targeting, and consistent follow-up with the right decision makers. This is especially true in the Hungarian SME market, where relationships matter and cold outreach rarely converts on its own.</p>
+    <p>In this campaign, SalesBot automated exactly this process. Over 3 months, the results clearly showed that a well-built LinkedIn outreach system does not only create activity — it can generate concrete business opportunities and new paying clients.</p>
   </div>
+
+  <div class="section">
+    <div class="section-tag">Results at a Glance</div>
+    <h2>What the campaign delivered</h2>
+    <div class="funnel">
+      <div class="funnel-step"><div class="funnel-num">16</div><div class="funnel-lbl">Leads</div></div>
+      <div class="funnel-arrow">&rsaquo;</div>
+      <div class="funnel-step"><div class="funnel-num">9</div><div class="funnel-lbl">Meetings</div></div>
+      <div class="funnel-arrow">&rsaquo;</div>
+      <div class="funnel-step"><div class="funnel-num">4</div><div class="funnel-lbl">Proposals</div></div>
+      <div class="funnel-arrow">&rsaquo;</div>
+      <div class="funnel-step"><div class="funnel-num">2</div><div class="funnel-lbl">New clients</div></div>
+    </div>
+    <p>This is a trust-sensitive B2B market where relationships take time. The 2 new clients were the immediate wins — but the real value is a lead-to-meeting rate of over 56% and a 50% proposal-to-client conversion. Half of all sent proposals closed immediately. This is exactly where the business value of SalesBot becomes clear: it created real, concrete business opportunities from a standing start.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-tag">Campaign Process</div>
+    <h2>SalesBot is a full AI sales system — not just a messaging tool</h2>
+    <p>The following steps were used to warm up, connect, and convert decision makers in the Outsourced Finance campaign.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">View the Lead's Profile</div>
+        <div class="step-desc">The lead's profile was viewed — creating a human first touchpoint before any outreach.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Like a Relevant Post</div>
+        <div class="step-desc">Before the connection request, the system liked one of the lead's posts to reduce cold-contact friction.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Connection Request A/B Testing</div>
+        <div class="step-desc">Two versions were tested. Version B outperformed A — the campaign optimized automatically.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Message Sequence</div>
+        <div class="step-desc">After connection, a tested sequence launched automatically, refined based on reply rates.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-title">Manage Leads &amp; Generate Meetings</div>
+        <div class="step-desc">198 replies processed into 16 qualified leads and 9 real meetings — automatically.</div>
+      </div>
+    </div>
+    <p style="margin-top:20px">Both connection requests and message sequences were continuously A/B tested. The system optimized toward better-performing versions automatically — based on real data, not assumptions.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-tag">Why It Worked</div>
+    <h2>Three things drove the results</h2>
+    <div class="reasons">
+      <div class="reason">
+        <div class="reason-num">1</div>
+        <div class="reason-title">Warm, Human-Paced Outreach</div>
+        <div class="reason-desc">Profile views and post likes preceded every connection request — making each touchpoint feel natural. Especially important in a relationship-driven market like Hungarian SME financial services.</div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">2</div>
+        <div class="reason-title">Precise Targeting &amp; Quality Messaging</div>
+        <div class="reason-desc">The campaign reached relevant Hungarian SME decision makers — not generic databases. Messages were tailored to the financial services context, feeling credible rather than intrusive.</div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">3</div>
+        <div class="reason-title">AI-Based Lead Management</div>
+        <div class="reason-desc">With 198 incoming replies, manual handling would have been a bottleneck. SalesBot organized, tagged, and prequalified leads automatically — so the team could focus on real sales conversations.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-tag">Final Result</div>
+    <h2>In 3 months, from zero</h2>
+    <div class="highlight-row">
+      <div class="hl-card">
+        <div class="hl-val">650</div>
+        <div class="hl-lbl">New connections</div>
+        <div class="hl-sub">From 1,385 connection requests over 3 months</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-val">56%+</div>
+        <div class="hl-lbl">Lead-to-meeting rate</div>
+        <div class="hl-sub">9 meetings from 16 qualified leads</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-val">50%</div>
+        <div class="hl-lbl">Proposal close rate</div>
+        <div class="hl-sub">2 out of 4 proposals converted immediately</div>
+      </div>
+    </div>
+    <p style="margin-top:24px">All of this was achieved with an automated system that took one of the most difficult parts of B2B client acquisition completely off the team's shoulders — so they could focus on what really matters: real conversations, proposals, and closed deals.</p>
+  </div>
+
+  <div class="cta-section">
+    <h2>Want to see how this could work for your company?</h2>
+    <p>If you sell in a B2B market and want to reach more relevant decision makers, generate more qualified leads, and build a more predictable sales pipeline, SalesBot can support this process automatically.</p>
+    <a href="/home" class="btn">See how the system works &rarr;</a>
+  </div>
+
 </main>
-<footer>© 2026 · SALESBOT AI · BUILT FOR B2B</footer>
+<footer>&copy; 2026 &middot; SALESBOT AI &middot; BUILT FOR B2B</footer>
 </body>
 </html>
