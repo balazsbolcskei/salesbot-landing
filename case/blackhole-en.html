@@ -5,40 +5,251 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Blackhole — Case Study — SalesBot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFJRMCECFY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EFJRMCECFY');
+</script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#070510;color:#f4f0ff;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column}
+  body{background:#070510;color:#f4f0ff;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;line-height:1.6}
   nav{padding:20px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(169,140,255,.2)}
   .logo{font-family:'Familjen Grotesk',sans-serif;font-size:20px;font-weight:700;color:#f4f0ff;text-decoration:none}
   .logo span{color:#a98cff}
   .nav-cta{background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500}
-  main{flex:1;padding:40px 32px;max-width:900px;margin:0 auto;width:100%}
-  h1{font-family:'Familjen Grotesk',sans-serif;font-size:28px;font-weight:600;margin-bottom:8px;color:#f4f0ff}
-  .sub{color:#b8aee0;font-size:14px;margin-bottom:32px}
-  .frame-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(169,140,255,.3);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(124,77,255,.1)}
-  .frame-wrap iframe{display:block;width:100%;height:600px;border:none}
-  .cta-row{margin-top:40px;text-align:center}
-  .btn{display:inline-block;background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-size:15px;font-weight:500}
+  main{flex:1;max-width:860px;margin:0 auto;width:100%;padding:60px 32px}
+
+  /* HERO */
+  .tag{display:inline-block;background:rgba(169,140,255,.15);color:#a98cff;border:1px solid rgba(169,140,255,.3);border-radius:20px;font-size:12px;font-weight:500;padding:5px 14px;margin-bottom:20px;letter-spacing:.05em;text-transform:uppercase}
+  h1{font-family:'Familjen Grotesk',sans-serif;font-size:38px;font-weight:700;line-height:1.15;margin-bottom:16px;color:#f4f0ff}
+  h1 span{color:#a98cff}
+  .hero-sub{color:#b8aee0;font-size:16px;max-width:640px;margin-bottom:48px}
+
+  /* STATS GRID */
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px}
+  .stat-card{background:rgba(169,140,255,.07);border:1px solid rgba(169,140,255,.18);border-radius:14px;padding:24px 20px;text-align:center}
+  .stat-number{font-family:'Familjen Grotesk',sans-serif;font-size:36px;font-weight:700;color:#a98cff;line-height:1}
+  .stat-label{font-size:12px;color:#9089b8;margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
+
+  /* SECTIONS */
+  .section{margin-bottom:56px}
+  .section-tag{font-size:11px;font-weight:600;color:#7c4dff;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+  h2{font-family:'Familjen Grotesk',sans-serif;font-size:26px;font-weight:700;margin-bottom:16px;color:#f4f0ff}
+  p{color:#c4bce0;font-size:15px;margin-bottom:14px}
+  p:last-child{margin-bottom:0}
+
+  /* STRATEGY PILLARS */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .pillar{background:#0d0b1e;border:1px solid rgba(169,140,255,.18);border-radius:12px;padding:20px}
+  .pillar-num{font-size:11px;font-weight:600;color:#7c4dff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .pillar-title{font-size:14px;font-weight:600;color:#f4f0ff;margin-bottom:6px}
+  .pillar-desc{font-size:13px;color:#9089b8;line-height:1.5}
+
+  /* CAMPAIGN METRICS */
+  .metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+  .metric{background:#0d0b1e;border:1px solid rgba(169,140,255,.12);border-radius:10px;padding:16px;text-align:center}
+  .metric-val{font-family:'Familjen Grotesk',sans-serif;font-size:24px;font-weight:700;color:#f4f0ff}
+  .metric-lbl{font-size:11px;color:#7a6fa8;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+
+  /* PROFILES */
+  .profiles{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+  .profile-card{background:#0d0b1e;border:1px solid rgba(169,140,255,.2);border-radius:14px;padding:24px}
+  .profile-name{font-family:'Familjen Grotesk',sans-serif;font-size:18px;font-weight:700;color:#f4f0ff;margin-bottom:4px}
+  .profile-deal{font-size:22px;font-weight:700;color:#a98cff;margin-bottom:16px}
+  .profile-stats{display:flex;flex-direction:column;gap:8px}
+  .pstat{display:flex;justify-content:space-between;font-size:13px;color:#9089b8;border-bottom:1px solid rgba(169,140,255,.08);padding-bottom:8px}
+  .pstat:last-child{border-bottom:none;padding-bottom:0}
+  .pstat span:last-child{color:#c4bce0;font-weight:500}
+
+  /* RESULT BOX */
+  .result-box{background:linear-gradient(135deg,rgba(124,77,255,.12),rgba(90,45,224,.06));border:1px solid rgba(124,77,255,.3);border-radius:16px;padding:40px;text-align:center;margin-top:24px}
+  .result-number{font-family:'Familjen Grotesk',sans-serif;font-size:64px;font-weight:700;color:#a98cff;line-height:1}
+  .result-label{font-size:16px;color:#b8aee0;margin-top:8px}
+  .result-sub{font-size:13px;color:#7a6fa8;margin-top:4px}
+
+  /* CTA */
+  .cta-section{background:rgba(169,140,255,.06);border:1px solid rgba(169,140,255,.18);border-radius:16px;padding:48px 40px;text-align:center;margin-top:64px}
+  .cta-section h2{font-size:30px;margin-bottom:12px}
+  .cta-section p{color:#b8aee0;font-size:15px;margin-bottom:28px}
+  .btn{display:inline-block;background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:15px 36px;border-radius:10px;text-decoration:none;font-size:15px;font-weight:600}
+  .btn:hover{opacity:.9}
+
   footer{padding:24px 32px;text-align:center;color:#7a6fa8;font-size:12px;border-top:1px solid rgba(169,140,255,.15)}
-  @media(max-width:600px){main{padding:24px 16px}.frame-wrap iframe{height:420px}nav{padding:16px 20px}}
+
+  @media(max-width:700px){
+    main{padding:40px 20px}
+    h1{font-size:26px}
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .pillars{grid-template-columns:1fr}
+    .metrics-row{grid-template-columns:1fr 1fr}
+    .profiles{grid-template-columns:1fr}
+    .result-number{font-size:48px}
+    .cta-section{padding:32px 20px}
+    nav{padding:16px 20px}
+  }
 </style>
 </head>
 <body>
 <nav>
-  <a href="/" class="logo">Sales<span>Bot</span></a>
+  <a href="/home" class="logo">Sales<span>Bot</span></a>
   <a href="/home" class="nav-cta">Book a demo →</a>
 </nav>
+
 <main>
-  <h1>Blackhole — Case Study</h1>
-  <p class="sub">How SalesBot generated real business results for Blackhole.</p>
-  <div class="frame-wrap">
-    <iframe src="https://gamma.app/embed/ncggr1t3yivful0" allow="fullscreen" title="Blackhole — Case Study"></iframe>
+
+  <!-- HERO -->
+  <div class="tag">Case Study &middot; Blackhole</div>
+  <h1>118 leads. 6 clients. <span>75,000 EUR.</span><br>In 2 months. In a brand new market.</h1>
+  <p class="hero-sub">How Blackhole entered Dubai with zero connections, zero brand awareness, and zero market knowledge — and closed their first deal before even landing at the airport.</p>
+
+  <!-- KEY STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">75K</div>
+      <div class="stat-label">EUR closed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">118</div>
+      <div class="stat-label">Leads generated</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2 mo.</div>
+      <div class="stat-label">Time to close</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5,379</div>
+      <div class="stat-label">Decision makers reached</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">8%</div>
+      <div class="stat-label">Reply rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Deals won</div>
+    </div>
   </div>
-  <div class="cta-row">
-    <a href="/home" class="btn">Want results like this? Book a demo →</a>
+
+  <!-- CONTEXT -->
+  <div class="section">
+    <div class="section-tag">Background</div>
+    <h2>A bold bet on a completely unknown market</h2>
+    <p>Blackhole is a B2B growth agency with 7+ years of experience helping industrial, IT and B2B services companies generate new clients. With 250+ clients across Europe and North America, they had a proven system — but zero presence in the Middle East.</p>
+    <p>In Q4 2022, the founders Balazs Bolcskei and Marton Toth decided to make a bold move: open a new office in Dubai in just 2 months, with no connections, no brand awareness and no local experience. The goal was to close at least 4 clients to break even — and come home at a profit.</p>
+    <p>They exceeded that goal by 50%.</p>
   </div>
+
+  <!-- CHALLENGE -->
+  <div class="section">
+    <div class="section-tag">The Challenge</div>
+    <h2>Starting from absolute zero</h2>
+    <p>At the time of the decision, neither Balazs nor Marton had ever visited Dubai. They had no market knowledge, no local contacts, no brand recognition and no understanding of the cultural nuances of the Middle East — while operating in one of the most expensive cities in the world.</p>
+    <p>The question was simple: how do you generate leads and close deals fast when you are a complete stranger in a new market? The answer was their Agency Lead Generation System, powered by SalesBot.</p>
+  </div>
+
+  <!-- STRATEGY -->
+  <div class="section">
+    <div class="section-tag">Strategy</div>
+    <h2>The Agency Lead Generation System</h2>
+    <p>The system they had perfected since 2017 relies on three key pillars working together:</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Online presence &amp; branding</div>
+        <div class="pillar-desc">Updated website, added Dubai as a second HQ, switched LinkedIn location to UAE — to look like locals and build trust instantly.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Inbound content strategy</div>
+        <div class="pillar-desc">Created UAE-specific blog posts and LinkedIn content to show market understanding and build credibility at scale.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Value-based outbound campaigns</div>
+        <div class="pillar-desc">Segmented LinkedIn + InMail campaigns tailored by industry, focused on relationship building — not pushy pitches.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ICP + CAMPAIGN -->
+  <div class="section">
+    <div class="section-tag">Execution</div>
+    <h2>Segmented targeting with SalesBot</h2>
+    <p>They defined a precise ICP: small and medium IT, industrial and B2B services companies in the UAE with 20–500 employees, targeting founders, CEOs, managing directors and sales &amp; marketing leaders. The total database was around 10,000 contacts, built via Apollo and Sales Navigator.</p>
+    <p>They ran 4 campaigns across both founders' LinkedIn profiles, using SalesBot as their multichannel outreach automation platform. The messaging focused on networking and relationship-building — culturally aligned to the Middle East market — with educational content placed strategically in the sequences.</p>
+
+    <div class="metrics-row">
+      <div class="metric">
+        <div class="metric-val">4</div>
+        <div class="metric-lbl">Campaigns</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">6,666</div>
+        <div class="metric-lbl">Messages sent</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">976</div>
+        <div class="metric-lbl">New connections</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">526</div>
+        <div class="metric-lbl">Replies received</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS BY PROFILE -->
+  <div class="section">
+    <div class="section-tag">Results</div>
+    <h2>Breakdown by profile</h2>
+    <div class="profiles">
+      <div class="profile-card">
+        <div class="profile-name">Balazs Bolcskei</div>
+        <div class="profile-deal">31,700 EUR &middot; 2 deals</div>
+        <div class="profile-stats">
+          <div class="pstat"><span>Decision makers reached</span><span>2,274</span></div>
+          <div class="pstat"><span>Messages sent</span><span>2,743</span></div>
+          <div class="pstat"><span>New connections</span><span>498</span></div>
+          <div class="pstat"><span>Acceptance rate</span><span>40%</span></div>
+          <div class="pstat"><span>Replies received</span><span>166</span></div>
+          <div class="pstat"><span>Response rate</span><span>11%</span></div>
+          <div class="pstat"><span>Leads generated</span><span>49</span></div>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-name">Marton Toth</div>
+        <div class="profile-deal">43,745 EUR &middot; 4 deals</div>
+        <div class="profile-stats">
+          <div class="pstat"><span>Decision makers reached</span><span>3,105</span></div>
+          <div class="pstat"><span>Messages sent</span><span>3,923</span></div>
+          <div class="pstat"><span>New connections</span><span>478</span></div>
+          <div class="pstat"><span>Replies received</span><span>360</span></div>
+          <div class="pstat"><span>Response rate (avg)</span><span>13%</span></div>
+          <div class="pstat"><span>Leads generated</span><span>69</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-box">
+      <div class="result-number">75,000 EUR</div>
+      <div class="result-label">Total revenue closed in 2 months</div>
+      <div class="result-sub">From a market they had never set foot in before</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Want results like this for your team?</h2>
+    <p>SalesBot is the outbound automation platform Blackhole used to power these campaigns.<br>Book a demo and see how it works for your business.</p>
+    <a href="/home" class="btn">Book a demo &rarr;</a>
+  </div>
+
 </main>
-<footer>© 2026 · SALESBOT AI · BUILT FOR B2B</footer>
+
+<footer>&copy; 2026 &middot; SALESBOT AI &middot; BUILT FOR B2B</footer>
 </body>
 </html>
