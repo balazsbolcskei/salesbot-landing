@@ -5,6 +5,10 @@
     { "source": "/case/kiszervezett-penzugy", "destination": "/case/kiszervezett-penzugy.html" },
     { "source": "/case/outsourced-finance", "destination": "/case/outsourced-finance.html" },
     { "source": "/case/blackhole-en", "destination": "/case/blackhole-en.html" },
+    { "source": "/adatkezelesi-tajekoztato", "destination": "/legal/adatkezelesi-tajekoztato.html" },
+    { "source": "/privacy-policy", "destination": "/legal/privacy-policy.html" },
+    { "source": "/aszf", "destination": "/legal/aszf.html" },
+    { "source": "/terms", "destination": "/legal/terms.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
