@@ -894,6 +894,26 @@
   @keyframes fadeUp{to{opacity:1; transform:none}}
   .d1{animation-delay:.1s} .d2{animation-delay:.2s} .d3{animation-delay:.3s} .d4{animation-delay:.45s} .d5{animation-delay:.6s}
 
+
+  /* === CASE STUDIES === */
+  .cs-tabs{display:flex;gap:8px;margin-bottom:32px}
+  .cs-tab{
+    padding:10px 24px;border-radius:8px;border:1px solid var(--line-bright);
+    background:transparent;color:var(--ink-dim);font-size:13px;
+    cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;
+  }
+  .cs-tab.active{background:var(--violet);border-color:var(--violet);color:#fff}
+  .cs-tab:hover:not(.active){border-color:var(--violet-bright);color:var(--ink)}
+  .cs-panel{display:none}
+  .cs-panel.active{display:block}
+  .cs-iframe-wrap{
+    border-radius:16px;overflow:hidden;
+    border:1px solid var(--line-bright);
+    box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(124,77,255,.1);
+  }
+  .cs-iframe-wrap iframe{display:block;width:100%;height:500px;border:none}
+  @media(max-width:900px){.cs-iframe-wrap iframe{height:400px}}
+
   /* === CALCULATOR === */
   .calc-section{background:linear-gradient(180deg,transparent,rgba(58,29,181,.07),transparent)}
   .calc-card{
@@ -1471,6 +1491,29 @@
     </div>
   </section>
 
+
+  <!-- CASE STUDIES -->
+  <section>
+    <div class="container">
+      <div class="sec-label">Case Studies</div>
+      <h2 class="sec-title">Real results, <em>real clients.</em></h2>
+      <div class="cs-tabs">
+        <button class="cs-tab active" onclick="csSwitch(0)">Outsourced Finance</button>
+        <button class="cs-tab" onclick="csSwitch(1)">Blackhole</button>
+      </div>
+      <div class="cs-panel active">
+        <div class="cs-iframe-wrap">
+          <iframe src="https://gamma.app/embed/gr9qihv3biclfdx" allow="fullscreen" title="Outsourced Finance"></iframe>
+        </div>
+      </div>
+      <div class="cs-panel">
+        <div class="cs-iframe-wrap">
+          <iframe src="https://gamma.app/embed/ncggr1t3yivful0" allow="fullscreen" title="Blackhole"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING / HOW TO START -->
   <section id="demo">
     <div class="container">
@@ -1783,6 +1826,14 @@
     this.style.display = 'none';
     document.getElementById('modalSuccess').style.display = 'block';
   });
+
+
+  function csSwitch(idx) {
+    const tabs = document.querySelectorAll('.cs-tab');
+    const panels = document.querySelectorAll('.cs-panel');
+    tabs.forEach((t,i) => t.classList.toggle('active', i === idx));
+    panels.forEach((p,i) => p.classList.toggle('active', i === idx));
+  }
 
   // Calendly booking detection
   let pendingLead = null;
