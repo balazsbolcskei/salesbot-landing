@@ -5,40 +5,284 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Blackhole — Esettanulmány — SalesBot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFJRMCECFY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EFJRMCECFY');
+</script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#070510;color:#f4f0ff;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column}
+  body{background:#070510;color:#f4f0ff;font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column;line-height:1.6}
   nav{padding:20px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(169,140,255,.2)}
   .logo{font-family:'Familjen Grotesk',sans-serif;font-size:20px;font-weight:700;color:#f4f0ff;text-decoration:none}
   .logo span{color:#a98cff}
   .nav-cta{background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500}
-  main{flex:1;padding:40px 32px;max-width:900px;margin:0 auto;width:100%}
-  h1{font-family:'Familjen Grotesk',sans-serif;font-size:28px;font-weight:600;margin-bottom:8px;color:#f4f0ff}
-  .sub{color:#b8aee0;font-size:14px;margin-bottom:32px}
-  .frame-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(169,140,255,.3);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(124,77,255,.1)}
-  .frame-wrap iframe{display:block;width:100%;height:600px;border:none}
-  .cta-row{margin-top:40px;text-align:center}
-  .btn{display:inline-block;background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-size:15px;font-weight:500}
+  main{flex:1;max-width:860px;margin:0 auto;width:100%;padding:60px 32px}
+
+  .tag{display:inline-block;background:rgba(169,140,255,.15);color:#a98cff;border:1px solid rgba(169,140,255,.3);border-radius:20px;font-size:12px;font-weight:500;padding:5px 14px;margin-bottom:20px;letter-spacing:.05em;text-transform:uppercase}
+  h1{font-family:'Familjen Grotesk',sans-serif;font-size:38px;font-weight:700;line-height:1.15;margin-bottom:16px;color:#f4f0ff}
+  h1 span{color:#a98cff}
+  .hero-sub{color:#b8aee0;font-size:16px;max-width:660px;margin-bottom:48px}
+
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px}
+  .stat-card{background:rgba(169,140,255,.07);border:1px solid rgba(169,140,255,.18);border-radius:14px;padding:24px 20px;text-align:center}
+  .stat-number{font-family:'Familjen Grotesk',sans-serif;font-size:36px;font-weight:700;color:#a98cff;line-height:1}
+  .stat-label{font-size:12px;color:#9089b8;margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
+
+  .section{margin-bottom:56px}
+  .section-tag{font-size:11px;font-weight:600;color:#7c4dff;text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+  h2{font-family:'Familjen Grotesk',sans-serif;font-size:26px;font-weight:700;margin-bottom:16px;color:#f4f0ff}
+  p{color:#c4bce0;font-size:15px;margin-bottom:14px}
+  p:last-child{margin-bottom:0}
+
+  .metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+  .metric{background:#0d0b1e;border:1px solid rgba(169,140,255,.12);border-radius:10px;padding:16px;text-align:center}
+  .metric-val{font-family:'Familjen Grotesk',sans-serif;font-size:24px;font-weight:700;color:#f4f0ff}
+  .metric-lbl{font-size:11px;color:#7a6fa8;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+
+  .funnel{display:flex;align-items:center;justify-content:center;gap:0;margin:32px 0;flex-wrap:wrap}
+  .funnel-step{background:#0d0b1e;border:1px solid rgba(169,140,255,.2);border-radius:12px;padding:20px 24px;text-align:center;flex:1;min-width:140px}
+  .funnel-num{font-family:'Familjen Grotesk',sans-serif;font-size:28px;font-weight:700;color:#a98cff}
+  .funnel-lbl{font-size:12px;color:#9089b8;margin-top:4px;text-transform:uppercase;letter-spacing:.05em}
+  .funnel-arrow{color:rgba(169,140,255,.3);font-size:20px;padding:0 8px;flex-shrink:0}
+
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
+  .step{background:#0d0b1e;border:1px solid rgba(169,140,255,.15);border-radius:12px;padding:18px 14px}
+  .step-num{font-size:11px;font-weight:600;color:#7c4dff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .step-title{font-size:13px;font-weight:600;color:#f4f0ff;margin-bottom:6px;line-height:1.3}
+  .step-desc{font-size:12px;color:#9089b8;line-height:1.5}
+
+  .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .reason{background:#0d0b1e;border:1px solid rgba(169,140,255,.18);border-radius:12px;padding:20px}
+  .reason-num{font-size:11px;font-weight:600;color:#7c4dff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .reason-title{font-size:14px;font-weight:600;color:#f4f0ff;margin-bottom:6px}
+  .reason-desc{font-size:13px;color:#9089b8;line-height:1.5}
+
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+  .result-card{background:#0d0b1e;border:1px solid rgba(169,140,255,.2);border-radius:14px;padding:24px;text-align:center}
+  .result-card.highlight{background:linear-gradient(135deg,rgba(124,77,255,.12),rgba(90,45,224,.06));border-color:rgba(124,77,255,.35)}
+  .result-val{font-family:'Familjen Grotesk',sans-serif;font-size:40px;font-weight:700;color:#a98cff;line-height:1}
+  .result-card.highlight .result-val{font-size:52px}
+  .result-lbl{font-size:13px;color:#b8aee0;margin-top:6px}
+  .result-sub{font-size:11px;color:#7a6fa8;margin-top:4px}
+
+  .cta-section{background:rgba(169,140,255,.06);border:1px solid rgba(169,140,255,.18);border-radius:16px;padding:48px 40px;text-align:center;margin-top:64px}
+  .cta-section h2{font-size:30px;margin-bottom:12px}
+  .cta-section p{color:#b8aee0;font-size:15px;margin-bottom:28px}
+  .btn{display:inline-block;background:linear-gradient(135deg,#7c4dff,#5a2de0);color:#fff;padding:15px 36px;border-radius:10px;text-decoration:none;font-size:15px;font-weight:600}
+  .btn:hover{opacity:.9}
+
   footer{padding:24px 32px;text-align:center;color:#7a6fa8;font-size:12px;border-top:1px solid rgba(169,140,255,.15)}
-  @media(max-width:600px){main{padding:24px 16px}.frame-wrap iframe{height:420px}nav{padding:16px 20px}}
+
+  @media(max-width:700px){
+    main{padding:40px 20px}
+    h1{font-size:26px}
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .metrics-row{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .reasons{grid-template-columns:1fr}
+    .result-grid{grid-template-columns:1fr}
+    .funnel{flex-direction:column;gap:8px}
+    .funnel-arrow{transform:rotate(90deg)}
+    .cta-section{padding:32px 20px}
+    nav{padding:16px 20px}
+  }
 </style>
 </head>
 <body>
 <nav>
   <a href="/" class="logo">Sales<span>Bot</span></a>
-  <a href="/" class="nav-cta">Foglalj demót →</a>
+  <a href="/" class="nav-cta">Foglalj demót &rarr;</a>
 </nav>
+
 <main>
-  <h1>Blackhole — Esettanulmány</h1>
-  <p class="sub">Hogyan generált a SalesBot valódi üzleti eredményeket a Blackhole számára.</p>
-  <div class="frame-wrap">
-    <iframe src="https://gamma.app/embed/gtphugtdsirosad" allow="fullscreen" title="Blackhole — Esettanulmány"></iframe>
+
+  <div class="tag">Esettanulmány &middot; Blackhole Media</div>
+  <h1>556 660 EUR pipeline<br><span>kevesebb mint 2 hónap alatt.</span></h1>
+  <p class="hero-sub">Hogyan épített fel a SalesBot egy új B2B sales pipeline-t szinte a semmiből, teljesen automatizált LinkedIn kampánnyal?</p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">556 660</div>
+      <div class="stat-label">EUR aktív pipeline</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">37x</div>
+      <div class="stat-label">Azonnali ROI</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">73 460</div>
+      <div class="stat-label">EUR első megrendelés</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">22,5%</div>
+      <div class="stat-label">Reply rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">54</div>
+      <div class="stat-label">Lead</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">35</div>
+      <div class="stat-label">Meeting</div>
+    </div>
   </div>
-  <div class="cta-row">
-    <a href="/" class="btn">Neked is ezt szeretnéd? Foglalj demót →</a>
+
+  <!-- CONTEXT -->
+  <div class="section">
+    <div class="section-tag">Háttér</div>
+    <h2>Kiszámítható ügyfélszerzés, kiszámítható növekedés</h2>
+    <p>B2B ügyfélszerzésnél folyamatosan új, releváns érdeklődőket kell találni, megszólítani, utánkövetni és sales beszélgetéssé alakítani. Ez a módja annak, hogy kiszámítható és irányítható legyen az ügyfélszerzés — és így lehet csak elkerülni, hogy egyszer csak kifogyjunk az új érdeklődőkből, és kontrollálhatatlan ajánlásokra kelljen várni.</p>
+    <p>Ebben a kampányban pontosan ezt a folyamatot automatizálta a SalesBot. Már 2 hónap elteltével is az eredmények egyértelműen megmutatták: a jól felépített LinkedIn outreach nem csak láthatóságot ad, hanem közvetlenül mérhető üzleti értéket is teremt.</p>
   </div>
+
+  <!-- RESULTS OVERVIEW -->
+  <div class="section">
+    <div class="section-tag">Az eredmények röviden</div>
+    <h2>Mit hozott a kampány?</h2>
+    <div class="metrics-row">
+      <div class="metric">
+        <div class="metric-val">6 687</div>
+        <div class="metric-lbl">Kapcsolati felkérés</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">1 507</div>
+        <div class="metric-lbl">Új kapcsolat</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">54</div>
+        <div class="metric-lbl">Lead</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">35</div>
+        <div class="metric-lbl">Meeting</div>
+      </div>
+    </div>
+
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="funnel-num">54</div>
+        <div class="funnel-lbl">Lead</div>
+      </div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step">
+        <div class="funnel-num">35</div>
+        <div class="funnel-lbl">Meeting</div>
+      </div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step">
+        <div class="funnel-num">25</div>
+        <div class="funnel-lbl">Ajánlat</div>
+      </div>
+      <div class="funnel-arrow">›</div>
+      <div class="funnel-step">
+        <div class="funnel-num">2</div>
+        <div class="funnel-lbl">Új ügyfél</div>
+      </div>
+    </div>
+
+    <p>Ez egy hosszabb sales cycle-lel működő B2B célpiac. A kampány eredményeit nem csak az azonnali lezárások alapján kell nézni, hanem a megnyitott, tárgyalás alatt lévő lehetőségek alapján is. A 2 új ügyfél az első körben lezárt megrendelések értéke 73 460 EUR volt — a kiadott ajánlatok többsége viszont még átfutásban van, így a kampány valódi üzleti súlyát a 556 660 EUR értékű aktív pipeline mutatja.</p>
+  </div>
+
+  <!-- CAMPAIGN STRUCTURE -->
+  <div class="section">
+    <div class="section-tag">A kampány felépítése</div>
+    <h2>Több csatorna, több lépés, automatizáltan</h2>
+    <p>A kampány először 2 profillal indult. Az első eredmények után, a sikerességet látva, további profilok kerültek bevonásra. A SalesBot több csatornán és több lépésben érte el a célcsoportot.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Döntéshozók megkeresése</div>
+        <div class="step-desc">Releváns B2B döntéshozókat azonosított LinkedIn-en.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Kapcsolatépítés</div>
+        <div class="step-desc">Bekövette őket, lájkolta a posztjaikat, kapcsolati felkérést vagy InMail-t küldött.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Üzenetek kiküldése</div>
+        <div class="step-desc">Tesztelt üzeneteket és több utánkövető üzenetet küldött ki.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Válaszok kezelése</div>
+        <div class="step-desc">Kezelte a beérkező válaszokat és automatikusan előszűrte az érdeklődő leadeket.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-title">Utánkövetés és konverzió</div>
+        <div class="step-desc">Utánkövette a bizonytalan leadeket és valódi sales tárgyalásokká alakította az érdeklődést.</div>
+      </div>
+    </div>
+    <p style="margin-top:20px">A kampány során folyamatosan teszteltük, melyik üzenet működik jobban. A jobban teljesítő verzió 25% reply rate-et ért el, és a rendszer erre optimalizált tovább.</p>
+  </div>
+
+  <!-- WHY IT WORKED -->
+  <div class="section">
+    <div class="section-tag">Miért működött?</div>
+    <h2>Három dolog hozta a sikert</h2>
+    <div class="reasons">
+      <div class="reason">
+        <div class="reason-num">1</div>
+        <div class="reason-title">Pontos célzás</div>
+        <div class="reason-desc">A rendszer nem általános adatbázisokra lőtt, hanem releváns B2B döntéshozókat ért el — a megfelelő embereket, nem csak bárkit.</div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">2</div>
+        <div class="reason-title">Üzenetek minősége</div>
+        <div class="reason-desc">Nem sablonos, agresszív sales üzenetek mentek ki, hanem iparágra szabott, bizonyítékokkal alátámasztott megkeresések.</div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">3</div>
+        <div class="reason-title">AI alapú leadkezelés</div>
+        <div class="reason-desc">Ekkora érdeklődőszámnál már nem elég megszerezni a válaszokat — azokat gyorsan kezelni, rendszerezni és utánkövetni is kell. Pontosan itt adja a SalesBot a legnagyobb értéket.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL RESULTS -->
+  <div class="section">
+    <div class="section-tag">A végső eredmény</div>
+    <h2>Kevesebb mint 2 hónap alatt</h2>
+    <div class="result-grid">
+      <div class="result-card highlight">
+        <div class="result-val">556 660 EUR</div>
+        <div class="result-lbl">Aktív pipeline</div>
+        <div class="result-sub">Nyitott ajánlatok, amelyek még az értékesítési ciklusban vannak</div>
+      </div>
+      <div class="result-card highlight">
+        <div class="result-val">37x</div>
+        <div class="result-lbl">Azonnali ROI</div>
+        <div class="result-sub">Csak az első lezárások alapján számolva — várhatóan tovább nő 6–12 hónap alatt</div>
+      </div>
+      <div class="result-card">
+        <div class="result-val">73 460 EUR</div>
+        <div class="result-lbl">Első megrendelések értéke</div>
+        <div class="result-sub">Azonnal lezárt ügyletek a kampányból</div>
+      </div>
+      <div class="result-card">
+        <div class="result-val">2</div>
+        <div class="result-lbl">Új ügyfél lezárva</div>
+        <div class="result-sub">25 kiküldött ajánlatból, amelyek többsége még átfutásban van</div>
+      </div>
+    </div>
+    <p style="margin-top:24px">Mindezt egy automatizált rendszerrel értük el, amely a B2B sales folyamat egyik legnehezebb részét vette le teljesen a csapat válláról.</p>
+  </div>
+
+  <div class="cta-section">
+    <h2>Neked is ezt szeretnéd?</h2>
+    <p>A SalesBot ugyanezt a rendszert tudja felépíteni a te vállalkozásodnak is.<br>Foglalj egy demót és megmutatjuk, hogyan működne nálatok.</p>
+    <a href="/" class="btn">Foglalj demót &rarr;</a>
+  </div>
+
 </main>
-<footer>© 2026 · SALESBOT AI · BUILT FOR B2B</footer>
+
+<footer>&copy; 2026 &middot; SALESBOT AI &middot; BUILT FOR B2B</footer>
 </body>
 </html>
