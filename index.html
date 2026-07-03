@@ -1688,16 +1688,9 @@
 </div>
 
 <script>
-  // Auto-detect English browser → redirect to /home
-  if (!localStorage.getItem('lang_override')) {
-    const lang = navigator.language || navigator.userLanguage || '';
-    if (lang.toLowerCase().startsWith('en')) {
-      localStorage.setItem('lang_override', 'en');
-      window.location.replace('/home');
-    }
-  }
-
-  // Rep distribution
+  // Rep distribution — first-touch attribution.
+  // Capture the rep BEFORE any language redirect so the assigned rep
+  // survives the EN switch (which navigates to /home = Roman's path).
   const REP_MAP = {
     '/':        { name: 'Boross-Nagy Bogáta Luca',   url: 'https://calendly.com/bogata-nagy/salesbot-demo' },
     '/home':    { name: 'Roman Mamedov',            url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' },
@@ -1706,8 +1699,19 @@
     '/go':      { name: 'Bukovics Eszter',           url: 'https://calendly.com/eszter-bukovics/salesbot-hatekony-ai-b2b-business-development-bemutato' },
   };
   const path = window.location.pathname.replace(/\/$/, '') || '/';
-  if (REP_MAP[path]) {
+  // Only assign if the visitor has no rep yet — the first link they land
+  // on wins; switching language must not reassign them.
+  if (REP_MAP[path] && !localStorage.getItem('sb_rep')) {
     localStorage.setItem('sb_rep', JSON.stringify(REP_MAP[path]));
+  }
+
+  // Auto-detect English browser → redirect to /home (English version)
+  if (!localStorage.getItem('lang_override')) {
+    const lang = navigator.language || navigator.userLanguage || '';
+    if (lang.toLowerCase().startsWith('en')) {
+      localStorage.setItem('lang_override', 'en');
+      window.location.replace('/home');
+    }
   }
   function getRep() {
     try { return JSON.parse(localStorage.getItem('sb_rep')); } catch(e) { return null; }

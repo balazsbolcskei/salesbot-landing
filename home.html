@@ -1688,11 +1688,15 @@
 </div>
 
 <script>
-  // Rep distribution
-  // home.html always assigns Roman, mark lang as EN
+  // Rep distribution — first-touch attribution.
+  // Mark the language as EN, but only assign Roman when the visitor has
+  // no rep yet. A Hungarian-link lead who switches to EN lands here; we
+  // must NOT overwrite their original rep.
   localStorage.setItem('lang_override', 'en');
   const ROMAN = { name: 'Roman Mamedov', url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' };
-  localStorage.setItem('sb_rep', JSON.stringify(ROMAN));
+  if (!localStorage.getItem('sb_rep')) {
+    localStorage.setItem('sb_rep', JSON.stringify(ROMAN));
+  }
   function getRep() {
     try { return JSON.parse(localStorage.getItem('sb_rep')); } catch(e) { return null; }
   }
