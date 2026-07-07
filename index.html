@@ -1688,9 +1688,13 @@
 </div>
 
 <script>
-  // Rep distribution — first-touch attribution.
-  // Capture the rep BEFORE any language redirect so the assigned rep
-  // survives the EN switch (which navigates to /home = Roman's path).
+  // Rep distribution. Resolve the rep BEFORE any language redirect so it
+  // is stored even when the EN auto-redirect fires:
+  //  - explicit campaign links (/start, /go, /welcome) ALWAYS set the rep
+  //    (a rep's own link is a deliberate assignment, overrides stale value);
+  //  - the generic homepage (/) is first-touch only, so the HU↔EN language
+  //    switch never reassigns an existing lead;
+  //  - we ALWAYS end with a rep stored, so the lead is never saved null.
   const REP_MAP = {
     '/':        { name: 'Boross-Nagy Bogáta Luca',   url: 'https://calendly.com/bogata-nagy/salesbot-demo' },
     '/home':    { name: 'Roman Mamedov',            url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' },
@@ -1698,11 +1702,14 @@
     '/welcome': { name: 'Boross-Nagy Bogáta Luca',   url: 'https://calendly.com/bogata-nagy/salesbot-demo' },
     '/go':      { name: 'Bukovics Eszter',           url: 'https://calendly.com/eszter-bukovics/salesbot-hatekony-ai-b2b-business-development-bemutato' },
   };
+  const DEFAULT_REP = REP_MAP['/'];                    // generic HU homepage owner
+  const EXPLICIT_REPS = ['/start', '/go', '/welcome']; // deliberate rep links → authoritative
   const path = window.location.pathname.replace(/\/$/, '') || '/';
-  // Only assign if the visitor has no rep yet — the first link they land
-  // on wins; switching language must not reassign them.
-  if (REP_MAP[path] && !localStorage.getItem('sb_rep')) {
+  const stored = localStorage.getItem('sb_rep');
+  if (REP_MAP[path] && (EXPLICIT_REPS.includes(path) || !stored)) {
     localStorage.setItem('sb_rep', JSON.stringify(REP_MAP[path]));
+  } else if (!stored) {
+    localStorage.setItem('sb_rep', JSON.stringify(DEFAULT_REP));
   }
 
   // Auto-detect English browser → redirect to /home (English version)
@@ -1826,13 +1833,13 @@
     submitBtn.textContent = 'Küldés...';
     submitBtn.disabled = true;
 
-    const rep = getRep();
+    const rep = getRep() || DEFAULT_REP;   // never submit a null rep
     const payload = {
       name: document.getElementById('fName').value,
       email: document.getElementById('fEmail').value,
       phone: document.getElementById('fPhone').value,
       company: document.getElementById('fCompany').value,
-      rep: rep ? rep.name : null,
+      rep: rep.name,
     };
 
     try {
@@ -1847,7 +1854,7 @@
     pendingLead = { name: payload.name, email: payload.email, rep: payload.rep };
 
     // Init Calendly embed
-    const calendlyUrl = rep ? rep.url : 'https://calendly.com/roman-blackholegrowth/salesbot-demo';
+    const calendlyUrl = rep.url;
     const embedEl = document.getElementById('calendlyEmbed');
     embedEl.innerHTML = '';
     if (window.Calendly) {

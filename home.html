@@ -1688,19 +1688,26 @@
 </div>
 
 <script>
-  // Rep distribution — first-touch attribution (English page).
-  // Mark the language as EN, then assign the rep for this path, but only
-  // when the visitor has no rep yet. A Hungarian-link lead who switches
-  // to EN lands here; we must NOT overwrite their original rep.
+  // Rep distribution (English page).
+  // Mark the language as EN, then resolve the rep for this path:
+  //  - explicit campaign links (/go-en, …) ALWAYS set the rep (a rep's
+  //    own link is a deliberate assignment and overrides any stale value);
+  //  - the generic EN homepage (/home) is first-touch only, so the HU↔EN
+  //    language switch never reassigns an existing lead;
+  //  - we ALWAYS end with a rep stored, so the lead is never saved null.
   localStorage.setItem('lang_override', 'en');
   const REP_MAP = {
     '/home':  { name: 'Roman Mamedov',    url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' },
     '/go-en': { name: 'Bukovics Eszter',  url: 'https://calendly.com/eszter-bukovics/salesbot-hatekony-ai-b2b-business-development-bemutato' },
   };
+  const DEFAULT_REP = REP_MAP['/home'];   // generic EN homepage owner
+  const EXPLICIT_REPS = ['/go-en'];       // deliberate rep links → authoritative
   const path = window.location.pathname.replace(/\/$/, '') || '/';
-  const rep = REP_MAP[path] || REP_MAP['/home'];
-  if (!localStorage.getItem('sb_rep')) {
-    localStorage.setItem('sb_rep', JSON.stringify(rep));
+  const stored = localStorage.getItem('sb_rep');
+  if (REP_MAP[path] && (EXPLICIT_REPS.includes(path) || !stored)) {
+    localStorage.setItem('sb_rep', JSON.stringify(REP_MAP[path]));
+  } else if (!stored) {
+    localStorage.setItem('sb_rep', JSON.stringify(DEFAULT_REP));
   }
   function getRep() {
     try { return JSON.parse(localStorage.getItem('sb_rep')); } catch(e) { return null; }
@@ -1815,13 +1822,13 @@
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    const rep = getRep();
+    const rep = getRep() || DEFAULT_REP;   // never submit a null rep
     const payload = {
       name: document.getElementById('fName').value,
       email: document.getElementById('fEmail').value,
       phone: document.getElementById('fPhone').value,
       company: document.getElementById('fCompany').value,
-      rep: rep ? rep.name : null,
+      rep: rep.name,
     };
 
     try {
@@ -1836,7 +1843,7 @@
     pendingLead = { name: payload.name, email: payload.email, rep: payload.rep };
 
     // Init Calendly embed
-    const calendlyUrl = rep ? rep.url : 'https://calendly.com/roman-blackholegrowth/salesbot-demo';
+    const calendlyUrl = rep.url;
     const embedEl = document.getElementById('calendlyEmbed');
     embedEl.innerHTML = '';
     if (window.Calendly) {
