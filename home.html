@@ -1688,14 +1688,19 @@
 </div>
 
 <script>
-  // Rep distribution — first-touch attribution.
-  // Mark the language as EN, but only assign Roman when the visitor has
-  // no rep yet. A Hungarian-link lead who switches to EN lands here; we
-  // must NOT overwrite their original rep.
+  // Rep distribution — first-touch attribution (English page).
+  // Mark the language as EN, then assign the rep for this path, but only
+  // when the visitor has no rep yet. A Hungarian-link lead who switches
+  // to EN lands here; we must NOT overwrite their original rep.
   localStorage.setItem('lang_override', 'en');
-  const ROMAN = { name: 'Roman Mamedov', url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' };
+  const REP_MAP = {
+    '/home':  { name: 'Roman Mamedov',    url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' },
+    '/go-en': { name: 'Bukovics Eszter',  url: 'https://calendly.com/eszter-bukovics/salesbot-hatekony-ai-b2b-business-development-bemutato' },
+  };
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  const rep = REP_MAP[path] || REP_MAP['/home'];
   if (!localStorage.getItem('sb_rep')) {
-    localStorage.setItem('sb_rep', JSON.stringify(ROMAN));
+    localStorage.setItem('sb_rep', JSON.stringify(rep));
   }
   function getRep() {
     try { return JSON.parse(localStorage.getItem('sb_rep')); } catch(e) { return null; }
