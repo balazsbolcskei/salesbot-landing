@@ -1,7 +1,8 @@
 {
+  "cleanUrls": true,
   "rewrites": [
-    { "source": "/home", "destination": "/home.html" },
-    { "source": "/go-en", "destination": "/home.html" },
+    { "source": "/home", "destination": "/index.html" },
+    { "source": "/go-en", "destination": "/index.html" },
     { "source": "/case/blackhole", "destination": "/case/blackhole.html" },
     { "source": "/case/kiszervezett-penzugy", "destination": "/case/kiszervezett-penzugy.html" },
     { "source": "/case/outsourced-finance", "destination": "/case/outsourced-finance.html" },
