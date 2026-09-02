@@ -593,6 +593,18 @@ body.lock{overflow:hidden}
 /* ---------- page hero ---------- */
 .phero{position:relative;padding-block:clamp(120px,13vw,172px) clamp(40px,5vw,72px);overflow:hidden}
 .phero .wrap{position:relative;z-index:2}
+/* aurora veil behind page hero — slow, soft, behind the headline */
+.phero .aurora{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.phero .aurora i{position:absolute;left:50%;top:-12%;width:130%;height:72%;border-radius:50%;
+ background:linear-gradient(100deg,rgba(167,107,255,.20),rgba(69,198,242,.16) 34%,rgba(47,223,164,.13) 64%,rgba(242,155,63,.09));
+ filter:blur(70px);opacity:.8;animation:aurA 26s ease-in-out infinite alternate}
+.phero .aurora i:nth-child(2){top:8%;height:52%;opacity:.65;
+ background:linear-gradient(260deg,rgba(69,198,242,.15),rgba(167,107,255,.12) 45%,rgba(47,223,164,.10));
+ animation:aurB 34s ease-in-out infinite alternate}
+@keyframes aurA{from{transform:translateX(-57%) rotate(-7deg) scaleY(.92)}to{transform:translateX(-44%) rotate(-3deg) scaleY(1.08)}}
+@keyframes aurB{from{transform:translateX(-42%) rotate(6deg) scaleY(1.06)}to{transform:translateX(-54%) rotate(2deg) scaleY(.9)}}
+@media(prefers-reduced-motion:reduce){.phero .aurora i{animation:none!important;transform:translateX(-50%)}}
+
 .phero .in{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:940px;text-align:left}
 .phero h1{font-size:clamp(2.05rem,5vw,3.9rem)}
 .phero .lede{font-size:clamp(1rem,1.35vw,1.16rem);max-width:64ch}
@@ -840,6 +852,7 @@ body.lock{overflow:hidden}
     <span class="blob mb3" style="width:44vw;height:44vw;right:-8vw;top:-4vw;background:radial-gradient(circle,rgba(47,223,164,.22),transparent 62%)"></span>
   </div>
   <div class="gridlines" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="in">
       <h1 id="heroTitle">We&rsquo;re just a quick message away</h1>

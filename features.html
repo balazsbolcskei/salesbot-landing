@@ -593,6 +593,18 @@ body.lock{overflow:hidden}
 /* ---------- page hero ---------- */
 .phero{position:relative;padding-block:clamp(120px,13vw,172px) clamp(40px,5vw,72px);overflow:hidden}
 .phero .wrap{position:relative;z-index:2}
+/* aurora veil behind page hero — slow, soft, behind the headline */
+.phero .aurora{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.phero .aurora i{position:absolute;left:50%;top:-12%;width:130%;height:72%;border-radius:50%;
+ background:linear-gradient(100deg,rgba(167,107,255,.20),rgba(69,198,242,.16) 34%,rgba(47,223,164,.13) 64%,rgba(242,155,63,.09));
+ filter:blur(70px);opacity:.8;animation:aurA 26s ease-in-out infinite alternate}
+.phero .aurora i:nth-child(2){top:8%;height:52%;opacity:.65;
+ background:linear-gradient(260deg,rgba(69,198,242,.15),rgba(167,107,255,.12) 45%,rgba(47,223,164,.10));
+ animation:aurB 34s ease-in-out infinite alternate}
+@keyframes aurA{from{transform:translateX(-57%) rotate(-7deg) scaleY(.92)}to{transform:translateX(-44%) rotate(-3deg) scaleY(1.08)}}
+@keyframes aurB{from{transform:translateX(-42%) rotate(6deg) scaleY(1.06)}to{transform:translateX(-54%) rotate(2deg) scaleY(.9)}}
+@media(prefers-reduced-motion:reduce){.phero .aurora i{animation:none!important;transform:translateX(-50%)}}
+
 .phero .in{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:940px;text-align:left}
 .phero h1{font-size:clamp(2.05rem,5vw,3.9rem)}
 .phero .lede{font-size:clamp(1rem,1.35vw,1.16rem);max-width:64ch}
@@ -651,11 +663,12 @@ body.lock{overflow:hidden}
 /* ---------- five-tools merge ---------- */
 .mergebox{position:relative;height:clamp(300px,36vw,400px);margin-top:clamp(26px,3.4vw,44px)}
 .mnode{
-  position:absolute;left:50%;top:50%;display:flex;align-items:center;gap:.55rem;
-  padding:11px 15px;border:1px solid var(--line);border-radius:13px;background:var(--surface);
-  font-size:.86rem;color:var(--soft);white-space:nowrap;will-change:transform,opacity;
+  position:absolute;left:50%;top:50%;display:flex;align-items:center;gap:.6rem;
+  padding:13px 18px;border:1px solid var(--line2);border-radius:13px;background:var(--surface);
+  font-size:.98rem;font-weight:500;color:var(--text);white-space:nowrap;will-change:transform,opacity;
+  box-shadow:0 10px 34px -18px rgba(0,0,0,.7);
 }
-.mnode .d{width:7px;height:7px;border-radius:2px;background:rgba(255,255,255,.22)}
+.mnode .d{width:8px;height:8px;border-radius:2px;background:var(--aurora,rgba(255,255,255,.35))}
 .mcore{
   position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;gap:12px;
   padding:clamp(20px,2.4vw,30px) clamp(24px,3vw,40px);border:1px solid var(--line2);border-radius:24px;
@@ -840,6 +853,7 @@ body.lock{overflow:hidden}
     <span class="blob mb3" style="width:48vw;height:48vw;right:-10vw;top:-6vw;background:radial-gradient(circle,rgba(47,223,164,.24),transparent 62%)"></span>
   </div>
   <div class="gridlines" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="in">
       <h1 id="heroTitle">Stop juggling five sales tools to book one meeting</h1>
@@ -1654,7 +1668,9 @@ body.lock{overflow:hidden}
       }
     }
     function paint(p) {
-      var t = S.smooth(p);
+      /* hold: keep the five tools readable through the first stretch,
+         then run the merge in the remaining window */
+      var t = S.smooth(S.clamp((p - .22) / .78, 0, 1));
       geo.forEach(function (g, i) {
         var k = S.clamp(S.stag(t, i, N, .1), 0, 1);
         var d = 1 - k;
@@ -1668,7 +1684,7 @@ body.lock{overflow:hidden}
     layout();
     if (S.RM) { paint(1); }
     else {
-      S.reg(box, function (p) { paint(p); }, { s: .96, e: .2 });
+      S.reg(box, function (p) { paint(p); }, { s: .58, e: .06 });
       addEventListener('resize', function () { layout(); }, { passive: true });
     }
   }
