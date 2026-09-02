@@ -24,9 +24,17 @@
   }
 
   var cv = document.createElement('canvas');
-  cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;filter:blur(26px) saturate(1.2);opacity:.85';
+  cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;filter:blur(26px) saturate(1.2);opacity:.72;' +
+    /* keep the copy readable: the canvas fades over the central text column */
+    '-webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 46%,rgba(0,0,0,.22),#000 82%);' +
+    'mask-image:radial-gradient(ellipse 62% 58% at 50% 46%,rgba(0,0,0,.22),#000 82%)';
   box.appendChild(cv);
   var ctx = cv.getContext('2d');
+
+  /* subtle shadow lifts the sub-copy off the light */
+  var st = document.createElement('style');
+  st.textContent = '.hero-sub,.phero .lede,.hero .pill,.hero-top .fade{text-shadow:0 1px 14px rgba(5,5,7,.75)}';
+  document.head.appendChild(st);
 
   /* low-res buffer — CSS blur + upscale keeps it soft and cheap */
   var SCALE = 5, W = 0, H = 0;
@@ -40,9 +48,9 @@
 
   /* three curtains in the brand aurora */
   var CURTAINS = [
-    { base: .30, amp: .10, f1: 5.1, f2: 11.0, sp: .55, th: .34, a: .50, c: ['#a76bff', '#45c6f2'] },
-    { base: .44, amp: .13, f1: 3.7, f2:  8.3, sp: .38, th: .30, a: .42, c: ['#45c6f2', '#2fdfa4'] },
-    { base: .58, amp: .09, f1: 6.3, f2: 13.0, sp: .70, th: .24, a: .30, c: ['#2fdfa4', '#f29b3f'] }
+    { base: .26, amp: .09, f1: 5.1, f2: 11.0, sp: .55, th: .30, a: .36, c: ['#a76bff', '#45c6f2'] },
+    { base: .46, amp: .11, f1: 3.7, f2:  8.3, sp: .38, th: .26, a: .28, c: ['#45c6f2', '#2fdfa4'] },
+    { base: .66, amp: .08, f1: 6.3, f2: 13.0, sp: .70, th: .22, a: .22, c: ['#2fdfa4', '#f29b3f'] }
   ];
 
   /* cursor influence — light bends toward the pointer */
