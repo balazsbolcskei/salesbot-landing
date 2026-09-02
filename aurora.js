@@ -23,11 +23,17 @@
     wrap.style.position = 'relative'; wrap.style.zIndex = '2';
   }
 
+  var isSub = host.classList.contains('phero');
+
+  /* homepage: protect the centered text column; subpages: light lives in
+     the lower half, flowing behind the CTA buttons, headline zone stays dark */
+  var MASK = isSub
+    ? 'linear-gradient(180deg,rgba(0,0,0,.14),rgba(0,0,0,.45) 36%,#000 64%)'
+    : 'radial-gradient(ellipse 62% 58% at 50% 46%,rgba(0,0,0,.22),#000 82%)';
+
   var cv = document.createElement('canvas');
   cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;filter:blur(26px) saturate(1.2);opacity:.72;' +
-    /* keep the copy readable: the canvas fades over the central text column */
-    '-webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 46%,rgba(0,0,0,.22),#000 82%);' +
-    'mask-image:radial-gradient(ellipse 62% 58% at 50% 46%,rgba(0,0,0,.22),#000 82%)';
+    '-webkit-mask-image:' + MASK + ';mask-image:' + MASK;
   box.appendChild(cv);
   var ctx = cv.getContext('2d');
 
@@ -46,12 +52,35 @@
   resize();
   addEventListener('resize', resize, { passive: true });
 
-  /* three curtains in the brand aurora */
-  var CURTAINS = [
-    { base: .26, amp: .09, f1: 5.1, f2: 11.0, sp: .55, th: .30, a: .36, c: ['#a76bff', '#45c6f2'] },
-    { base: .46, amp: .11, f1: 3.7, f2:  8.3, sp: .38, th: .26, a: .28, c: ['#45c6f2', '#2fdfa4'] },
-    { base: .66, amp: .08, f1: 6.3, f2: 13.0, sp: .70, th: .22, a: .22, c: ['#2fdfa4', '#f29b3f'] }
+  /* deterministic per-page fingerprint: each page gets its own phases,
+     speeds, heights and colour order — same character, never identical */
+  var seed = 0, pn = location.pathname || '/';
+  for (var si = 0; si < pn.length; si++) seed = ((seed * 31) + pn.charCodeAt(si)) | 0;
+  function rnd(n) {
+    var x = Math.sin(seed * 12.9898 + n * 78.233) * 43758.5453;
+    return x - Math.floor(x);
+  }
+
+  /* three curtains in the brand aurora; subpages sit lower (behind the CTAs) */
+  var BASES = isSub ? [.50, .68, .84] : [.26, .46, .66];
+  var PAIRS = [['#a76bff', '#45c6f2'], ['#45c6f2', '#2fdfa4'], ['#2fdfa4', '#f29b3f']];
+  var rot = Math.floor(rnd(20) * 3);
+  var DEFS = [
+    { amp: .09, f1: 5.1, f2: 11.0, sp: .55, th: .30, a: .36 },
+    { amp: .11, f1: 3.7, f2:  8.3, sp: .38, th: .26, a: .28 },
+    { amp: .08, f1: 6.3, f2: 13.0, sp: .70, th: .22, a: .22 }
   ];
+  var CURTAINS = DEFS.map(function (d, i) {
+    return {
+      base: BASES[i] + (rnd(i) - .5) * .06,
+      amp: d.amp * (.85 + rnd(i + 3) * .5),
+      f1: d.f1, f2: d.f2,
+      sp: d.sp * (.8 + rnd(i + 6) * .55),
+      th: d.th, a: d.a,
+      ph: rnd(i + 9) * 6.283,
+      c: PAIRS[(i + rot) % 3]
+    };
+  });
 
   /* cursor influence — light bends toward the pointer */
   var mx = .5, my = .35, tx = .5, ty = .35, power = 0, tpower = 0;
@@ -86,8 +115,8 @@
       for (var i = 0; i <= STEPS; i++) {
         var u = i / STEPS;
         var y = C.base
-          + Math.sin(u * C.f1 + t * C.sp + ci * 1.7) * C.amp
-          + Math.sin(u * C.f2 - t * C.sp * 1.6 + ci) * C.amp * .45;
+          + Math.sin(u * C.f1 + t * C.sp + C.ph + ci * 1.7) * C.amp
+          + Math.sin(u * C.f2 - t * C.sp * 1.6 + C.ph * 2 + ci) * C.amp * .45;
         /* gaussian pull toward the cursor */
         var g = Math.exp(-Math.pow((u - mx) * 3.2, 2));
         y += (my - y) * g * .55 * power;
