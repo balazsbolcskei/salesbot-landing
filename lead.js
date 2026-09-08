@@ -73,7 +73,7 @@
       if (!n.value.trim() || !emailRe.test(em.value)) {
         if (note) {
           note.textContent = 'Please add your name and a valid work email.';
-          note.style.color = '#f29b3f';
+          note.style.color = '#ff9d42';
         }
         (!n.value.trim() ? n : em).focus();
         return;
@@ -130,7 +130,7 @@
       if (!n.value.trim() || !emailRe.test(em.value)) {
         if (note) {
           note.textContent = 'Please add your name and a valid work email.';
-          note.style.color = '#f29b3f';
+          note.style.color = '#ff9d42';
         }
         (!n.value.trim() ? n : em).focus();
         return;

@@ -63,7 +63,7 @@
 
   /* three curtains in the brand aurora; subpages sit lower (behind the CTAs) */
   var BASES = isSub ? [.50, .68, .84] : [.26, .46, .66];
-  var PAIRS = [['#a76bff', '#45c6f2'], ['#45c6f2', '#2fdfa4'], ['#2fdfa4', '#f29b3f']];
+  var PAIRS = [['#b776ff', '#52d5ff'], ['#52d5ff', '#21e6a5'], ['#21e6a5', '#ff9d42']];
   var rot = Math.floor(rnd(20) * 3);
   var DEFS = [
     { amp: .09, f1: 5.1, f2: 11.0, sp: .55, th: .30, a: .36 },
