@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SalesBot | Az AI SDR, ami meetingeket foglal neked</title>
-<meta name="description" content="A SalesBot egy AI SDR, ami felkutatja a kulcsfontosságú B2B döntéshozókat, valódi beszélgetéseket indít velük, kvalifikálja az érdeklődőket, és kész meetingeket ad át a csapatodnak.">
+<title>Kapcsolat | SalesBot</title>
+<meta name="description" content="Írj nekünk pár sort, és egy munkanapon belül válaszolunk. Vagy foglalj most rögtön egy SalesBot demó időpontot a naptárunkban.">
 <meta name="theme-color" content="#050507">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -593,6 +593,18 @@ body.lock{overflow:hidden}
 /* ---------- page hero ---------- */
 .phero{position:relative;padding-block:clamp(120px,13vw,172px) clamp(40px,5vw,72px);overflow:hidden}
 .phero .wrap{position:relative;z-index:2}
+/* aurora veil behind page hero — slow, soft, behind the headline */
+.phero .aurora{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.phero .aurora i{position:absolute;left:50%;top:-12%;width:130%;height:72%;border-radius:50%;
+ background:linear-gradient(100deg,rgba(183,118,255,.20),rgba(82,213,255,.16) 34%,rgba(33,230,165,.13) 64%,rgba(255,157,66,.09));
+ filter:blur(70px);opacity:.9;animation:aurA 13s ease-in-out infinite alternate}
+.phero .aurora i:nth-child(2){top:8%;height:52%;opacity:.75;
+ background:linear-gradient(260deg,rgba(82,213,255,.15),rgba(183,118,255,.12) 45%,rgba(33,230,165,.10));
+ animation:aurB 17s ease-in-out infinite alternate}
+@keyframes aurA{from{transform:translateX(-61%) rotate(-8deg) scaleY(.85)}to{transform:translateX(-39%) rotate(-1deg) scaleY(1.14)}}
+@keyframes aurB{from{transform:translateX(-37%) rotate(8deg) scaleY(1.1)}to{transform:translateX(-59%) rotate(0deg) scaleY(.84)}}
+@media(prefers-reduced-motion:reduce){.phero .aurora i{animation:none!important;transform:translateX(-50%)}}
+
 .phero .in{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:940px;text-align:left}
 .phero h1{font-size:clamp(2.05rem,5vw,3.9rem)}
 .phero .lede{font-size:clamp(1rem,1.35vw,1.16rem);max-width:64ch}
@@ -814,10 +826,10 @@ body.lock{overflow:hidden}
       <a href="/arak">Árak</a>
       <a href="/rolunk">Rólunk</a>
       <a href="/blog">Blog</a>
-      <a href="/kapcsolat">Kapcsolat</a>
+      <a href="/kapcsolat" class="act" aria-current="page">Kapcsolat</a>
     </nav>
     <div class="navact">
-      <a class="lang" href="/en" onclick="localStorage.setItem('lang_override','en')" aria-label="English version">EN</a>
+      <a class="lang" href="/en/contact" onclick="localStorage.setItem('lang_override','en')" aria-label="English version">EN</a>
       <a class="btn btn-p mag" href="#demo" data-demo>Foglalj demót</a>
     </div>
     <button class="burger" type="button" id="burger" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mnav"><i></i></button>
@@ -834,618 +846,89 @@ body.lock{overflow:hidden}
 </header>
 <main id="top">
 
-<!-- ===================== 1 · HERO ===================== -->
-<section class="hero" id="hero">
+<!-- ===== HERO ===== -->
+<section class="phero">
   <div class="mesh" aria-hidden="true">
-    <span class="blob mb1" style="width:56vw;height:56vw;left:-14vw;top:-16vw;background:radial-gradient(circle,rgba(183,118,255,.42),transparent 62%)"></span>
-    <span class="blob mb2" style="width:52vw;height:52vw;right:-12vw;top:-6vw;background:radial-gradient(circle,rgba(82,213,255,.34),transparent 62%)"></span>
-    <span class="blob mb3" style="width:60vw;height:60vw;left:22vw;top:24vw;background:radial-gradient(circle,rgba(33,230,165,.20),transparent 64%)"></span>
+    <span class="blob mb1" style="width:52vw;height:52vw;left:-12vw;top:-18vw;background:radial-gradient(circle,rgba(183,118,255,.34),transparent 62%)"></span>
+    <span class="blob mb3" style="width:44vw;height:44vw;right:-8vw;top:-4vw;background:radial-gradient(circle,rgba(33,230,165,.22),transparent 62%)"></span>
   </div>
   <div class="gridlines" aria-hidden="true"></div>
-
+  <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
-    <div class="hero-top">
-      <span class="pill fade">AI SDR platform</span>
-      <h1 id="heroTitle">Ne kergesd a leadeket. Zárd az üzleteket.</h1>
-      <p class="hero-sub fade">A SalesBot egy AI SDR, ami felkutatja a kulcsfontosságú B2B döntéshozókat, valódi beszélgetéseket indít velük, kvalifikálja az érdeklődőket, és kész meetingeket ad át a csapatodnak.</p>
-      <div class="hero-cta fade">
-        <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Foglalj egy ingyenes demót <span class="ar">&#8594;</span></a>
-        <a class="btn btn-g btn-lg mag" href="/hogyan-mukodik">Nézd meg, hogyan működik</a>
-      </div>
-      <div class="trust fade">
-        <span>~500 ügyfél</span><span>Milliárdokban mérhető generált árbevétel</span><span>LinkedIn + email</span>
-      </div>
+    <div class="in">
+      <h1 id="heroTitle">Csak egy üzenetre vagyunk tőled</h1>
+      <p class="lede fade">Írj nekünk pár sort, és egy munkanapon belül válaszolunk. Vagy foglalj most rögtön egy SalesBot demó időpontot a naptárunkban.</p>
     </div>
-
-    <div class="stage" id="stage">
-      <div class="stage-in" id="stageIn">
-        <div class="ui appwin" id="heroApp">
-          <div class="ui-bar">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="url">app.sales-bot.io/pipeline</div>
-            <span class="mono" style="font-size:10px;color:#21e6a5;letter-spacing:.1em">&#9679; ÉLŐ</span>
-          </div>
-          <div class="ui-app">
-            <div class="ui-side">
-              <img src="/logo.png" alt="" style="height:12px;width:auto;display:block">
-              <span class="sq on"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span>
-            </div>
-            <div class="ui-main">
-              <div class="ui-row">
-                <span class="ui-t">Pipeline áttekintés</span>
-                <span class="tag bk" style="margin-left:auto">Kampány fut</span>
-                <span class="tag ne">3 profil</span>
-              </div>
-              <div class="kpis">
-                <div class="kpi"><span>Elérve</span><b data-kpi="6120">6 120</b></div>
-                <div class="kpi"><span>Válaszok</span><b data-kpi="702">702</b></div>
-                <div class="kpi"><span>Meetingek</span><b data-kpi="38">38</b></div>
-              </div>
-              <div class="chartbox">
-                <div class="ui-row"><span class="mono" style="font-size:9.5px;letter-spacing:.14em;color:#7c7c93">BESZÉLGETÉS / HÉT</span><span class="mono" style="margin-left:auto;font-size:9.5px;color:#21e6a5">+34%</span></div>
-                <div class="bars" id="heroBars">
-                  <i style="height:32%"></i><i style="height:46%"></i><i style="height:39%"></i><i style="height:58%"></i>
-                  <i style="height:51%"></i><i style="height:70%"></i><i style="height:63%"></i><i style="height:84%"></i>
-                  <i style="height:76%"></i><i style="height:96%"></i>
-                </div>
-              </div>
-              <div class="rows">
-                <div class="rw"><span class="av">MK</span><span class="ln" style="width:26%"></span><span class="ln" style="width:16%;opacity:.55"></span><span class="tag qa">Kvalifikált</span></div>
-                <div class="rw"><span class="av">TS</span><span class="ln" style="width:20%"></span><span class="ln" style="width:22%;opacity:.55"></span><span class="tag bk">Lefoglalva</span></div>
-                <div class="rw"><span class="av">AH</span><span class="ln" style="width:30%"></span><span class="ln" style="width:12%;opacity:.55"></span><span class="tag ne">Beszélgetésben</span></div>
-                <div class="rw"><span class="av">PL</span><span class="ln" style="width:18%"></span><span class="ln" style="width:24%;opacity:.55"></span><span class="tag wt">Follow-up</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sat sat-a" aria-hidden="true">
-        <div class="toast">
-          <span class="ico"><svg width="15" height="15" viewBox="0 0 16 16"><path d="M3 8.4 6.2 11.6 13 4.6" fill="none" stroke="#07070b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><b>Meeting lefoglalva</b><small>Csüt 14:30 &middot; Head of Ops, Hexagon</small></span>
-        </div>
-      </div>
-      <div class="sat sat-b" aria-hidden="true">
-        <div class="ui" style="border-radius:16px">
-          <div class="ui-chat" style="padding:12px;gap:8px">
-            <div class="msg them" style="font-size:11.5px"><span class="who">Érdeklődő</span>Hogyan zajlik az onboarding?</div>
-            <div class="msg you" style="font-size:11.5px"><span class="who">SalesBot AI</span>1&ndash;2 hét. Jó lenne egy csütörtöki időpont?</div>
-          </div>
-        </div>
-      </div>
-      <div class="sat sat-c" aria-hidden="true">
-        <div class="toast" style="padding:11px 14px">
-          <span><b class="mono" style="font-size:15px">11,4%</b><small>Válaszarány &middot; elmúlt 30 nap</small></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="tk" id="tk"></div>
   </div>
 </section>
 
-<!-- ===================== 2 · WHAT IS B2B OUTREACH ===================== -->
-<section class="sec" id="about">
+<!-- ===== FORM + DEMO ===== -->
+<section class="sec" id="reach" style="padding-top:clamp(20px,3vw,44px)">
   <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">A definíció</span>
-      <h2>Mi az a B2B megkeresés?</h2>
-    </div>
-    <div class="bento b2">
-      <div data-rev>
-        <h3 style="font-size:clamp(1.15rem,1.8vw,1.4rem);margin-bottom:16px;color:var(--soft)">A B2B megkeresés nem az, hogy&hellip;</h3>
-        <ul class="notlist">
-          <li><span class="x"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/></svg></span><span><s>Posztolsz a LinkedInen, és imádkozol, hogy valaki írjon rád.</s><em>Ez reménymarketing.</em></span></li>
-          <li><span class="x"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/></svg></span><span><s>Kiküldesz 10 000 emailt vásárolt listákra.</s><em>Ez spam.</em></span></li>
-          <li><span class="x"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/></svg></span><span><s>Google hirdetéseket futtatsz, és várod a kattintásokat.</s><em>Ez inbound marketing.</em></span></li>
-          <li><span class="x"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/></svg></span><span><s>Vacsoraidőben hívogatod a cégvezetőket.</s><em>Ez telemarketing.</em></span></li>
-          <li><span class="x"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/></svg></span><span><s>Havi hírlevelet küldesz a meglévő kontaktjaidnak.</s><em>Ez közönségépítés.</em></span></li>
-        </ul>
-      </div>
-      <div class="tile istile spot" data-rev>
+    <div class="bento contact">
+
+      <div class="tile spot form2" data-rev>
         <span class="edge"></span>
-        <div>
-          <h3 style="font-size:clamp(1.15rem,1.8vw,1.4rem);margin-bottom:18px">A B2B megkeresés az, hogy&hellip;</h3>
-          <p class="big">Kiválasztod a pontos cél döntéshozódat, elindítasz vele egy <span class="grad">személyes beszélgetést</span> LinkedInen vagy emailben, és meetinget egyeztetsz vele, ha valóban létezik nála a probléma, amit te megoldasz.</p>
-          <p class="small" style="margin-top:16px">Röviden: egyenesen ahhoz mész, akinél a büdzsé van, és üzleti beszélgetést kezdesz vele.</p>
-        </div>
-        <div class="ui" style="border-radius:14px">
-          <div class="ui-bar" style="height:32px"><div class="dots"><i></i><i></i><i></i></div><div class="url">linkedin.com/messaging</div></div>
-          <div class="ui-chat">
-            <div class="msg you"><span class="who">Te &middot; a SalesBoton keresztül</span>Szia Márton! Több mint 40 CNC gép üzemeltetését viszed. A hasonló méretű csapatok heti kb. 6 órát buknak a kézi ütemezésen. Megér egy 20 perces beszélgetést?</div>
-            <div class="msg them"><span class="who">Márton T. &middot; operatív vezető</span>Igazából igen. Tudsz küldeni időpontokat a jövő hétre?</div>
-            <div class="msg you"><span class="who">SalesBot AI</span>Csütörtök 14:30 vagy péntek 10:00. Melyik jó neked?</div>
-            <div class="msg them" style="padding:0"><span class="typing"><i></i><i></i><i></i></span></div>
+        <span class="k">Üzenetküldés</span>
+        <h2 style="font-size:clamp(1.4rem,2.3vw,1.9rem);margin:14px 0 22px">Mesélj, min dolgozol éppen</h2>
+        <form id="contactForm" novalidate>
+          <div class="row2">
+            <div class="field"><label for="c-name">Név</label><input id="c-name" name="name" type="text" placeholder="A neved" autocomplete="name" required></div>
+            <div class="field"><label for="c-co">Cégnév</label><input id="c-co" name="company" type="text" placeholder="Cégnév (vagy weboldal)" autocomplete="organization"></div>
           </div>
+          <div class="row2">
+            <div class="field"><label for="c-email">Email cím</label><input id="c-email" name="email" type="email" placeholder="Céges email cím" autocomplete="email" required></div>
+            <div class="field"><label for="c-phone">Telefonszám (nem kötelező)</label><input id="c-phone" name="phone" type="tel" placeholder="Telefonszám" autocomplete="tel"></div>
+          </div>
+          <div class="field"><label for="c-msg">Miben segíthetünk?</label><textarea id="c-msg" name="message" rows="5" placeholder="Az üzeneted"></textarea></div>
+          <button class="btn btn-p btn-lg" type="submit">Üzenet küldése <span class="ar">&#8594;</span></button>
+          <p class="fine" id="cNote">Egy munkanapon belül válaszolunk.</p>
+        </form>
+      </div>
+
+      <div class="tile spot demoside" data-rev>
+        <span class="k">Foglalj egy ingyenes demót</span>
+        <h2 style="font-size:clamp(1.4rem,2.3vw,1.9rem);margin-top:14px">Készen állsz feltölteni a sales pipeline-odat?</h2>
+        <p style="color:var(--dim)">Feltérképezzük a pontos célközönségedet, átnézzük az ajánlatodat, és megmutatjuk, hogyan működne a SalesBot a te piacodon.</p>
+        <div class="why">
+          <div><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Élőben feltérképezzük a pontos célközönségedet</div>
+          <div><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Átnézzük az ajánlatodat és a pozicionálásodat</div>
+          <div><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Megmutatjuk, hogyan nézne ki a SalesBot a te piacodon</div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ===================== 3 · THE SOLUTION (horizontal rail) ===================== -->
-<section id="solution">
-  <div class="railwrap" id="railwrap">
-    <div class="railpin">
-      <div class="mesh" aria-hidden="true">
-        <span class="blob mb2" style="width:70vw;height:70vw;left:12vw;top:-10vw;background:radial-gradient(circle,rgba(183,118,255,.20),transparent 62%)"></span>
-      </div>
-      <div class="railhead" data-rev>
-        <span class="pill">A megoldás</span>
-        <h2>Ügynökségi szintű megkereső gépezet <span class="grad">(ügynökségi havidíj nélkül)</span></h2>
-        <p class="lede">Felejtsd el a hagyományos LinkedIn üzengetést. A SalesBot egy komplett AI platform, több ezer kampány, mintegy 500 ügyfél és milliárdokban mérhető valós árbevétel tapasztalatával a háta mögött.</p>
-      </div>
-
-      <div class="railview">
-        <div class="rail" id="rail">
-          <svg class="railflow" id="railFlow" viewBox="0 0 2800 400" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0,200 C320,200 340,60 660,60 C980,60 1000,340 1320,340 C1640,340 1660,60 1980,60 C2300,60 2320,200 2800,200"
-                  fill="none" stroke="rgba(255,255,255,.07)" stroke-width="2" vector-effect="non-scaling-stroke"/>
-            <path id="railPath" pathLength="1"
-                  d="M0,200 C320,200 340,60 660,60 C980,60 1000,340 1320,340 C1640,340 1660,60 1980,60 C2300,60 2320,200 2800,200"
-                  fill="none" stroke="url(#lgStroke)" stroke-width="2.4" vector-effect="non-scaling-stroke"
-                  style="filter:drop-shadow(0 0 10px rgba(120,150,255,.35))"/>
-          </svg>
-
-          <article class="stepcard">
-            <span class="no">01</span>
-            <h3>LinkedIn optimalizálás</h3>
-            <p>Úgy optimalizáljuk a profilodat, hogy a célközönséged már az első kattintásnál megbízzon benned.</p>
-            <div class="vis">
-              <div class="mini">
-                <div class="ui-row"><span class="av" style="width:30px;height:30px;font-size:10px">BB</span>
-                  <span style="display:flex;flex-direction:column;gap:5px;flex:1"><span class="ln" style="width:52%"></span><span class="ln" style="width:76%;opacity:.5"></span></span></div>
-                <div class="ui-row" style="margin-top:4px"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.12em">PROFIL ERŐSSÉG</span><span class="mono" style="margin-left:auto;font-size:9.5px;color:#21e6a5">94%</span></div>
-                <div class="meter"><i style="width:94%"></i></div>
-                <div class="chips"><span class="chip on">Címsor</span><span class="chip on">Borítókép</span><span class="chip on">Referenciák</span><span class="chip">CTA</span></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="stepcard">
-            <span class="no">02</span>
-            <h3>Kampánytervezés</h3>
-            <p>Az üzeneteket és a follow-up sorozatokat a célközönségedre, az iparágadra és az ajánlatodra szabjuk.</p>
-            <div class="vis">
-              <div class="mini">
-                <div class="rows" style="border:0;background:transparent;gap:6px">
-                  <div class="rw" style="border:1px solid var(--line);border-radius:9px"><span class="mono" style="font-size:9px;color:#b776ff">D0</span><span class="ln" style="width:58%"></span><span class="tag ne">Kapcsolat</span></div>
-                  <div class="rw" style="border:1px solid var(--line);border-radius:9px"><span class="mono" style="font-size:9px;color:#52d5ff">D3</span><span class="ln" style="width:44%"></span><span class="tag bk">Érték</span></div>
-                  <div class="rw" style="border:1px solid var(--line);border-radius:9px"><span class="mono" style="font-size:9px;color:#21e6a5">D7</span><span class="ln" style="width:66%"></span><span class="tag qa">Időpont</span></div>
-                </div>
-                <div class="chips"><span class="chip on">Hangnem: tanácsadói</span><span class="chip">A/B</span></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="stepcard">
-            <span class="no">03</span>
-            <h3>Adatbázis felépítése</h3>
-            <p>Felkutatjuk és azonosítjuk a vállalkozásod számára legrelevánsabb döntéshozókat.</p>
-            <div class="vis">
-              <div class="mini">
-                <div class="chips"><span class="chip on">Gyártás</span><span class="chip on">50&ndash;500 fő</span><span class="chip on">DACH + HU</span><span class="chip">C-szint</span><span class="chip">Ops</span></div>
-                <div class="ui-row" style="margin-top:6px"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.12em">TALÁLATOK</span><span class="mono" style="margin-left:auto;font-size:14px;letter-spacing:-.02em">4 182</span></div>
-                <div class="rows" style="margin-top:2px">
-                  <div class="rw"><span class="av">KV</span><span class="ln" style="width:34%"></span><span class="tag qa">Fit 92</span></div>
-                  <div class="rw"><span class="av">RG</span><span class="ln" style="width:26%"></span><span class="tag qa">Fit 88</span></div>
-                  <div class="rw"><span class="av">ND</span><span class="ln" style="width:40%"></span><span class="tag bk">Fit 81</span></div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="stepcard">
-            <span class="no">04</span>
-            <h3>Kampányindítás</h3>
-            <p>Havonta több ezer döntéshozót érünk el közvetlenül LinkedInen és emailben.</p>
-            <div class="vis">
-              <div class="mini">
-                <div class="chips"><span class="chip on">LinkedIn</span><span class="chip on">Email</span><span class="chip">Retarget</span></div>
-                <div class="bars" style="height:64px;margin-top:6px">
-                  <i style="height:30%"></i><i style="height:44%"></i><i style="height:38%"></i><i style="height:62%"></i>
-                  <i style="height:55%"></i><i style="height:74%"></i><i style="height:68%"></i><i style="height:92%"></i>
-                </div>
-                <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.12em">ELÉRÉS / HÓNAP</span><span class="mono" style="margin-left:auto;font-size:9.5px;color:#21e6a5">6 000+</span></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="stepcard">
-            <span class="no">05</span>
-            <h3>Lead kvalifikálás</h3>
-            <p>Az AI előszűri a leadeket, kezeli a beszélgetéseket, és automatikusan válaszol a kérdésekre, mindig a te egyedi hangnemedben.</p>
-            <div class="vis">
-              <div class="term" style="font-size:11px;line-height:1.75">
-                <div class="l"><span class="pu">agent</span><span>&rsaquo; válasz érkezett #4821</span></div>
-                <div class="l"><span class="gr">&#10003;</span><span>szándék: <span class="cy">MAGAS</span></span></div>
-                <div class="l"><span class="gr">&#10003;</span><span>büdzsé felelős: igen</span></div>
-                <div class="l"><span class="gr">&#10003;</span><span>kifogás kezelve (árazás)</span></div>
-                <div class="l"><span class="am">&rarr;</span><span>következő lépés: meeting foglalás<span class="cur"></span></span></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="stepcard">
-            <span class="no">06</span>
-            <h3>Meeting átadás</h3>
-            <p>A megerősített időpontok egyenesen a naptáradba kerülnek. Neked csak be kell ülnöd, és zárni az üzletet.</p>
-            <div class="vis">
-              <div class="mini">
-                <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.12em">CSÜT 12 &middot; MÁRCIUS</span><span class="tag bk" style="margin-left:auto">Megerősítve</span></div>
-                <div class="rows" style="margin-top:2px">
-                  <div class="rw" style="opacity:.4"><span class="mono" style="font-size:9px">13:00</span><span class="ln" style="width:30%"></span></div>
-                  <div class="rw" style="background:linear-gradient(120deg,rgba(183,118,255,.18),rgba(82,213,255,.1))"><span class="mono" style="font-size:9px;color:#f7f7fa">14:30</span><span class="ln" style="width:44%;background:rgba(255,255,255,.3)"></span><span class="tag qa">Első hívás</span></div>
-                  <div class="rw" style="opacity:.4"><span class="mono" style="font-size:9px">16:00</span><span class="ln" style="width:24%"></span></div>
-                </div>
-                <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#21e6a5">&#9679; Bekerült a naptáradba</span></div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="railbar" aria-hidden="true">
-        <span class="n" id="railN">01</span>
-        <span class="track"><span class="fill" id="railFill"></span></span>
-        <span class="n">06</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 4 · WHAT YOU GET ===================== -->
-<section class="sec" id="features">
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">Ezt kapod</span>
-      <h2>Komplett értékesítési gépezet, hogy ne a <span class="grad">LinkedIn üzenetekben</span> menjen el a napod</h2>
-    </div>
-    <div class="bento b4" data-rev>
-      <div class="tile spot t1">
-        <div class="tt">
-          <span class="k">A vezérlőpultod</span>
-          <h3>CRM, amiben minden lead, beszélgetés és lefoglalt meeting egy helyen van</h3>
-          <p>Pipeline, idővonal és AI elemzés arról, hol tartanak az ügyek.</p>
-        </div>
-        <div class="vis">
-          <div class="ui-bar" style="height:34px"><div class="dots"><i></i><i></i><i></i></div><div class="url">app.sales-bot.io/crm</div></div>
-          <div class="mini" style="gap:10px">
-            <div class="kpis">
-              <div class="kpi"><span>Nyitott beszélgetés</span><b>128</b></div>
-              <div class="kpi"><span>Kvalifikált</span><b>41</b></div>
-              <div class="kpi"><span>Lefoglalva</span><b>17</b></div>
-            </div>
+        <div class="vis" style="margin-top:22px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#08080f">
+          <div class="ui-bar" style="height:34px"><div class="dots"><i></i><i></i><i></i></div><div class="url">naptár &middot; szabad időpontok</div></div>
+          <div class="mini" style="gap:8px">
             <div class="rows">
-              <div class="rw"><span class="av">GK</span><span class="ln" style="width:22%"></span><span class="ln" style="width:30%;opacity:.5"></span><span class="tag qa">Kvalifikált</span></div>
-              <div class="rw"><span class="av">SV</span><span class="ln" style="width:30%"></span><span class="ln" style="width:18%;opacity:.5"></span><span class="tag bk">Lefoglalva</span></div>
-              <div class="rw"><span class="av">DT</span><span class="ln" style="width:18%"></span><span class="ln" style="width:34%;opacity:.5"></span><span class="tag wt">Follow-up</span></div>
-              <div class="rw"><span class="av">LM</span><span class="ln" style="width:26%"></span><span class="ln" style="width:22%;opacity:.5"></span><span class="tag ne">Beszélgetésben</span></div>
+              <div class="rw"><span class="mono" style="font-size:9px">KED 10:00</span><span class="ln" style="width:26%"></span><span class="tag qa">Szabad</span></div>
+              <div class="rw"><span class="mono" style="font-size:9px">CSÜ 14:30</span><span class="ln" style="width:32%"></span><span class="tag qa">Szabad</span></div>
+              <div class="rw" style="opacity:.45"><span class="mono" style="font-size:9px">PÉN 09:00</span><span class="ln" style="width:22%"></span><span class="tag wt">Foglalt</span></div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="tile spot t2">
-        <div class="tt"><span class="k">Jelenlét</span><h3>Meggyőző LinkedIn jelenlét, amivel kitűnsz a piacodon</h3></div>
-        <div class="vis"><div class="mini">
-          <div class="ui-row"><span class="av" style="width:26px;height:26px">BB</span><span style="display:flex;flex-direction:column;gap:5px;flex:1"><span class="ln" style="width:56%"></span><span class="ln" style="width:80%;opacity:.5"></span></span></div>
-          <div class="meter"><i style="width:94%"></i></div>
-        </div></div>
-      </div>
-
-      <div class="tile spot t3">
-        <div class="tt"><span class="k">Stratégia</span><h3>Komplett leadgenerálási stratégia egy bizonyított B2B ügynökségtől</h3></div>
-        <div class="vis"><div class="mini"><div class="chips"><span class="chip on">ICP</span><span class="chip on">Ajánlat</span><span class="chip on">Szekvencia</span><span class="chip">Teszt</span></div></div></div>
-      </div>
-
-      <div class="tile spot t4">
-        <div class="tt"><span class="k">Adat</span><h3>Folyamatosan bővülő adatbázis a potenciális vevőidről</h3></div>
-        <div class="vis"><div class="mini">
-          <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.12em">REKORDOK</span><span class="mono" style="margin-left:auto;font-size:15px">4 182</span></div>
-          <div class="bars" style="height:38px"><i style="height:34%"></i><i style="height:48%"></i><i style="height:60%"></i><i style="height:72%"></i><i style="height:88%"></i><i style="height:100%"></i></div>
-        </div></div>
-      </div>
-
-      <div class="tile spot t5">
-        <div class="tt"><span class="k">Kapcsolat</span><h3>Közvetlen kapcsolat a megfelelő döntéshozókkal</h3></div>
-        <div class="vis"><div class="mini"><div class="rows" style="border:0;background:transparent;gap:6px">
-          <div class="rw" style="border:1px solid var(--line);border-radius:9px"><span class="av">CE</span><span class="ln" style="width:38%"></span><span class="tag qa">CEO</span></div>
-          <div class="rw" style="border:1px solid var(--line);border-radius:9px"><span class="av">OP</span><span class="ln" style="width:30%"></span><span class="tag bk">Head of Ops</span></div>
-        </div></div></div>
-      </div>
-
-      <div class="tile spot t6">
-        <div class="tt"><span class="k">Leadek</span><h3>Valódi, duplán kvalifikált leadek és ajánlatkérések</h3></div>
-        <div class="vis"><div class="mini" style="gap:9px">
-          <div class="tick"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Az AI ellenőrizte a szándékot</div>
-          <div class="tick"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Az érdeklődő megerősítette</div>
-        </div></div>
-      </div>
-
-      <div class="tile spot t7">
-        <div class="tt"><span class="k">Autopilóta</span><h3>AI értékesítési asszisztens, ami a saját hangnemedben ír follow-upot, és meetingeket foglal</h3></div>
-        <div class="vis"><div class="term" style="font-size:11px;line-height:1.7">
-          <div class="l"><span class="pu">hangnem</span><span>&rsaquo; tanácsadói, felesleges körök nélkül</span></div>
-          <div class="l"><span class="gr">&#10003;</span><span>follow-up #2 elküldve &middot; 09:12</span></div>
-          <div class="l"><span class="am">&rarr;</span><span>meeting lefoglalva &middot; 14:30<span class="cur"></span></span></div>
-        </div></div>
+        <a class="btn btn-p btn-lg mag" href="#demo" data-demo style="margin-top:22px">Foglalj időpontot <span class="ar">&#8594;</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== 5 · CTA BAND ===================== -->
-<section class="band">
+<!-- ===== CLOSING ===== -->
+<section class="closing" id="closing" style="min-height:auto;padding-block:clamp(70px,10vw,130px)">
   <div class="mesh" aria-hidden="true">
-    <span class="blob mb3" style="width:44vw;height:44vw;left:-8vw;top:-30%;background:radial-gradient(circle,rgba(33,230,165,.22),transparent 62%)"></span>
-    <span class="blob mb1" style="width:40vw;height:40vw;right:-6vw;bottom:-40%;background:radial-gradient(circle,rgba(183,118,255,.24),transparent 62%)"></span>
-  </div>
-  <div class="wrap in">
-    <div data-rev>
-      <span class="pill">Ingyenes 30 perces demó</span>
-      <h2 style="margin-top:18px">Készen állsz, hogy a hideg megkereséseket <span class="grad">autopilótára</span> kapcsold?</h2>
-      <p>Egy ingyenes 30 perces demón pontosan megmutatjuk, hogyan működne a SalesBot a te piacodon, a te ideális ügyfeleiddel.</p>
-      <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Foglalj demót most <span class="ar">&#8594;</span></a>
-    </div>
-    <div class="ui" data-rev>
-      <div class="ui-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">salesbot &middot; agent runtime</div><span class="mono" style="font-size:10px;color:#21e6a5">&#9679; FUT</span></div>
-      <div class="term" id="agentTerm" style="min-height:210px"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 6 · ROI CALCULATOR ===================== -->
-<section class="sec" id="roi">
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">ROI kalkulátor</span>
-      <h2>Számold ki, mennyi üzletet hozhat neked a SalesBot</h2>
-      <p class="lede">Állítsd be a paramétereket, és nézd meg valós időben a várható eredményeket.</p>
-    </div>
-
-    <div class="bento b6">
-      <div class="tile spot" data-rev>
-        <span class="edge"></span>
-        <div class="ctrl">
-          <div class="ctrl-top"><label for="r-profiles">LinkedIn profilok száma</label><output id="o-profiles" for="r-profiles">3</output></div>
-          <input type="range" id="r-profiles" min="1" max="10" step="1" value="3">
-          <div class="ticks"><span>1</span><span>10</span></div>
-        </div>
-        <div class="ctrl">
-          <div class="ctrl-top"><label for="r-prop">Lead &rarr; ajánlat arány</label><output id="o-prop" for="r-prop">30%</output></div>
-          <input type="range" id="r-prop" min="5" max="80" step="1" value="30">
-          <div class="ticks"><span>5%</span><span>80%</span></div>
-        </div>
-        <div class="ctrl">
-          <div class="ctrl-top"><label for="r-close">Ajánlat &rarr; zárás arány</label><output id="o-close" for="r-close">40%</output></div>
-          <input type="range" id="r-close" min="5" max="90" step="1" value="40">
-          <div class="ticks"><span>5%</span><span>90%</span></div>
-        </div>
-        <div class="ctrl">
-          <div class="ctrl-top"><label for="r-deal">Átlagos ügyfélérték (Ft)</label><output id="o-deal" for="r-deal">500&nbsp;000 Ft</output></div>
-          <input type="range" id="r-deal" min="100000" max="10000000" step="100000" value="500000">
-          <div class="ticks"><span>100 000 Ft</span><span>10M Ft</span></div>
-        </div>
-      </div>
-
-      <div data-rev>
-        <div class="outs" aria-live="polite">
-          <div class="out spot"><span class="k">Adatbázis méret</span><span class="v" id="v-db">1 500</span></div>
-          <div class="out spot"><span class="k">Havi elérés</span><span class="v" id="v-reach">6 000+</span></div>
-          <div class="out spot"><span class="k">Döntéshozók</span><span class="v" id="v-dm">600+</span></div>
-          <div class="out spot"><span class="k">Meleg lead / hó</span><span class="v" id="v-leads">30&ndash;45</span></div>
-          <div class="out spot"><span class="k">Ajánlat / hó</span><span class="v" id="v-props">9&ndash;14</span></div>
-          <div class="out spot"><span class="k">Zárt üzlet / hó</span><span class="v" id="v-deals">4&ndash;5</span></div>
-          <div class="out wide spot">
-            <span class="k">Várható havi árbevétel</span>
-            <span class="v grad" id="v-rev">1,8M Ft&ndash;2,7M Ft</span>
-            <span class="meter"><i id="revMeter" style="width:4%"></i></span>
-          </div>
-        </div>
-        <p class="note">A becslés a tipikus SalesBot kampányok teljesítményén alapul. A tényleges eredmény a piac méretétől, az ajánlattól és a pozicionálástól függ.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 7 · COMPANIES & RESULTS ===================== -->
-<section class="sec" id="results">
-  <div class="mesh" aria-hidden="true"><span class="blob mb2" style="width:52vw;height:52vw;right:-14vw;top:6%;background:radial-gradient(circle,rgba(255,157,66,.14),transparent 64%)"></span></div>
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">Ügyfelek és eredmények</span>
-      <h2>Jó társaságot keresel? Nálunk <span class="grad">kiváló társaságba</span> kerülsz.</h2>
-      <p class="lede">A SalesBot már közel 500 vállalkozást támogatott, és összesen milliárdokban mérhető árbevételt generált.</p>
-    </div>
-
-    <span class="pill">Piacvezető cégek is minket választanak</span>
-    <div class="marq" aria-label="Ügyféllogók">
-      <div class="mt">
-        <span>SAP</span><span>Hexagon</span><span>Generali</span><span>Mitsubishi Electric</span><span>Wellis</span><span>BNI</span>
-        <span>SAP</span><span>Hexagon</span><span>Generali</span><span>Mitsubishi Electric</span><span>Wellis</span><span>BNI</span>
-      </div>
-    </div>
-    <p style="color:var(--soft);font-size:.85rem;margin-top:14px">és több száz magyar és nemzetközi KKV</p>
-
-    <div class="bento b7" data-rev>
-      <div class="tile spot stat">
-        <span class="k">Egy ügyfél &middot; 9 hónap</span>
-        <span class="n grad" data-count="3" data-dec="0" data-suffix="M &euro;">3M &euro;</span>
-        <p>Extra árbevétel 9 hónap alatt, egyetlen ügyféllel.</p>
-        <div class="spark"><i style="height:18%"></i><i style="height:26%"></i><i style="height:22%"></i><i style="height:38%"></i><i style="height:46%"></i><i style="height:41%"></i><i style="height:62%"></i><i style="height:74%"></i><i style="height:68%"></i><i style="height:92%"></i><i style="height:100%"></i></div>
-      </div>
-      <div class="tile spot stat">
-        <span class="k">Első év &middot; egy kampány</span>
-        <span class="n grad" data-count="72" data-dec="0" data-suffix="">72</span>
-        <p>Új ügyfél az első évben, egyetlen SalesBot kampányból.</p>
-        <div class="spark"><i style="height:22%"></i><i style="height:30%"></i><i style="height:44%"></i><i style="height:36%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:84%"></i><i style="height:76%"></i><i style="height:100%"></i></div>
-      </div>
-      <div class="tile spot stat">
-        <span class="k">Tipikus &middot; első 3 hónap</span>
-        <span class="n grad" data-count="300" data-dec="0" data-suffix="k USD+">300k USD+</span>
-        <p>Ekkora sales pipeline épül fel jellemzően az első 3 hónapban.</p>
-        <div class="spark"><i style="height:14%"></i><i style="height:24%"></i><i style="height:33%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:64%"></i><i style="height:72%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:95%"></i><i style="height:100%"></i></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 8 · WHO IT'S FOR ===================== -->
-<section class="sec" id="fit">
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">Illeszkedés</span>
-      <h2>Neked való a SalesBot?</h2>
-      <p class="lede">Ha más vállalkozásoknak adsz el, és legalább 50 potenciális ügyfél van a piacodon, akkor igen.</p>
-    </div>
-    <div class="bento b8" data-rev>
-      <div class="tile spot">
-        <span class="k">Kiknek szól</span>
-        <p class="v" style="margin-top:12px">Cégtulajdonosoknak, értékesítési vezetőknek és growth marketingeseknek.</p>
-        <div class="chips" style="margin-top:22px"><span class="chip on">Alapító / ügyvezető</span><span class="chip on">Értékesítési vezető</span><span class="chip on">Growth</span></div>
-      </div>
-      <div class="tile spot">
-        <span class="k">Iparági illeszkedés</span>
-        <p class="v" style="margin-top:12px">Szakmai szolgáltatások, gyártás, kereskedelem, tanácsadás vagy bármilyen más B2B szektor.</p>
-        <div class="chips" style="margin-top:22px"><span class="chip on">Gyártás</span><span class="chip on">Tanácsadás</span><span class="chip on">Kereskedelem</span><span class="chip on">Szolgáltatás</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 9 · SUCCESS STORIES ===================== -->
-<section class="sec" id="stories">
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">Sikertörténetek</span>
-      <h2>Nézd meg, hogyan válik az együttműködésből <span class="grad">növekvő sales pipeline</span></h2>
-    </div>
-    <div class="bento b9" data-rev>
-      <a class="tile spot story" href="#demo" data-demo>
-        <div class="thumb">
-          <div class="ui-bar" style="height:32px;border-radius:0"><div class="dots"><i></i><i></i><i></i></div><div class="url">eset &middot; ipari automatizálás</div></div>
-          <div class="mini"><div class="bars" style="height:64px"><i style="height:20%"></i><i style="height:34%"></i><i style="height:29%"></i><i style="height:52%"></i><i style="height:64%"></i><i style="height:58%"></i><i style="height:82%"></i><i style="height:100%"></i></div></div>
-        </div>
-        <div class="body">
-          <span class="k">Esettanulmány 01</span>
-          <h3>Ipari automatizálási beszállító</h3>
-          <p>72 új ügyfél az első 12 hónapban, egyetlen folyamatos kampányból.</p>
-          <span class="go">Olvasd el a történetet <span class="ar">&#8594;</span></span>
-        </div>
-      </a>
-      <a class="tile spot story" href="#demo" data-demo>
-        <div class="thumb">
-          <div class="ui-bar" style="height:32px;border-radius:0"><div class="dots"><i></i><i></i><i></i></div><div class="url">eset &middot; szakmai szolgáltatások</div></div>
-          <div class="mini"><div class="rows"><div class="rw"><span class="av">JS</span><span class="ln" style="width:36%"></span><span class="tag bk">Lefoglalva</span></div><div class="rw"><span class="av">RT</span><span class="ln" style="width:28%"></span><span class="tag qa">Kvalifikált</span></div><div class="rw"><span class="av">MP</span><span class="ln" style="width:42%"></span><span class="tag bk">Lefoglalva</span></div></div></div>
-        </div>
-        <div class="body">
-          <span class="k">Esettanulmány 02</span>
-          <h3>B2B szolgáltató cég</h3>
-          <p>3M &euro; extra árbevétel kilenc hónap alatt.</p>
-          <span class="go">Olvasd el a történetet <span class="ar">&#8594;</span></span>
-        </div>
-      </a>
-      <a class="tile spot story" href="#demo" data-demo>
-        <div class="thumb">
-          <div class="ui-bar" style="height:32px;border-radius:0"><div class="dots"><i></i><i></i><i></i></div><div class="url">eset &middot; exportáló gyártó</div></div>
-          <div class="mini"><div class="kpis"><div class="kpi"><span>Pipeline</span><b>300k</b></div><div class="kpi"><span>Meetingek</span><b>26</b></div><div class="kpi"><span>Piacok</span><b>4</b></div></div><div class="meter"><i style="width:78%"></i></div></div>
-        </div>
-        <div class="body">
-          <span class="k">Esettanulmány 03</span>
-          <h3>Exportáló gyártó cég</h3>
-          <p>300k USD+ kvalifikált sales pipeline az első 3 hónapban.</p>
-          <span class="go">Olvasd el a történetet <span class="ar">&#8594;</span></span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 10 · GET STARTED + PRICING ===================== -->
-<section class="sec" id="pricing">
-  <div class="mesh" aria-hidden="true"><span class="blob mb1" style="width:48vw;height:48vw;left:-14vw;bottom:-10%;background:radial-gradient(circle,rgba(82,213,255,.18),transparent 64%)"></span></div>
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">Így indulunk</span>
-      <h2>Indulás <span class="grad">3 egyszerű lépésben</span></h2>
-    </div>
-    <div class="bento b10">
-      <ol class="steps3" data-rev>
-        <li>
-          <span class="n">01</span>
-          <div><h3>Nézd meg élőben</h3><p>Foglalj egy rövid demót, és megmutatjuk, hogyan működik a SalesBot a te célközönségeden.</p></div>
-        </li>
-        <li>
-          <span class="n">02</span>
-          <div><h3>Töltsd ki a kérdőívet</h3><p>Válaszolj néhány egyszerű kérdésre az ajánlatodról. A teljes kampányodat mi építjük fel a nulláról.</p></div>
-        </li>
-        <li>
-          <span class="n">03</span>
-          <div><h3>Kapcsold be az autopilótát</h3><p>A SalesBot intézi a megkereséseket, a follow-upokat és az előszűrést. Neked csak a sales hívásokon kell ott lenned.</p></div>
-        </li>
-      </ol>
-
-      <div class="tile spot price" data-rev>
-        <span class="edge"></span>
-        <span class="k">Árazás</span>
-        <span class="amt grad">149&euro;<span class="per"> / hó</span></span>
-        <ul>
-          <li><span class="d"></span>Nincs szükség marketing szakértelemre</li>
-          <li><span class="d"></span>Csak egy LinkedIn profil kell</li>
-          <li><span class="d"></span>Magyar és nemzetközi piacokra is</li>
-          <li><span class="d"></span>Folyamatosan új kampányok</li>
-        </ul>
-        <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Foglalj demót most <span class="ar">&#8594;</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 11 · FAQ ===================== -->
-<section class="sec" id="faq">
-  <div class="wrap">
-    <div class="head center" data-rev>
-      <span class="pill">GYIK</span>
-      <h2>Gyakori kérdések</h2>
-      <p class="lede">Minden, amit érdemes tudnod a SalesBotról, mielőtt belevágsz.</p>
-    </div>
-    <div class="faq" data-rev>
-      <details><summary>Biztonságos a SalesBot a LinkedIn fiókomnak?<span class="tg" aria-hidden="true"></span></summary><p class="ans">Igen. A SalesBot az emberi üzenetküldés természetes ritmusát követi, hivatalos API-kat és bevált eszközöket használ, és minden ügyfél saját, dedikált környezetben fut.</p></details>
-      <details><summary>Kell marketing tapasztalat a SalesBot használatához?<span class="tg" aria-hidden="true"></span></summary><p class="ans">Nem kell sem marketing tapasztalat, sem belső csapat. A SalesBot és a csapatunk mindent visz a célközönség kutatásától és a kampánytervezéstől a szövegírásig és a futtatásig. Neked csak a sales hívásokon kell részt venned.</p></details>
-      <details><summary>A B2B értékesítési folyamat mely részeit automatizálja a SalesBot?<span class="tg" aria-hidden="true"></span></summary><p class="ans">A SalesBot a teljes kimenő B2B folyamatot automatizálja: az ideális ügyfélprofil meghatározását, az üzenetek megírását, a többcsatornás megkeresést, a follow-up sorozatokat, a lead kvalifikálást és a naptárfoglalást.</p></details>
-      <details><summary>Milyen riportokat és elemzéseket ad a SalesBot dashboard?<span class="tg" aria-hidden="true"></span></summary><p class="ans">A SalesBot valós idejű rálátást ad a dashboardon. Nyomon követheted a megcélzott döntéshozókat, a kimenő sorozatokat, az aktuális válaszarányokat, a beszélgetések állapotát és az AI kvalifikációs jegyzeteit.</p></details>
-      <details><summary>Milyen nyelveken kommunikál a SalesBot?<span class="tg" aria-hidden="true"></span></summary><p class="ans">A SalesBot alapból magyarul és angolul kommunikál, és bármilyen célpiac nyelvére beállítható, a világ bármely pontján.</p></details>
-      <details><summary>Milyen eredményekre és pipeline növekedésre számíthatok?<span class="tg" aria-hidden="true"></span></summary><p class="ans">A legtöbb SalesBot ügyfél 3 hónapon belül jelentős pipeline növekedést lát, és jellemzően 30&ndash;70+ új üzleti ügyfelet zár az első évben, a piac méretétől és az ajánlat értékétől függően.</p></details>
-      <details><summary>Aktív a célközönségem a LinkedInen?<span class="tg" aria-hidden="true"></span></summary><p class="ans">Szinte biztosan. A LinkedInen több mint 1 milliárd szakember van jelen, köztük a B2B szolgáltatások, a gyártás, a tanácsadás és a kereskedelem döntéshozói. A pontos célközönséged méretét az első demóhíváson ellenőrizzük.</p></details>
-      <details><summary>Hogyan zajlik az onboarding, és mennyi ideig tart?<span class="tg" aria-hidden="true"></span></summary><p class="ans">Az onboarding 1&ndash;2 hetet vesz igénybe: a demóhívás és egy 5 perces kérdőív kitöltése után a csapatunk felépíti a stratégiádat, és elindítja a folyamatos, automatizált háttérkampányaidat.</p></details>
-      <details><summary>Pontosan mit csinál a SalesBot AI?<span class="tg" aria-hidden="true"></span></summary><p class="ans">A SalesBot AI automatizált értékesítési asszisztensként dolgozik: megválaszolja a szakmai kérdéseket, kezeli a gyakori kifogásokat, végig tartja a márkád hangnemét, előszűri a meleg leadeket, és egyenesen a naptáradba foglalja a meetingeket. Minden üzenet emberi felügyelet mellett, a saját szabályrendszerünk szerint megy ki.</p></details>
-      <details><summary>Tudok folyamatosan skálázni és új kampányokat indítani?<span class="tg" aria-hidden="true"></span></summary><p class="ans">Igen. A SalesBot hosszú távú növekedésre készült: bármikor indíthatsz új kampányokat, tesztelhetsz új piacokat, és kipróbálhatsz nemzetközi célzást vagy új stratégiákat.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 12 · CLOSING ===================== -->
-<section class="closing" id="closing">
-  <div class="mesh" aria-hidden="true">
-    <span class="blob mb1" style="width:60vw;height:60vw;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(183,118,255,.30),transparent 62%)"></span>
-    <span class="blob mb3" style="width:44vw;height:44vw;left:16%;bottom:2%;background:radial-gradient(circle,rgba(33,230,165,.18),transparent 64%)"></span>
+    <span class="blob mb1" style="width:52vw;height:52vw;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(183,118,255,.26),transparent 62%)"></span>
   </div>
   <div class="rings" aria-hidden="true" id="rings">
     <i style="width:34%;height:34%"></i><i style="width:52%;height:52%"></i><i style="width:70%;height:70%"></i><i style="width:88%;height:88%"></i><i style="width:106%;height:106%"></i>
   </div>
   <div class="wrap">
-    <p class="bl bl1" id="cl1">AI sebesség.</p>
-    <p class="bl bl2" id="cl2">Világszínvonalú B2B stratégia.</p>
-    <p class="bl bl3 grad" id="cl3">A hagyományos értékesítő költségének töredékéért.</p>
+    <p class="bl bl3 grad" id="cl3">Vagy foglald le rögtön a demót, és hagyd ki az emailezgetést.</p>
     <a class="btn btn-p btn-lg mag" href="#demo" data-demo id="closeBtn">Foglalj demót <span class="ar">&#8594;</span></a>
   </div>
 </section>
 
 </main>
+
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
@@ -1454,7 +937,7 @@ body.lock{overflow:hidden}
         <a class="logo" href="/" aria-label="SalesBot főoldal">
           <img src="/logo.png" alt="SalesBot" style="height:42px;width:auto;display:block">
         </a>
-        <p>Az AI SDR, ami felkutatja a döntéshozókat, valódi beszélgetéseket indít, és egyenesen a naptáradba foglalja a meetingeket.</p>
+        <p>Az AI értékesítő, ami megtalálja a döntéshozókat, valódi beszélgetéseket indít, és egyenesen a naptáradba foglalja a meetingeket.</p>
       </div>
       <nav aria-label="Lábléc">
         <a href="/hogyan-mukodik">Hogyan működik</a>
@@ -1481,13 +964,13 @@ body.lock{overflow:hidden}
     </button>
     <span class="pill">30 perc</span>
     <h2 id="demoTitle" style="margin-top:16px">Foglalj egy ingyenes demót</h2>
-    <p class="sub">Megmutatjuk, hogyan működne a SalesBot a te piacodon, a te ideális ügyfeleiddel. Semmi diasor, csak a pipeline-od.</p>
+    <p class="sub">Megmutatjuk, hogyan illik a SalesBot a piacodra és az ideális ügyfeleidre. Semmi diavetítés, csak a te pipeline-od.</p>
     <form id="demoForm" novalidate>
       <div class="field"><label for="f-name">Név</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-      <div class="field"><label for="f-email">Céges email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-phone">Telefon</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-      <div class="field"><label for="f-co">Cég</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
-      <div class="field"><label for="f-msg">Kit szeretnél elérni?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+      <div class="field"><label for="f-email">Céges email cím</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-phone">Telefonszám</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="f-co">Cégnév</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
+      <div class="field"><label for="f-msg">Kiket szeretnél elérni?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
       <button class="btn btn-p btn-lg" type="submit">Kérem a demót <span class="ar">&#8594;</span></button>
       <p class="fine" id="formNote">Nincs bankkártya. Nincs elköteleződés.</p>
     </form>
@@ -1506,7 +989,7 @@ body.lock{overflow:hidden}
   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
   function smooth(t) { return t * t * (3 - 2 * t); }
   function stag(p, i, n, s) { var tot = 1 + (n - 1) * s; return clamp(p * tot - i * s, 0, 1); }
-  function fmt(x) { return Math.round(x).toLocaleString('hu-HU'); }
+  function fmt(x) { return Math.round(x).toLocaleString('en-US'); }
 
   /* ================================================================
      Scroll scrub engine — cached geometry, one rAF, fully reversible
@@ -1545,14 +1028,14 @@ body.lock{overflow:hidden}
      Content: live ticker + agent terminal
   ================================================================ */
   var TICK = [
-    ['agent', 'kapcsolat elfogadva', 'Head of Ops · Mitsubishi Electric'],
-    ['reply', 'szándék: MAGAS', 'ügyvezető · gyártás'],
-    ['book', 'meeting lefoglalva · csüt 14:30', 'CEO · ipari szolgáltatások'],
-    ['agent', 'follow-up #2 elküldve', 'beszerzési vezető · DACH'],
+    ['agent', 'kapcsolat elfogadva', 'operációs vezető · Mitsubishi Electric'],
+    ['reply', 'MAGAS vételi szándék', 'ügyvezető · gyártás'],
+    ['book', 'meeting foglalva · csüt 14:30', 'CEO · ipari szolgáltatások'],
+    ['agent', '2. follow-up elküldve', 'beszerzési vezető · DACH'],
     ['reply', 'kifogás kezelve · árazás', 'CFO · logisztika'],
-    ['book', 'meeting lefoglalva · pén 10:00', 'értékesítési vezető · SaaS'],
-    ['agent', 'adatbázis bővítve +412', 'ICP: 50–500 fő'],
-    ['reply', 'ajánlatkérés érkezett', 'tulajdonos · precíziós gyártás']
+    ['book', 'meeting foglalva · pén 10:00', 'értékesítési vezető · SaaS'],
+    ['agent', 'adatbázis bővítve +412', 'ICP: 50–500 fős cégek'],
+    ['reply', 'ajánlatot kért', 'tulajdonos · precíziós gépgyártás']
   ];
   (function buildTicker() {
     var el = $('#tk'); if (!el) return;
@@ -1562,20 +1045,20 @@ body.lock{overflow:hidden}
         var c = t[0] === 'book' ? 'b' : (t[0] === 'reply' ? 'u' : '');
         html += '<span>' + (c === 'b' ? '<b>● ' : (c === 'u' ? '<u>● ' : '<span style="color:#7c7c93">● '))
           + t[0] + (c ? (c === 'b' ? '</b>' : '</u>') : '</span>')
-          + ' &nbsp;' + t[1] + ' <span style="color:#7c7c93">· ' + t[2] + '</span></span>';
+          + ' &nbsp;' + t[1] + ' <span style="color:#7c7c93">— ' + t[2] + '</span></span>';
       });
     }
     el.innerHTML = html;
   })();
 
   var AGENT = [
-    ['pu', 'salesbot', 'run --campaign "ipari-DACH-q3"'],
-    ['gr', '✓', 'adatbázis: 4 182 döntéshozó azonosítva'],
-    ['gr', '✓', 'szekvenciák: 3 variáns fut · hangnem rögzítve'],
-    ['cy', '→', 'megkeresés: 2 000 érintés ütemezve erre a hónapra'],
-    ['gr', '✓', 'válasz #4821 · szándék MAGAS · büdzsé felelős'],
-    ['am', '→', 'kifogás kezelve: árazás → értékalapú keretezés'],
-    ['gr', '✓', 'meeting lefoglalva · csüt 14:30 CET'],
+    ['pu', 'salesbot', 'run --campaign "industrial-DACH-q3"'],
+    ['gr', '✓', 'adatbázis: 4 182 döntéshozó beazonosítva'],
+    ['gr', '✓', 'szekvenciák: 3 variáns élesben · hangnem rögzítve'],
+    ['cy', '→', 'outreach: 2 000 megkeresés ütemezve erre a hónapra'],
+    ['gr', '✓', 'válasz #4821 · MAGAS vételi szándék · büdzsé felett dönt'],
+    ['am', '→', 'kifogás kezelve: árazás → értékalapú érvelés'],
+    ['gr', '✓', 'meeting foglalva · csüt 14:30 CET'],
     ['cy', '→', 'átadás: bekerült a naptáradba és a CRM-be']
   ];
   (function agentTerminal() {
@@ -1861,11 +1344,6 @@ body.lock{overflow:hidden}
       var pct = ((el.value - el.min) / (el.max - el.min)) * 100;
       el.style.setProperty('--trk', 'linear-gradient(90deg,#b776ff,#52d5ff) 0 0/' + pct + '% 100% no-repeat, rgba(255,255,255,.1)');
     }
-    function fmtRev(x) {
-      x = Math.round(x / 100) * 100;
-      if (x >= 1000000) return (x / 1000000).toFixed(1).replace('.', ',') + 'M Ft';
-      return fmt(x) + ' Ft';
-    }
     function compute() {
       var P = +rp.value, pr = +rr.value / 100, cl = +rc.value / 100, dv = +rd.value;
       var lLo = P * 10, lHi = P * 15, pLo = lLo * pr, pHi = lHi * pr, dLo = pLo * cl, dHi = pHi * cl;
@@ -1878,8 +1356,8 @@ body.lock{overflow:hidden}
       out.leads.textContent = fmt(v.lLo) + '–' + fmt(v.lHi);
       out.props.textContent = fmt(v.pLo) + '–' + fmt(v.pHi);
       out.deals.textContent = fmt(v.dLo) + '–' + fmt(v.dHi);
-      out.rev.textContent = fmtRev(v.rLo) + '–' + fmtRev(v.rHi);
-      if (meter) meter.style.width = clamp(v.rHi / 75000000 * 100, 3, 100).toFixed(1) + '%';
+      out.rev.textContent = '€' + fmt(Math.round(v.rLo / 100) * 100) + '–€' + fmt(Math.round(v.rHi / 100) * 100);
+      if (meter) meter.style.width = clamp(v.rHi / 750000 * 100, 3, 100).toFixed(1) + '%';
     }
     function flick() {
       if (RM) return;
@@ -1907,7 +1385,7 @@ body.lock{overflow:hidden}
     }
     function labels() {
       op.textContent = rp.value; orr.textContent = rr.value + '%'; oc.textContent = rc.value + '%';
-      od.textContent = (+rd.value).toLocaleString('hu-HU') + ' Ft';
+      od.textContent = '€' + (+rd.value).toLocaleString('en-US');
     }
     [rp, rr, rc, rd].forEach(function (el) {
       el.addEventListener('input', function () { labels(); trackFill(el); flick(); animate(compute()); });
@@ -1962,6 +1440,12 @@ body.lock{overflow:hidden}
     clamp: clamp, smooth: smooth, easeOut: easeOut, stag: stag, fmt: fmt,
     $: $, $$: $$
   };
+})();
+</script>
+<script>
+(function () {
+  var S = window.SB; if (!S) return;
+  /* contact form handled by /lead.js */
 })();
 </script>
 <script defer src="/lead.js"></script>

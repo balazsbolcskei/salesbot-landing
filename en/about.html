@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Features — SalesBot</title>
-<meta name="description" content="Lead research, an AI Brain that writes in your voice, multi-channel outreach, AI conversations, built-in CRM and calendar, and an AI voice agent — in one platform.">
+<title>About — SalesBot</title>
+<meta name="description" content="For years we booked the meetings for ~500 clients. Then we taught the AI how to do it. The story, principles, results and team behind SalesBot.">
 <meta name="theme-color" content="#050507">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,7 +135,7 @@ section{position:relative}
 .navlinks a{padding:.68rem .9rem;border-radius:999px;font-size:.88rem;color:var(--dim);transition:color .22s,background-color .22s}
 .navlinks a:hover{color:var(--text);background:rgba(255,255,255,.06)}
 .navact{display:flex;align-items:center;gap:.6rem}
-.lang{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--dim);border:1px solid var(--line);border-radius:999px;height:36px;min-width:44px;padding:0 .7rem;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
+.lang{text-decoration:none;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--dim);border:1px solid var(--line);border-radius:999px;height:36px;min-width:44px;padding:0 .7rem;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
 .lang:hover{color:var(--text);border-color:var(--line2)}
 .burger{display:none;width:44px;height:44px;margin-left:auto;place-items:center;border-radius:12px;border:1px solid var(--line)}
 .burger i{display:block;width:16px;height:1.5px;background:var(--text);position:relative;transition:.3s}
@@ -663,12 +663,11 @@ body.lock{overflow:hidden}
 /* ---------- five-tools merge ---------- */
 .mergebox{position:relative;height:clamp(300px,36vw,400px);margin-top:clamp(26px,3.4vw,44px)}
 .mnode{
-  position:absolute;left:50%;top:50%;display:flex;align-items:center;gap:.6rem;
-  padding:13px 18px;border:1px solid var(--line2);border-radius:13px;background:var(--surface);
-  font-size:.98rem;font-weight:500;color:var(--text);white-space:nowrap;will-change:transform,opacity;
-  box-shadow:0 10px 34px -18px rgba(0,0,0,.7);
+  position:absolute;left:50%;top:50%;display:flex;align-items:center;gap:.55rem;
+  padding:11px 15px;border:1px solid var(--line);border-radius:13px;background:var(--surface);
+  font-size:.86rem;color:var(--soft);white-space:nowrap;will-change:transform,opacity;
 }
-.mnode .d{width:8px;height:8px;border-radius:2px;background:var(--aurora,rgba(255,255,255,.35))}
+.mnode .d{width:7px;height:7px;border-radius:2px;background:rgba(255,255,255,.22)}
 .mcore{
   position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;gap:12px;
   padding:clamp(20px,2.4vw,30px) clamp(24px,3vw,40px);border:1px solid var(--line2);border-radius:24px;
@@ -818,30 +817,29 @@ body.lock{overflow:hidden}
 <!-- ===================== NAV ===================== -->
 <header class="nav" id="nav">
   <div class="wrap navin">
-    <a class="logo" href="/" aria-label="SalesBot home">
+    <a class="logo" href="/en" aria-label="SalesBot home">
       <img src="/logo.png" alt="SalesBot" style="height:48px;width:auto;display:block">
     </a>
     <nav class="navlinks" aria-label="Primary">
-      <a href="/how-it-works">How it works</a>
-      <a href="/features" class="act" aria-current="page">Features</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-      <a href="/contact">Contact</a>
+      <a href="/en/how-it-works">How it works</a>
+      <a href="/en/features">Features</a>
+      <a href="/en/pricing">Pricing</a>
+      <a href="/en/about" class="act" aria-current="page">About</a>
+      <a href="/en/contact">Contact</a>
     </nav>
     <div class="navact">
-      <button class="lang" type="button" aria-label="Switch language to Hungarian">HU</button>
+      <a class="lang" href="/rolunk" onclick="localStorage.setItem('lang_override','hu')" aria-label="Magyar változat">HU</a>
       <a class="btn btn-p mag" href="#demo" data-demo>Book a demo</a>
     </div>
     <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i></i></button>
   </div>
   <div class="mnav" id="mnav">
-    <a href="/how-it-works">How it works</a>
-    <a href="/features">Features</a>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-    <a href="/contact">Contact</a>
+    <a href="/en/how-it-works">How it works</a>
+    <a href="/en/features">Features</a>
+    <a href="/en/pricing">Pricing</a>
+    <a href="/en/about">About</a>
+      <a href="/en/blog">Blog</a>
+    <a href="/en/contact">Contact</a>
     <a class="btn btn-p" href="#demo" data-demo>Book a demo <span class="ar">&#8594;</span></a>
   </div>
 </header>
@@ -850,267 +848,158 @@ body.lock{overflow:hidden}
 <!-- ===== HERO ===== -->
 <section class="phero">
   <div class="mesh" aria-hidden="true">
-    <span class="blob mb1" style="width:54vw;height:54vw;left:-14vw;top:-20vw;background:radial-gradient(circle,rgba(183,118,255,.34),transparent 62%)"></span>
-    <span class="blob mb3" style="width:48vw;height:48vw;right:-10vw;top:-6vw;background:radial-gradient(circle,rgba(33,230,165,.24),transparent 62%)"></span>
+    <span class="blob mb1" style="width:54vw;height:54vw;left:-14vw;top:-18vw;background:radial-gradient(circle,rgba(183,118,255,.34),transparent 62%)"></span>
+    <span class="blob mb2" style="width:46vw;height:46vw;right:-10vw;top:-4vw;background:radial-gradient(circle,rgba(82,213,255,.26),transparent 62%)"></span>
   </div>
   <div class="gridlines" aria-hidden="true"></div>
   <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="in">
-      <h1 id="heroTitle">Stop juggling five sales tools to book one meeting</h1>
-      <p class="lede fade">From finding leads to slipping meetings onto your calendar, SalesBot runs the entire pipeline under one roof.</p>
+      <h1 id="heroTitle">For years, we booked the meetings for ~500 clients. Then we taught the AI how to do it.</h1>
+      <p class="lede fade">SalesBot isn&rsquo;t another random tool built by software devs who never made a cold call. It&rsquo;s a battle-tested B2B agency process, coded into an autonomous platform.</p>
       <div class="cta fade">
         <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Book a demo <span class="ar">&#8594;</span></a>
-        <a class="btn btn-g btn-lg mag" href="/pricing">See pricing</a>
+        <a class="btn btn-g btn-lg mag" href="#team">Meet the team</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ONE PLATFORM ===== -->
-<section class="sec" id="oneplatform" style="padding-top:clamp(30px,4vw,60px)">
-  <div class="mesh" aria-hidden="true"><span class="blob mb2" style="width:56vw;height:56vw;left:50%;top:40%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(183,118,255,.2),transparent 62%)"></span></div>
-  <div class="wrap">
-    <div class="head center" data-rev>
-      <span class="pill">One platform for all</span>
-      <h2>Your tool fatigue is <span class="grad">officially over</span></h2>
-      <p class="lede">Ditch the five separate subscriptions and messy integrations. Lead research, multi-channel messaging, conversation handling, CRM, and calendar booking all run in one single system.</p>
-    </div>
-    <div class="mergebox" id="mergebox">
-      <svg class="mergesvg" id="mergeSvg" aria-hidden="true"></svg>
-      <div class="mnode" data-i="0"><span class="d"></span>Lead research</div>
-      <div class="mnode" data-i="1"><span class="d"></span>Sequencer</div>
-      <div class="mnode" data-i="2"><span class="d"></span>Inbox &amp; replies</div>
-      <div class="mnode" data-i="3"><span class="d"></span>CRM</div>
-      <div class="mnode" data-i="4"><span class="d"></span>Scheduler</div>
-      <div class="mcore" id="mcore">
-        <img src="/logo.png" alt="SalesBot" style="height:24px;width:auto;display:block">
-        <small>One system</small>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CAPABILITIES ===== -->
-<section class="sec" id="stack">
+<!-- ===== STORY ===== -->
+<section class="sec" id="story">
   <div class="wrap">
     <div class="head" data-rev>
-      <span class="pill">Capabilities</span>
-      <h2>Inside the <span class="grad">feature stack</span></h2>
+      <span class="pill">Story time</span>
+      <h2>We built SalesBot for our own agency, and realized&hellip; <span class="grad">you should have it too</span></h2>
     </div>
-
-    <!-- 1 -->
-    <div class="frow" data-rev>
-      <div>
-        <div class="fnum"><b>01</b> Lead research and enrichment</div>
-        <h3>Your ideal buyers, found and filled in automatically</h3>
-        <ul class="flist">
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pulls your ideal buyers from LinkedIn Sales Navigator by title, industry, size, and location</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Enriches the profile with email, phone number, and key company data automatically</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Deduplicates your lists so you never awkwardly pitch anyone you&rsquo;ve already contacted</li>
-        </ul>
-      </div>
-      <div class="fvis">
-        <div class="ui">
-          <div class="ui-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">app.sales-bot.io/audience</div></div>
-          <div class="mini" style="gap:11px">
-            <div class="chips"><span class="chip on">Head of Ops</span><span class="chip on">Manufacturing</span><span class="chip on">50&ndash;500</span><span class="chip on">DACH + HU</span><span class="chip">+ filter</span></div>
-            <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.13em">VERIFIED MATCHES</span><span class="mono" style="margin-left:auto;font-size:16px">4,182</span></div>
-            <div class="rows">
-              <div class="rw"><span class="av">KV</span><span class="ln" style="width:24%"></span><span class="ln" style="width:18%;opacity:.5"></span><span class="tag qa">email + phone</span></div>
-              <div class="rw"><span class="av">RG</span><span class="ln" style="width:30%"></span><span class="ln" style="width:14%;opacity:.5"></span><span class="tag bk">enriched</span></div>
-              <div class="rw" style="opacity:.45"><span class="av">ND</span><span class="ln" style="width:22%"></span><span class="ln" style="width:22%;opacity:.5"></span><span class="tag wt">duplicate &mdash; skipped</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2 -->
-    <div class="frow" data-rev>
-      <div>
-        <div class="fnum"><b>02</b> AI Brain that writes in your unique voice</div>
-        <h3>It learns your pitch, not a template library</h3>
-        <ul class="flist">
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Scans your website, PDFs, or case studies to absorb your entire offer</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Internalizes your services, key benefits, and typical client pushbacks</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Learns your tone of voice and crafts every message around your exact value proposition</li>
-        </ul>
-      </div>
-      <div class="fvis">
-        <div class="ui">
-          <div class="ui-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">app.sales-bot.io/brain</div></div>
-          <div class="mini" style="gap:11px">
-            <div class="rows" style="border:0;background:transparent;gap:7px">
-              <div class="rw" style="border:1px solid var(--line);border-radius:10px"><span class="mono" style="font-size:9px;color:#b776ff">URL</span><span class="ln" style="width:48%"></span><span class="tag qa">Ingested</span></div>
-              <div class="rw" style="border:1px solid var(--line);border-radius:10px"><span class="mono" style="font-size:9px;color:#52d5ff">PDF</span><span class="ln" style="width:36%"></span><span class="tag qa">Ingested</span></div>
-              <div class="rw" style="border:1px solid var(--line);border-radius:10px"><span class="mono" style="font-size:9px;color:#21e6a5">CASE</span><span class="ln" style="width:42%"></span><span class="tag ne">Parsing</span></div>
-            </div>
-            <div class="chips"><span class="chip on">Value prop</span><span class="chip on">Objections</span><span class="chip on">Tone: consultative</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3 -->
-    <div class="frow" data-rev>
-      <div>
-        <div class="fnum"><b>03</b> Multi-channel outreach</div>
-        <h3>LinkedIn, email &mdash; and beyond when you want it</h3>
-        <ul class="flist">
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Handles LinkedIn connection requests followed by personalized message sequences</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sends organic-looking emails directly from your own mailbox</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Multi-touch expansion: optional SMS and AI voice outreach built for strict EU compliance</li>
-        </ul>
-      </div>
-      <div class="fvis">
-        <div class="ui">
-          <div class="ui-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">app.sales-bot.io/channels</div></div>
-          <div class="mini" style="gap:11px">
-            <div class="chips"><span class="chip on">LinkedIn</span><span class="chip on">Email</span><span class="chip on">SMS</span><span class="chip on">AI Voice</span></div>
-            <div class="rows" style="border:0;background:transparent;gap:7px">
-              <div class="rw" style="border:1px solid var(--line);border-radius:10px"><span class="mono" style="font-size:9px;color:#b776ff">D0</span><span class="ln" style="width:44%"></span><span class="tag ne">Connect</span></div>
-              <div class="rw" style="border:1px solid var(--line);border-radius:10px"><span class="mono" style="font-size:9px;color:#52d5ff">D3</span><span class="ln" style="width:56%"></span><span class="tag bk">Email</span></div>
-              <div class="rw" style="border:1px solid var(--line);border-radius:10px"><span class="mono" style="font-size:9px;color:#21e6a5">D7</span><span class="ln" style="width:38%"></span><span class="tag qa">Follow-up</span></div>
-            </div>
-            <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#21e6a5">&#9679; sent from your own mailbox</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="frow" data-rev>
-      <div>
-        <div class="fnum"><b>04</b> AI conversations, matched to temperature</div>
-        <h3>It reads the room, then books the room</h3>
-        <ul class="flist">
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Runs classic sales pitches, casual conversation-starters, or content-sharing campaign styles</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Handles objections and manages multi-turn chats without losing context</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Checks your availability, offers open slots, and locks meetings</li>
-        </ul>
-      </div>
-      <div class="fvis">
-        <div class="ui">
-          <div class="ui-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">linkedin.com/messaging</div><span class="mono" style="font-size:10px;color:#21e6a5">&#9679; AI</span></div>
-          <div class="ui-chat">
-            <div class="msg them"><span class="who">Prospect</span>Honestly this sounds expensive for what we need.</div>
-            <div class="msg you"><span class="who">SalesBot AI</span>Fair — most teams your size recover it in the first two closed deals. Want the 20-min version so you can judge for yourself?</div>
-            <div class="msg them"><span class="who">Prospect</span>Alright. Thursday afternoon?</div>
-            <div class="msg you" style="padding:8px 12px"><span class="who">Calendar checked</span>Thu 14:30 confirmed &#10003;</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="frow" data-rev>
-      <div>
-        <div class="fnum"><b>05</b> Built-in CRM &amp; calendar</div>
-        <h3>Everything in one place, with the answer already written</h3>
-        <ul class="flist">
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Logs pipelines, lead timelines, activity histories, and notes</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Gives quick &ldquo;Where does this stand?&rdquo; AI analysis on every lead</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Integrates with Google and Microsoft Outlook calendars to book calls straight onto your schedule</li>
-        </ul>
-      </div>
-      <div class="fvis">
-        <div class="ui">
-          <div class="ui-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">app.sales-bot.io/crm</div></div>
-          <div class="mini" style="gap:11px">
-            <div class="kpis">
-              <div class="kpi"><span>Open threads</span><b>128</b></div>
-              <div class="kpi"><span>Qualified</span><b>41</b></div>
-              <div class="kpi"><span>Booked</span><b>17</b></div>
-            </div>
-            <div class="rows">
-              <div class="rw"><span class="av">GK</span><span class="ln" style="width:24%"></span><span class="ln" style="width:26%;opacity:.5"></span><span class="tag qa">Qualified</span></div>
-              <div class="rw"><span class="av">SV</span><span class="ln" style="width:32%"></span><span class="ln" style="width:16%;opacity:.5"></span><span class="tag bk">Booked</span></div>
-            </div>
-            <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#b776ff">AI: waiting on procurement sign-off &middot; nudge in 3d</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6 -->
-    <div class="frow" data-rev>
-      <div>
-        <div class="fnum"><b>06</b> AI voice agent that calls</div>
-        <h3>Natural English and Hungarian, grounded in your knowledge</h3>
-        <ul class="flist">
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Speaks natural English and Hungarian grounded entirely in your company knowledge</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Delivers call transcripts, AI lead scoring, and actionable coaching tips</li>
-          <li><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#b776ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Offers Practice Mode: the AI plays the prospect, your team pitches</li>
-        </ul>
-      </div>
-      <div class="fvis">
-        <div class="ui">
-          <div class="ui-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">salesbot &mdash; voice agent</div><span class="mono" style="font-size:10px;color:#21e6a5">&#9679; 04:12</span></div>
-          <div class="mini" style="gap:11px">
-            <div class="bars" style="height:44px"><i style="height:30%"></i><i style="height:62%"></i><i style="height:44%"></i><i style="height:88%"></i><i style="height:56%"></i><i style="height:72%"></i><i style="height:38%"></i><i style="height:90%"></i><i style="height:48%"></i><i style="height:66%"></i></div>
-            <div class="chips"><span class="chip on">EN</span><span class="chip on">HU</span><span class="chip">Practice Mode</span></div>
-            <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.13em">AI LEAD SCORE</span><span class="mono" style="margin-left:auto;font-size:14px;color:#21e6a5">88</span></div>
-            <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#b776ff">Coaching: slow down on the pricing objection</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ol class="tl" id="tl" data-rev>
+      <span class="rail" aria-hidden="true"><i id="tlFill"></i></span>
+      <li>
+        <span class="yr">2017</span>
+        <h3>Blackhole Media starts</h3>
+        <p>Back in 2017, we launched Blackhole Media with a simple mission: kill off generic, fluff-filled B2B marketing and replace it with predictable lead flow.</p>
+      </li>
+      <li>
+        <span class="yr">2018</span>
+        <h3>The first SalesBot, built for ourselves</h3>
+        <p>To do that without losing our minds, we coded the initial version of SalesBot in 2018 to handle our internal LinkedIn outreach. It worked better than we ever imagined.</p>
+      </li>
+      <li>
+        <span class="yr">2018 &ndash; today</span>
+        <h3>Millions of personalized touches</h3>
+        <p>Over the next years, SalesBot was the engine behind millions of personalized touches and hundreds of millions in client pipeline.</p>
+      </li>
+      <li>
+        <span class="yr">Now</span>
+        <h3>Rebuilt from the ground up for the AI era</h3>
+        <p>When old-school lead gen started slowing down and AI matured, we rebuilt SalesBot from the ground up. We replaced cold broadcast templates with deep company context, natural conversations, and strict compliance. Now, you don&rsquo;t need a 16-person agency team to fill your calendar, you just need to switch SalesBot on.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- ===== CONTROL & COMPLIANCE ===== -->
-<section class="sec" id="control">
+<!-- ===== PRINCIPLES ===== -->
+<section class="sec" id="principles">
+  <div class="mesh" aria-hidden="true"><span class="blob mb3" style="width:50vw;height:50vw;right:-12vw;top:6%;background:radial-gradient(circle,rgba(33,230,165,.16),transparent 64%)"></span></div>
   <div class="wrap">
     <div class="head" data-rev>
-      <span class="pill">Control and compliance</span>
-      <h2>You set the rules, <span class="grad">SalesBot stays in its lane</span></h2>
-      <p class="lede">Dial the AI&rsquo;s autonomy up or down anytime, enforce strict daily sending limits, and sleep easy knowing it operates strictly within compliance.</p>
+      <span class="pill">Principles</span>
+      <h2>A few <span class="grad">non-negotiables</span></h2>
     </div>
     <div class="bento b8" data-rev>
       <div class="tile spot">
-        <span class="k">Autonomy</span>
-        <div class="dial" id="dial" role="tablist" aria-label="Autonomy level" style="margin-top:16px">
-          <button type="button" class="on" role="tab" aria-selected="true" data-mode="0">Suggest</button>
-          <button type="button" role="tab" aria-selected="false" data-mode="1">Assisted</button>
-          <button type="button" role="tab" aria-selected="false" data-mode="2">Autonomous</button>
-        </div>
-        <div class="modetxt" id="modeTxt" aria-live="polite" style="margin-top:22px;min-height:120px">
-          <h3 id="modeH">Suggest Mode</h3>
-          <p id="modeP">Perfect for week one. The AI drafts, you send.</p>
-          <div class="modesteps" id="modeSteps"></div>
-        </div>
+        <span class="k">01 &middot; Substance over spam</span>
+        <p class="v" style="margin-top:12px">One thoughtful, relevant message will always beat a thousand cold templates.</p>
       </div>
       <div class="tile spot">
-        <span class="k">Guardrails</span>
-        <div class="vis" style="margin-top:16px">
-          <div class="mini" style="gap:12px">
-            <div class="ui-row"><span class="mono" style="font-size:9.5px;color:#7c7c93;letter-spacing:.13em">DAILY SENDING LIMIT</span><span class="mono" style="margin-left:auto;font-size:9.5px">38 / 60</span></div>
-            <div class="meter"><i style="width:63%"></i></div>
-            <div class="chips"><span class="chip on">Quiet hours 20:00&ndash;08:00</span><span class="chip on">Auto opt-out</span><span class="chip on">Domain rate-limit</span><span class="chip on">GDPR</span></div>
-            <div class="term" style="padding:0;font-size:11px">
-              <div class="l"><span class="gr">&#10003;</span><span>opt-out processed &middot; removed from all sequences</span></div>
-              <div class="l"><span class="am">&#9208;</span><span>outside quiet hours &mdash; queued for 08:00</span></div>
-            </div>
-          </div>
+        <span class="k">02 &middot; Outsource the grit, keep the relationship</span>
+        <p class="v" style="margin-top:12px">Let the software handle the repetitive work; you jump in when it&rsquo;s time to consolidate trust and sign contracts.</p>
+      </div>
+      <div class="tile spot">
+        <span class="k">03 &middot; Control and transparency</span>
+        <p class="v" style="margin-top:12px">You choose how much autonomy SalesBot gets, with total visibility into every conversation and action.</p>
+      </div>
+      <div class="tile spot">
+        <span class="k">04 &middot; EU-first compliance</span>
+        <p class="v" style="margin-top:12px">Automatic opt-out processing, strict local quiet hours (no 2 AM emails), safe daily sending limits, and GDPR-conscious data handling.</p>
+        <div class="chips" style="margin-top:20px"><span class="chip on">Opt-out</span><span class="chip on">Quiet hours</span><span class="chip on">Rate limits</span><span class="chip on">GDPR</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section class="sec" id="results">
+  <div class="wrap">
+    <div class="head" data-rev>
+      <span class="pill">Results</span>
+      <h2>The numbers we brag about at <span class="grad">dinner parties</span></h2>
+      <p class="lede">~500 clients. Lots of client revenue generated.</p>
+    </div>
+
+    <div class="bento b7" data-rev>
+      <div class="tile spot stat">
+        <span class="k">Single client &middot; 9 months</span>
+        <span class="n grad" data-count="3" data-dec="0" data-suffix="M &euro;">3M &euro;</span>
+        <p>Extra revenue in 9 months, with a single client.</p>
+        <div class="spark"><i style="height:18%"></i><i style="height:26%"></i><i style="height:22%"></i><i style="height:38%"></i><i style="height:46%"></i><i style="height:41%"></i><i style="height:62%"></i><i style="height:74%"></i><i style="height:68%"></i><i style="height:92%"></i><i style="height:100%"></i></div>
+      </div>
+      <div class="tile spot stat">
+        <span class="k">First year &middot; one campaign</span>
+        <span class="n grad" data-count="72" data-dec="0" data-suffix="">72</span>
+        <p>New clients in the first year with one SalesBot campaign.</p>
+        <div class="spark"><i style="height:22%"></i><i style="height:30%"></i><i style="height:44%"></i><i style="height:36%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:84%"></i><i style="height:76%"></i><i style="height:100%"></i></div>
+      </div>
+      <div class="tile spot stat">
+        <span class="k">Typical &middot; first 3 months</span>
+        <span class="n grad" data-count="300" data-dec="0" data-suffix="k USD+">300k USD+</span>
+        <p>Sales pipeline generated typically within the first 3 months.</p>
+        <div class="spark"><i style="height:14%"></i><i style="height:24%"></i><i style="height:33%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:64%"></i><i style="height:72%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:95%"></i><i style="height:100%"></i></div>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(38px,5vw,64px)">
+      <span class="pill">Trusted by industry leaders</span>
+      <div class="marq" aria-label="Client logos">
+        <div class="mt">
+          <span>SAP</span><span>Hexagon</span><span>Generali</span><span>Mitsubishi Electric</span><span>Wellis</span><span>BNI</span>
+          <span>SAP</span><span>Hexagon</span><span>Generali</span><span>Mitsubishi Electric</span><span>Wellis</span><span>BNI</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section class="sec" id="faq">
+<!-- ===== TEAM ===== -->
+<section class="sec" id="team">
   <div class="wrap">
-    <div class="head center" data-rev>
-      <span class="pill">FAQ</span>
-      <h2>Frequently asked questions</h2>
+    <div class="head" data-rev>
+      <span class="pill">Team</span>
+      <h2>The people behind the <span class="grad">machine</span></h2>
     </div>
-    <div class="faq" data-rev>
-      <details><summary>Does SalesBot send outreach directly from my own accounts?<span class="tg" aria-hidden="true"></span></summary><p class="ans">Yes. Outreach is dispatched natively from your verified LinkedIn profile and connected Google Workspace or Microsoft Outlook mailboxes.</p></details>
-      <details><summary>How does SalesBot prevent double-pitching or contacting current clients?<span class="tg" aria-hidden="true"></span></summary><p class="ans">SalesBot&rsquo;s smart deduplication engine automatically cross-checks active pipeline leads, imported blacklists, and past conversations. You will never awkwardly cold-pitch an existing client or someone you spoke with last week.</p></details>
-      <details><summary>How does SalesBot personalize messages without sounding like spam?<span class="tg" aria-hidden="true"></span></summary><p class="ans">SalesBot reads each prospect&rsquo;s LinkedIn profile, company website, and recent activity. Combined with your custom AI Brain, it generates context-driven opening lines and value propositions tailored to the individual prospect.</p></details>
-      <details><summary>Does SalesBot work for international outbound sales in multiple countries?<span class="tg" aria-hidden="true"></span></summary><p class="ans">Yes. SalesBot supports multi-region prospecting with localized quiet hours, custom time zone delivery, and language adaptability. You can target decision-makers globally.</p></details>
+    <div class="team" data-rev>
+      <div class="tile spot lead">
+        <div class="who2"><span class="face">B</span><span><span class="nm">Balazs</span><span class="role">Co-Founder</span></span></div>
+        <p>I&rsquo;m Balazs, Co-Founder, and the one focused on business development, strategy, and building a team that keeps Blackhole and now SalesBot ahead of the competition. I specialize in the industrial and software industries, helping our clients grow through smarter processes, AI-driven solutions, and strategies that actually move the needle.</p>
+        <p>When I&rsquo;m not diving into new ideas or fine-tuning our systems, you&rsquo;ll probably find me on the road (traveling is my biggest passion), experimenting in the kitchen, or keeping active with running, gym sessions, and a game of padel.</p>
+      </div>
+      <div class="tile spot lead">
+        <div class="who2"><span class="face">M</span><span><span class="nm">Marton</span><span class="role">Co-Founder</span></span></div>
+        <p>I&rsquo;m Marton, co-founder, lead strategist, and the guy who makes sure Blackhole and SalesBot stay ahead of the game. I specialize in helping industrial and manufacturing clients do marketing that actually helps their business grow. No buzzwords, just innovative strategies and measurable results.</p>
+        <p>When I&rsquo;m not obsessing over strategy or reading up on the latest B2B marketing and technology trends, I&rsquo;m probably traveling, hunting down the perfect steak, or admiring beautiful cars. I also keep my competitive side sharp with squash and cycling because growth isn&rsquo;t just for business, it&rsquo;s personal.</p>
+      </div>
+      <div class="tile spot m">
+        <div class="who2"><span class="face">B</span><span><span class="nm">Bogi</span><span class="role">Head of Accounts &amp; Strategy</span></span></div>
+        <p>Your strategist, your advisor, your problem-solver. The glue behind every successful campaign.</p>
+      </div>
+      <div class="tile spot m">
+        <div class="who2"><span class="face">R</span><span><span class="nm">Roman</span><span class="role">Head of Business Development &amp; Outbound</span></span></div>
+        <p>Outreach wizard and sales system architect. Turns your marketing into a lead generation machine.</p>
+      </div>
+      <div class="tile spot m">
+        <div class="who2"><span class="face">J</span><span><span class="nm">Janko</span><span class="role">Head of Content</span></span></div>
+        <p>The storyteller behind the stories. Ensures your brand sounds as good as it looks.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1124,7 +1013,7 @@ body.lock{overflow:hidden}
     <i style="width:34%;height:34%"></i><i style="width:52%;height:52%"></i><i style="width:70%;height:70%"></i><i style="width:88%;height:88%"></i><i style="width:106%;height:106%"></i>
   </div>
   <div class="wrap">
-    <p class="bl bl3 grad" id="cl3">Ready to stop spending 15 hours a week in LinkedIn DMs?</p>
+    <p class="bl bl3 grad" id="cl3">Your calendar won&rsquo;t fill itself. (Unless you let SalesBot do it.)</p>
     <a class="btn btn-p btn-lg mag" href="#demo" data-demo id="closeBtn">Book a demo <span class="ar">&#8594;</span></a>
   </div>
 </section>
@@ -1136,18 +1025,18 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="foot">
       <div class="col">
-        <a class="logo" href="/" aria-label="SalesBot home">
+        <a class="logo" href="/en" aria-label="SalesBot home">
           <img src="/logo.png" alt="SalesBot" style="height:42px;width:auto;display:block">
         </a>
         <p>The AI SDR that finds decision-makers, starts real conversations, and books meetings straight into your calendar.</p>
       </div>
       <nav aria-label="Footer">
-        <a href="/how-it-works">How it works</a>
-        <a href="/features">Features</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-        <a href="/contact">Contact</a>
+        <a href="/en/how-it-works">How it works</a>
+        <a href="/en/features">Features</a>
+        <a href="/en/pricing">Pricing</a>
+        <a href="/en/about">About</a>
+      <a href="/en/blog">Blog</a>
+        <a href="/en/contact">Contact</a>
       </nav>
     </div>
     <div class="footbot">
@@ -1647,75 +1536,14 @@ body.lock{overflow:hidden}
 <script>
 (function () {
   var S = window.SB; if (!S) return;
-  var $ = S.$, $$ = S.$$;
-
-  /* ---- five tools collapsing into one ---- */
-  var box = $('#mergebox'), core = $('#mcore'), svg = $('#mergeSvg');
-  if (box && core) {
-    var nodes = $$('.mnode', box), N = nodes.length, geo = [];
-    function layout() {
-      var w = box.clientWidth, h = box.clientHeight;
-      var rx = Math.min(w * .40, 340), ry = Math.min(h * .40, 150);
-      geo = nodes.map(function (n, i) {
-        var a = (-Math.PI / 2) + (i / N) * Math.PI * 2;
-        return { x: Math.cos(a) * rx, y: Math.sin(a) * ry, el: n };
-      });
-      if (svg) {
-        svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-        svg.innerHTML = geo.map(function (g) {
-          return '<line x1="' + (w / 2 + g.x) + '" y1="' + (h / 2 + g.y) + '" x2="' + (w / 2) + '" y2="' + (h / 2) +
-            '" stroke="url(#lgStroke)" stroke-width="1.2" opacity=".35"/>';
-        }).join('');
-      }
-    }
-    function paint(p) {
-      /* hold: keep the five tools readable through the first stretch,
-         then run the merge in the remaining window */
-      var t = S.smooth(S.clamp((p - .22) / .78, 0, 1));
-      geo.forEach(function (g, i) {
-        var k = S.clamp(S.stag(t, i, N, .1), 0, 1);
-        var d = 1 - k;
-        g.el.style.transform = 'translate(-50%,-50%) translate(' + (g.x * d).toFixed(1) + 'px,' + (g.y * d).toFixed(1) + 'px) scale(' + (1 - k * .35).toFixed(3) + ')';
-        g.el.style.opacity = (1 - k * .95).toFixed(3);
-      });
-      core.style.transform = 'translate(-50%,-50%) scale(' + (.72 + t * .28).toFixed(3) + ')';
-      core.style.opacity = (.25 + t * .75).toFixed(3);
-      if (svg) svg.style.opacity = (1 - t).toFixed(3);
-    }
-    layout();
-    if (S.RM) { paint(1); }
+  var tl = S.$('#tl'), fill = S.$('#tlFill');
+  if (tl && fill) {
+    if (S.RM) { fill.style.height = '100%'; }
     else {
-      S.reg(box, function (p) { paint(p); }, { s: .58, e: .06 });
-      addEventListener('resize', function () { layout(); }, { passive: true });
+      S.reg(tl, function (p) { fill.style.height = (S.smooth(p) * 100).toFixed(2) + '%'; }, { s: .86, e: .34 });
+      S.measure(); S.tick();
     }
   }
-
-  /* ---- autonomy dial ---- */
-  var MODES = [
-    { h: 'Suggest Mode', p: 'The AI generates drafts for review, and you hit send.',
-      steps: [['ai', 'AI drafts'], ['you', 'You review'], ['you', 'You send']] },
-    { h: 'Assisted Mode', p: 'The AI prepares, queues, and schedules messages, waiting for your quick green light before dispatching.',
-      steps: [['ai', 'AI prepares'], ['ai', 'AI queues'], ['you', 'You approve']] },
-    { h: 'Autonomous Mode', p: 'The AI handles prospect sourcing, outreach, replies, and calendar bookings independently within your predefined guardrails.',
-      steps: [['ai', 'AI sends'], ['ai', 'AI replies'], ['ai', 'AI books']] }
-  ];
-  var dial = $('#dial');
-  if (dial) {
-    var mh = $('#modeH'), mp = $('#modeP'), ms = $('#modeSteps');
-    function render(i) {
-      var M = MODES[i];
-      mh.textContent = M.h; mp.textContent = M.p;
-      ms.innerHTML = M.steps.map(function (s) { return '<span class="' + s[0] + '">' + s[1] + '</span>'; }).join('<i>→</i>');
-      $$('button', dial).forEach(function (b, n) {
-        b.classList.toggle('on', n === i);
-        b.setAttribute('aria-selected', n === i ? 'true' : 'false');
-      });
-    }
-    $$('button', dial).forEach(function (b) { b.addEventListener('click', function () { render(+b.dataset.mode); }); });
-    render(0);
-  }
-
-  if (!S.RM) { S.measure(); S.tick(); }
 })();
 </script>
 <script defer src="/lead.js"></script>

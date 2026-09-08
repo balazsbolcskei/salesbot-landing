@@ -135,7 +135,7 @@ section{position:relative}
 .navlinks a{padding:.68rem .9rem;border-radius:999px;font-size:.88rem;color:var(--dim);transition:color .22s,background-color .22s}
 .navlinks a:hover{color:var(--text);background:rgba(255,255,255,.06)}
 .navact{display:flex;align-items:center;gap:.6rem}
-.lang{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--dim);border:1px solid var(--line);border-radius:999px;height:36px;min-width:44px;padding:0 .7rem;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
+.lang{text-decoration:none;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--dim);border:1px solid var(--line);border-radius:999px;height:36px;min-width:44px;padding:0 .7rem;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
 .lang:hover{color:var(--text);border-color:var(--line2)}
 .burger{display:none;width:44px;height:44px;margin-left:auto;place-items:center;border-radius:12px;border:1px solid var(--line)}
 .burger i{display:block;width:16px;height:1.5px;background:var(--text);position:relative;transition:.3s}
@@ -817,30 +817,30 @@ body.lock{overflow:hidden}
 <!-- ===================== NAV ===================== -->
 <header class="nav" id="nav">
   <div class="wrap navin">
-    <a class="logo" href="/" aria-label="SalesBot home">
+    <a class="logo" href="/en" aria-label="SalesBot home">
       <img src="/logo.png" alt="SalesBot" style="height:48px;width:auto;display:block">
     </a>
     <nav class="navlinks" aria-label="Primary">
-      <a href="/how-it-works">How it works</a>
-      <a href="/features">Features</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-      <a href="/contact" class="act" aria-current="page">Contact</a>
+      <a href="/en/how-it-works">How it works</a>
+      <a href="/en/features">Features</a>
+      <a href="/en/pricing">Pricing</a>
+      <a href="/en/about">About</a>
+      <a href="/en/blog">Blog</a>
+      <a href="/en/contact" class="act" aria-current="page">Contact</a>
     </nav>
     <div class="navact">
-      <button class="lang" type="button" aria-label="Switch language to Hungarian">HU</button>
+      <a class="lang" href="/kapcsolat" onclick="localStorage.setItem('lang_override','hu')" aria-label="Magyar változat">HU</a>
       <a class="btn btn-p mag" href="#demo" data-demo>Book a demo</a>
     </div>
     <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i></i></button>
   </div>
   <div class="mnav" id="mnav">
-    <a href="/how-it-works">How it works</a>
-    <a href="/features">Features</a>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-    <a href="/contact">Contact</a>
+    <a href="/en/how-it-works">How it works</a>
+    <a href="/en/features">Features</a>
+    <a href="/en/pricing">Pricing</a>
+    <a href="/en/about">About</a>
+      <a href="/en/blog">Blog</a>
+    <a href="/en/contact">Contact</a>
     <a class="btn btn-p" href="#demo" data-demo>Book a demo <span class="ar">&#8594;</span></a>
   </div>
 </header>
@@ -934,18 +934,18 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="foot">
       <div class="col">
-        <a class="logo" href="/" aria-label="SalesBot home">
+        <a class="logo" href="/en" aria-label="SalesBot home">
           <img src="/logo.png" alt="SalesBot" style="height:42px;width:auto;display:block">
         </a>
         <p>The AI SDR that finds decision-makers, starts real conversations, and books meetings straight into your calendar.</p>
       </div>
       <nav aria-label="Footer">
-        <a href="/how-it-works">How it works</a>
-        <a href="/features">Features</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-        <a href="/contact">Contact</a>
+        <a href="/en/how-it-works">How it works</a>
+        <a href="/en/features">Features</a>
+        <a href="/en/pricing">Pricing</a>
+        <a href="/en/about">About</a>
+      <a href="/en/blog">Blog</a>
+        <a href="/en/contact">Contact</a>
       </nav>
     </div>
     <div class="footbot">

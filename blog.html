@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SalesBot Blog — Outbound playbooks &amp; insights</title>
-<meta name="description" content="Playbooks, teardowns, and lessons from thousands of B2B outbound campaigns.">
+<title>SalesBot Blog: outbound playbookok és tanulságok</title>
+<meta name="description" content="Playbookok, esettanulmányok és tanulságok több ezer B2B outbound kampányból.">
 <meta name="theme-color" content="#050507">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,7 +135,7 @@ section{position:relative}
 .navlinks a{padding:.68rem .9rem;border-radius:999px;font-size:.88rem;color:var(--dim);transition:color .22s,background-color .22s}
 .navlinks a:hover{color:var(--text);background:rgba(255,255,255,.06)}
 .navact{display:flex;align-items:center;gap:.6rem}
-.lang{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--dim);border:1px solid var(--line);border-radius:999px;height:36px;min-width:44px;padding:0 .7rem;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
+.lang{text-decoration:none;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--dim);border:1px solid var(--line);border-radius:999px;height:36px;min-width:44px;padding:0 .7rem;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
 .lang:hover{color:var(--text);border-color:var(--line2)}
 .burger{display:none;width:44px;height:44px;margin-left:auto;place-items:center;border-radius:12px;border:1px solid var(--line)}
 .burger i{display:block;width:16px;height:1.5px;background:var(--text);position:relative;transition:.3s}
@@ -817,31 +817,31 @@ body.lock{overflow:hidden}
 <!-- ===================== NAV ===================== -->
 <header class="nav" id="nav">
   <div class="wrap navin">
-    <a class="logo" href="/" aria-label="SalesBot home">
+    <a class="logo" href="/" aria-label="SalesBot főoldal">
       <img src="/logo.png" alt="SalesBot" style="height:48px;width:auto;display:block">
     </a>
-    <nav class="navlinks" aria-label="Primary">
-      <a href="/how-it-works">How it works</a>
-      <a href="/features">Features</a>
-      <a href="/pricing" class="act" aria-current="page">Pricing</a>
-      <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-      <a href="/contact">Contact</a>
+    <nav class="navlinks" aria-label="Elsődleges">
+      <a href="/hogyan-mukodik">Hogyan működik</a>
+      <a href="/funkciok">Funkciók</a>
+      <a href="/arak">Árak</a>
+      <a href="/rolunk">Rólunk</a>
+      <a href="/blog" class="act" aria-current="page">Blog</a>
+      <a href="/kapcsolat">Kapcsolat</a>
     </nav>
     <div class="navact">
-      <button class="lang" type="button" aria-label="Switch language to Hungarian">HU</button>
-      <a class="btn btn-p mag" href="#demo" data-demo>Book a demo</a>
+      <a class="lang" href="/en/blog" onclick="localStorage.setItem('lang_override','en')" aria-label="English version">EN</a>
+      <a class="btn btn-p mag" href="#demo" data-demo>Foglalj demót</a>
     </div>
-    <button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i></i></button>
+    <button class="burger" type="button" id="burger" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mnav"><i></i></button>
   </div>
   <div class="mnav" id="mnav">
-    <a href="/how-it-works">How it works</a>
-    <a href="/features">Features</a>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
+    <a href="/hogyan-mukodik">Hogyan működik</a>
+    <a href="/funkciok">Funkciók</a>
+    <a href="/arak">Árak</a>
+    <a href="/rolunk">Rólunk</a>
       <a href="/blog">Blog</a>
-    <a href="/contact">Contact</a>
-    <a class="btn btn-p" href="#demo" data-demo>Book a demo <span class="ar">&#8594;</span></a>
+    <a href="/kapcsolat">Kapcsolat</a>
+    <a class="btn btn-p" href="#demo" data-demo>Foglalj demót <span class="ar">&#8594;</span></a>
   </div>
 </header>
 <main id="top">
@@ -856,10 +856,10 @@ body.lock{overflow:hidden}
   <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="in">
-      <h1 id="heroTitle">Insights from the outbound trenches</h1>
-      <p class="lede fade">Playbooks, teardowns, and lessons from thousands of B2B campaigns. The first posts are being written right now.</p>
+      <h1 id="heroTitle">Tanulságok az outbound frontvonalából</h1>
+      <p class="lede fade">Playbookok, elemzések és tanulságok több ezer B2B kampányból. Az első cikkek már készülnek.</p>
       <div class="cta fade">
-        <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Book a demo <span class="ar">&#8594;</span></a>
+        <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Foglalj egy ingyenes demót <span class="ar">&#8594;</span></a>
         
       </div>
     </div>
@@ -879,28 +879,28 @@ body.lock{overflow:hidden}
 <section class="sec" id="posts" style="padding-top:clamp(30px,4vw,60px)">
   <div class="wrap">
     <div class="head" data-rev>
-      <span class="pill">Latest</span>
-      <h2>What we&rsquo;re writing <span class="grad">right now</span></h2>
-      <p class="lede">Real campaigns, real numbers, no fluff. Subscribe by booking a demo &mdash; we share everything on the call anyway.</p>
+      <span class="pill">Friss</span>
+      <h2>Amit <span class="grad">éppen most</span> írunk</h2>
+      <p class="lede">Valódi kampányok, valódi számok, semmi mellébeszélés. Ha nem akarsz a cikkekre várni, foglalj demót, ott úgyis mindent megosztunk.</p>
     </div>
     <div class="posts" data-rev>
       <article class="post">
-        <span class="ptag">Outbound strategy</span>
-        <h3>Why 10,000 cold emails lose to 200 right ones</h3>
-        <p>The math behind precision outreach: how a hand-picked list of decision-makers outperforms bulk sends on every metric that matters.</p>
-        <span class="soon">Coming soon</span>
+        <span class="ptag">Outbound stratégia</span>
+        <h3>Miért ver 200 jól célzott email 10&nbsp;000 hideg megkeresést</h3>
+        <p>A célzott megkeresés matematikája: hogyan hoz jobb eredményt egy gondosan összeállított döntéshozói lista a tömeges küldésnél minden fontos mutatóban.</p>
+        <span class="soon">Hamarosan</span>
       </article>
       <article class="post">
         <span class="ptag">Playbook</span>
-        <h3>The anatomy of a LinkedIn message that gets replies</h3>
-        <p>We dissected thousands of first messages from real campaigns. Here is what separates the 40%+ reply rates from the ignored.</p>
-        <span class="soon">Coming soon</span>
+        <h3>Milyen az a LinkedIn üzenet, amire tényleg válaszolnak</h3>
+        <p>Több ezer első üzenetet elemeztünk valódi kampányokból. Megmutatjuk, mitől ér el egy üzenet 40% feletti válaszadási arányt, és mitől marad válasz nélkül.</p>
+        <span class="soon">Hamarosan</span>
       </article>
       <article class="post">
-        <span class="ptag">Product</span>
-        <h3>From first touch to booked call: what the AI actually does</h3>
-        <p>A transparent walkthrough of a single lead&rsquo;s journey through SalesBot &mdash; every decision the AI made, and why.</p>
-        <span class="soon">Coming soon</span>
+        <span class="ptag">Termék</span>
+        <h3>Az első megkereséstől a lefoglalt meetingig: mit csinál valójában az AI</h3>
+        <p>Átlátható végigvezetés egy lead útján a SalesBotban: minden döntés, amit az AI meghozott, és hogy miért.</p>
+        <span class="soon">Hamarosan</span>
       </article>
     </div>
   </div>
@@ -914,8 +914,8 @@ body.lock{overflow:hidden}
     <i style="width:34%;height:34%"></i><i style="width:52%;height:52%"></i><i style="width:70%;height:70%"></i><i style="width:88%;height:88%"></i><i style="width:106%;height:106%"></i>
   </div>
   <div class="wrap">
-    <p class="bl bl3 grad" id="cl3">Want the lessons applied to your pipeline?</p>
-    <a class="btn btn-p btn-lg mag" href="#demo" data-demo id="closeBtn">Book a demo <span class="ar">&#8594;</span></a>
+    <p class="bl bl3 grad" id="cl3">Szeretnéd mindezt a saját sales pipeline-odban látni?</p>
+    <a class="btn btn-p btn-lg mag" href="#demo" data-demo id="closeBtn">Foglalj egy ingyenes demót <span class="ar">&#8594;</span></a>
   </div>
 </section>
 
@@ -926,23 +926,23 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="foot">
       <div class="col">
-        <a class="logo" href="/" aria-label="SalesBot home">
+        <a class="logo" href="/" aria-label="SalesBot főoldal">
           <img src="/logo.png" alt="SalesBot" style="height:42px;width:auto;display:block">
         </a>
-        <p>The AI SDR that finds decision-makers, starts real conversations, and books meetings straight into your calendar.</p>
+        <p>Az AI SDR, ami megtalálja a döntéshozókat, valódi beszélgetéseket indít, és egyenesen a naptáradba foglalja a meetingeket.</p>
       </div>
-      <nav aria-label="Footer">
-        <a href="/how-it-works">How it works</a>
-        <a href="/features">Features</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/about">About</a>
+      <nav aria-label="Lábléc">
+        <a href="/hogyan-mukodik">Hogyan működik</a>
+        <a href="/funkciok">Funkciók</a>
+        <a href="/arak">Árak</a>
+        <a href="/rolunk">Rólunk</a>
       <a href="/blog">Blog</a>
-        <a href="/contact">Contact</a>
+        <a href="/kapcsolat">Kapcsolat</a>
       </nav>
     </div>
     <div class="footbot">
-      <span>&copy; <span id="yr">2026</span> SalesBot. All rights reserved.</span>
-      <nav aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a></nav>
+      <span>&copy; <span id="yr">2026</span> SalesBot. Minden jog fenntartva.</span>
+      <nav aria-label="Jogi információk"><a href="/adatkezelesi-tajekoztato">Adatkezelési tájékoztató</a><a href="/aszf">ÁSZF</a></nav>
     </div>
   </div>
 </footer>
@@ -951,20 +951,20 @@ body.lock{overflow:hidden}
 <div class="modal" id="demo" role="dialog" aria-modal="true" aria-labelledby="demoTitle" aria-hidden="true">
   <div class="mbd" data-close></div>
   <div class="mcard">
-    <button class="close" type="button" data-close aria-label="Close dialog">
+    <button class="close" type="button" data-close aria-label="Ablak bezárása">
       <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </button>
-    <span class="pill">30 minutes</span>
-    <h2 id="demoTitle" style="margin-top:16px">Book a free demo</h2>
-    <p class="sub">We map SalesBot to your market and your ideal clients &mdash; no slides, just your pipeline.</p>
+    <span class="pill">30 perc</span>
+    <h2 id="demoTitle" style="margin-top:16px">Foglalj egy ingyenes demót</h2>
+    <p class="sub">Megnézzük, hogyan működne a SalesBot a te piacodon és a te ideális ügyfeleiddel. Semmi diasor, csak a te pipeline-od.</p>
     <form id="demoForm" novalidate>
-      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-      <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-      <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
-      <div class="field"><label for="f-msg">Who do you want to reach?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
-      <button class="btn btn-p btn-lg" type="submit">Request my demo <span class="ar">&#8594;</span></button>
-      <p class="fine" id="formNote">No credit card. No commitment.</p>
+      <div class="field"><label for="f-name">Név</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Céges email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-phone">Telefonszám</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+      <div class="field"><label for="f-co">Cég</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
+      <div class="field"><label for="f-msg">Kiket szeretnél elérni?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+      <button class="btn btn-p btn-lg" type="submit">Kérem a demót <span class="ar">&#8594;</span></button>
+      <p class="fine" id="formNote">Nincs bankkártya. Nincs elköteleződés.</p>
     </form>
   </div>
 </div>
@@ -1020,14 +1020,14 @@ body.lock{overflow:hidden}
      Content: live ticker + agent terminal
   ================================================================ */
   var TICK = [
-    ['agent', 'connection accepted', 'Head of Ops · Mitsubishi Electric'],
-    ['reply', 'intent HIGH', 'Managing Director · manufacturing'],
-    ['book', 'meeting booked · Thu 14:30', 'CEO · industrial services'],
-    ['agent', 'follow-up #2 sent', 'Procurement Lead · DACH'],
-    ['reply', 'objection handled · pricing', 'CFO · logistics'],
-    ['book', 'meeting booked · Fri 10:00', 'Head of Sales · SaaS'],
-    ['agent', 'database enriched +412', 'ICP: 50–500 employees'],
-    ['reply', 'proposal requested', 'Owner · precision engineering']
+    ['agent', 'kapcsolat elfogadva', 'operatív vezető · Mitsubishi Electric'],
+    ['reply', 'MAGAS vételi szándék', 'ügyvezető · gyártás'],
+    ['book', 'meeting lefoglalva · csüt 14:30', 'CEO · ipari szolgáltatások'],
+    ['agent', '2. follow-up elküldve', 'beszerzési vezető · DACH'],
+    ['reply', 'kifogás kezelve · árazás', 'CFO · logisztika'],
+    ['book', 'meeting lefoglalva · pén 10:00', 'értékesítési vezető · SaaS'],
+    ['agent', 'adatbázis bővítve +412', 'ICP: 50–500 fő'],
+    ['reply', 'ajánlatkérés érkezett', 'tulajdonos · precíziós gépgyártás']
   ];
   (function buildTicker() {
     var el = $('#tk'); if (!el) return;
@@ -1045,13 +1045,13 @@ body.lock{overflow:hidden}
 
   var AGENT = [
     ['pu', 'salesbot', 'run --campaign "industrial-DACH-q3"'],
-    ['gr', '✓', 'database: 4,182 decision-makers matched'],
-    ['gr', '✓', 'sequences: 3 variants live · tone locked'],
-    ['cy', '→', 'outreach: 2,000 touches queued this month'],
-    ['gr', '✓', 'reply #4821 · intent HIGH · budget owner'],
-    ['am', '→', 'objection handled: pricing → value framing'],
-    ['gr', '✓', 'meeting booked · Thu 14:30 CET'],
-    ['cy', '→', 'handoff: pushed to your calendar + CRM']
+    ['gr', '✓', 'adatbázis: 4 182 döntéshozó találat'],
+    ['gr', '✓', 'szekvenciák: 3 variáns élesben · hangnem rögzítve'],
+    ['cy', '→', 'megkeresés: 2 000 érintés ütemezve erre a hónapra'],
+    ['gr', '✓', 'válasz #4821 · MAGAS vételi szándék · büdzsé felett dönt'],
+    ['am', '→', 'kifogás kezelve: árazás → értékérvelés'],
+    ['gr', '✓', 'meeting lefoglalva · csüt 14:30 CET'],
+    ['cy', '→', 'átadás: naptáradba és CRM-be küldve']
   ];
   (function agentTerminal() {
     var box = $('#agentTerm'); if (!box) return;
@@ -1315,7 +1315,7 @@ body.lock{overflow:hidden}
     burger.addEventListener('click', function () {
       var o = nav.classList.toggle('open');
       burger.setAttribute('aria-expanded', o ? 'true' : 'false');
-      burger.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
+      burger.setAttribute('aria-label', o ? 'Menü bezárása' : 'Menü megnyitása');
     });
     $$('#mnav a').forEach(function (a) {
       a.addEventListener('click', function () { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); });
