@@ -66,6 +66,7 @@
       e.preventDefault();
       var n = document.getElementById('f-name');
       var em = document.getElementById('f-email');
+      var ph = document.getElementById('f-phone');
       var co = document.getElementById('f-co');
       var msg = document.getElementById('f-msg');
       var note = document.getElementById('formNote');
@@ -84,7 +85,7 @@
       post('demo-request', {
         name: n.value.trim(),
         email: em.value.trim(),
-        phone: '',
+        phone: ph ? ph.value.trim() : '',
         company: co ? co.value.trim() : '',
         message: msg ? msg.value.trim() : '',
         rep: rep.name

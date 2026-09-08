@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — SalesBot</title>
-<meta name="description" content="Drop us a line and we’ll get back to you within 1 business day — or grab a SalesBot demo slot on our calendar right now.">
+<title>SalesBot Blog — Outbound playbooks &amp; insights</title>
+<meta name="description" content="Playbooks, teardowns, and lessons from thousands of B2B outbound campaigns.">
 <meta name="theme-color" content="#050507">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -823,10 +823,10 @@ body.lock{overflow:hidden}
     <nav class="navlinks" aria-label="Primary">
       <a href="/how-it-works">How it works</a>
       <a href="/features">Features</a>
-      <a href="/pricing">Pricing</a>
+      <a href="/pricing" class="act" aria-current="page">Pricing</a>
       <a href="/about">About</a>
       <a href="/blog">Blog</a>
-      <a href="/contact" class="act" aria-current="page">Contact</a>
+      <a href="/contact">Contact</a>
     </nav>
     <div class="navact">
       <button class="lang" type="button" aria-label="Switch language to Hungarian">HU</button>
@@ -849,80 +849,72 @@ body.lock{overflow:hidden}
 <!-- ===== HERO ===== -->
 <section class="phero">
   <div class="mesh" aria-hidden="true">
-    <span class="blob mb1" style="width:52vw;height:52vw;left:-12vw;top:-18vw;background:radial-gradient(circle,rgba(167,107,255,.34),transparent 62%)"></span>
-    <span class="blob mb3" style="width:44vw;height:44vw;right:-8vw;top:-4vw;background:radial-gradient(circle,rgba(47,223,164,.22),transparent 62%)"></span>
+    <span class="blob mb1" style="width:56vw;height:56vw;left:50%;top:-14vw;transform:translateX(-50%);background:radial-gradient(circle,rgba(167,107,255,.32),transparent 62%)"></span>
+    <span class="blob mb2" style="width:44vw;height:44vw;right:-8vw;top:4vw;background:radial-gradient(circle,rgba(69,198,242,.24),transparent 62%)"></span>
   </div>
   <div class="gridlines" aria-hidden="true"></div>
   <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="in">
-      <h1 id="heroTitle">We&rsquo;re just a quick message away</h1>
-      <p class="lede fade">Drop us a line and we&rsquo;ll get back to you within 1 business day. Or steal a SalesBot demo spot on our calendar right now.</p>
+      <h1 id="heroTitle">Insights from the outbound trenches</h1>
+      <p class="lede fade">Playbooks, teardowns, and lessons from thousands of B2B campaigns. The first posts are being written right now.</p>
+      <div class="cta fade">
+        <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Book a demo <span class="ar">&#8594;</span></a>
+        
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FORM + DEMO ===== -->
-<section class="sec" id="reach" style="padding-top:clamp(20px,3vw,44px)">
+<!-- ===== POSTS ===== -->
+<style>
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(22px,3vw,38px)}
+.post{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.post .ptag{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
+.post h3{font-size:1.12rem;letter-spacing:-.02em}
+.post p{color:var(--dim);font-size:.92rem;flex:1}
+.post .soon{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--aurora);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:860px){.posts{grid-template-columns:1fr}}
+</style>
+<section class="sec" id="posts" style="padding-top:clamp(30px,4vw,60px)">
   <div class="wrap">
-    <div class="bento contact">
-
-      <div class="tile spot form2" data-rev>
-        <span class="edge"></span>
-        <span class="k">Send a message</span>
-        <h2 style="font-size:clamp(1.4rem,2.3vw,1.9rem);margin:14px 0 22px">Tell us what you&rsquo;re working on</h2>
-        <form id="contactForm" novalidate>
-          <div class="row2">
-            <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
-            <div class="field"><label for="c-co">Company</label><input id="c-co" name="company" type="text" placeholder="Company name (or website)" autocomplete="organization"></div>
-          </div>
-          <div class="row2">
-            <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" placeholder="Work email" autocomplete="email" required></div>
-            <div class="field"><label for="c-phone">Phone (optional)</label><input id="c-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
-          </div>
-          <div class="field"><label for="c-msg">How can we help?</label><textarea id="c-msg" name="message" rows="5" placeholder="Your message"></textarea></div>
-          <button class="btn btn-p btn-lg" type="submit">Send message <span class="ar">&#8594;</span></button>
-          <p class="fine" id="cNote">We reply within 1 business day.</p>
-        </form>
-      </div>
-
-      <div class="tile spot demoside" data-rev>
-        <span class="k">Book a free demo</span>
-        <h2 style="font-size:clamp(1.4rem,2.3vw,1.9rem);margin-top:14px">30 minutes focused entirely on your business</h2>
-        <p style="color:var(--dim)">We&rsquo;ll map out your exact target audience, look at your offer, and show you what SalesBot would actually look like in your market.</p>
-        <div class="why">
-          <div><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#a76bff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Your exact target audience, mapped live</div>
-          <div><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#a76bff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A look at your offer and positioning</div>
-          <div><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6.4 4.4 9.2 10.5 2.8" fill="none" stroke="#a76bff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>What SalesBot would look like in your market</div>
-        </div>
-
-        <div class="vis" style="margin-top:22px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#08080f">
-          <div class="ui-bar" style="height:34px"><div class="dots"><i></i><i></i><i></i></div><div class="url">calendar &middot; open slots</div></div>
-          <div class="mini" style="gap:8px">
-            <div class="rows">
-              <div class="rw"><span class="mono" style="font-size:9px">TUE 10:00</span><span class="ln" style="width:26%"></span><span class="tag qa">Free</span></div>
-              <div class="rw"><span class="mono" style="font-size:9px">THU 14:30</span><span class="ln" style="width:32%"></span><span class="tag qa">Free</span></div>
-              <div class="rw" style="opacity:.45"><span class="mono" style="font-size:9px">FRI 09:00</span><span class="ln" style="width:22%"></span><span class="tag wt">Taken</span></div>
-            </div>
-          </div>
-        </div>
-
-        <a class="btn btn-p btn-lg mag" href="#demo" data-demo style="margin-top:22px">Grab a slot <span class="ar">&#8594;</span></a>
-      </div>
+    <div class="head" data-rev>
+      <span class="pill">Latest</span>
+      <h2>What we&rsquo;re writing <span class="grad">right now</span></h2>
+      <p class="lede">Real campaigns, real numbers, no fluff. Subscribe by booking a demo &mdash; we share everything on the call anyway.</p>
+    </div>
+    <div class="posts" data-rev>
+      <article class="post">
+        <span class="ptag">Outbound strategy</span>
+        <h3>Why 10,000 cold emails lose to 200 right ones</h3>
+        <p>The math behind precision outreach: how a hand-picked list of decision-makers outperforms bulk sends on every metric that matters.</p>
+        <span class="soon">Coming soon</span>
+      </article>
+      <article class="post">
+        <span class="ptag">Playbook</span>
+        <h3>The anatomy of a LinkedIn message that gets replies</h3>
+        <p>We dissected thousands of first messages from real campaigns. Here is what separates the 40%+ reply rates from the ignored.</p>
+        <span class="soon">Coming soon</span>
+      </article>
+      <article class="post">
+        <span class="ptag">Product</span>
+        <h3>From first touch to booked call: what the AI actually does</h3>
+        <p>A transparent walkthrough of a single lead&rsquo;s journey through SalesBot &mdash; every decision the AI made, and why.</p>
+        <span class="soon">Coming soon</span>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===== CLOSING ===== -->
-<section class="closing" id="closing" style="min-height:auto;padding-block:clamp(70px,10vw,130px)">
+<section class="closing" id="closing">
   <div class="mesh" aria-hidden="true">
-    <span class="blob mb1" style="width:52vw;height:52vw;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(167,107,255,.26),transparent 62%)"></span>
+    <span class="blob mb1" style="width:58vw;height:58vw;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(167,107,255,.3),transparent 62%)"></span>
   </div>
   <div class="rings" aria-hidden="true" id="rings">
     <i style="width:34%;height:34%"></i><i style="width:52%;height:52%"></i><i style="width:70%;height:70%"></i><i style="width:88%;height:88%"></i><i style="width:106%;height:106%"></i>
   </div>
   <div class="wrap">
-    <p class="bl bl3 grad" id="cl3">Or just book the demo and skip the email tag.</p>
+    <p class="bl bl3 grad" id="cl3">Want the lessons applied to your pipeline?</p>
     <a class="btn btn-p btn-lg mag" href="#demo" data-demo id="closeBtn">Book a demo <span class="ar">&#8594;</span></a>
   </div>
 </section>
@@ -970,7 +962,7 @@ body.lock{overflow:hidden}
       <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
       <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization"></div>
-      <div class="field"><label for="f-msg">Are you ready to fill your pipeline?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+      <div class="field"><label for="f-msg">Who do you want to reach?</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
       <button class="btn btn-p btn-lg" type="submit">Request my demo <span class="ar">&#8594;</span></button>
       <p class="fine" id="formNote">No credit card. No commitment.</p>
     </form>
@@ -1440,12 +1432,6 @@ body.lock{overflow:hidden}
     clamp: clamp, smooth: smooth, easeOut: easeOut, stag: stag, fmt: fmt,
     $: $, $$: $$
   };
-})();
-</script>
-<script>
-(function () {
-  var S = window.SB; if (!S) return;
-  /* contact form handled by /lead.js */
 })();
 </script>
 <script defer src="/lead.js"></script>
