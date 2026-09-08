@@ -113,13 +113,6 @@ section{position:relative}
   filter:blur(14px);opacity:0;z-index:-1;transition:opacity .35s;
 }
 .btn-p:hover::after{opacity:.65}
-/* notch accent — the wordmark's horizontal cut, echoed on the primary CTA */
-.btn-p{
-  -webkit-mask:linear-gradient(#000 0 0),linear-gradient(#000 0 0) 100% 50%/16px 5px no-repeat;
-  -webkit-mask-composite:xor;
-  mask:linear-gradient(#000 0 0),linear-gradient(#000 0 0) 100% 50%/16px 5px no-repeat;
-  mask-composite:exclude;
-}
 .btn-g{border:1px solid var(--line2);color:var(--text);background:rgba(255,255,255,.02)}
 .btn-g:hover{border-color:var(--line3);background:rgba(255,255,255,.05)}
 .btn-lg{min-height:58px;padding:0 1.85rem;font-size:1rem}
