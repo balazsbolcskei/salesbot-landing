@@ -311,6 +311,14 @@ section{position:relative}
 .notlist .x svg{width:8px;height:8px}
 .notlist s{text-decoration-color:rgba(255,255,255,.25);text-decoration-thickness:1px}
 .notlist em{display:block;font-style:normal;font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:.45rem}
+/* B2B outreach scrollytelling: items strike through one by one on scroll */
+.b2seq{grid-template-columns:1fr!important;max-width:700px;margin-inline:auto}
+.b2seq .notlist li{opacity:.4;transform:translateY(14px);will-change:opacity,transform}
+.b2seq .notlist li s{text-decoration:none;position:relative}
+.b2seq .notlist li s::after{content:"";position:absolute;left:-1%;top:54%;height:2px;width:102%;border-radius:2px;background:var(--aurora);transform:scaleX(var(--k,0));transform-origin:left center}
+.b2seq .notlist em{opacity:0;transform:translateY(6px)}
+.b2seq .istile{opacity:0;transform:translateY(30px) scale(.94)}
+
 .istile{display:flex;flex-direction:column;gap:20px;justify-content:space-between}
 .istile .big{font-size:clamp(1.1rem,1.75vw,1.42rem);line-height:1.45;color:var(--text);letter-spacing:-.02em}
 .istile .small{color:var(--dim);font-size:.98rem}
@@ -945,8 +953,8 @@ body.lock{overflow:hidden}
       <span class="pill">A definíció</span>
       <h2>Mi az a B2B megkeresés?</h2>
     </div>
-    <div class="bento b2">
-      <div data-rev>
+    <div class="bento b2 b2seq">
+      <div>
         <h3 style="font-size:clamp(1.15rem,1.8vw,1.4rem);margin-bottom:16px;color:var(--soft)">A B2B megkeresés nem az, hogy&hellip;</h3>
         <ul class="notlist">
           <li><span class="x"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/></svg></span><span><s>Posztolsz a LinkedInen, és imádkozol, hogy valaki írjon rád.</s><em>Ez reménymarketing.</em></span></li>
@@ -956,7 +964,7 @@ body.lock{overflow:hidden}
           <li><span class="x"><svg viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/></svg></span><span><s>Havi hírlevelet küldesz a meglévő kontaktjaidnak.</s><em>Ez közönségépítés.</em></span></li>
         </ul>
       </div>
-      <div class="tile istile spot" data-rev>
+      <div class="tile istile spot">
         <span class="edge"></span>
         <div>
           <h3 style="font-size:clamp(1.15rem,1.8vw,1.4rem);margin-bottom:18px">A B2B megkeresés az, hogy&hellip;</h3>
@@ -1977,5 +1985,41 @@ body.lock{overflow:hidden}
 </script>
 <script defer src="/lead.js"></script>
 <script defer src="/aurora.js"></script>
+
+<script>
+(function () {
+  var S = window.SB; if (!S) return;
+  var seq = document.querySelector('.b2seq'); if (!seq) return;
+  var items = [].slice.call(seq.querySelectorAll('.notlist li'));
+  var is = seq.querySelector('.istile');
+  var N = items.length;
+  function setItem(li, e) {
+    var vis = Math.min(1, e * 1.6);
+    li.style.opacity = (.4 + .6 * vis).toFixed(3);
+    li.style.transform = 'translateY(' + ((1 - vis) * 14).toFixed(1) + 'px)';
+    var st = li.querySelector('s'); if (st) st.style.setProperty('--k', e.toFixed(3));
+    var em = li.querySelector('em');
+    if (em) {
+      var q = S.clamp((e - .45) / .4, 0, 1);
+      em.style.opacity = q.toFixed(3);
+      em.style.transform = 'translateY(' + ((1 - q) * 6).toFixed(1) + 'px)';
+    }
+  }
+  function setIs(q) {
+    if (!is) return;
+    is.style.opacity = q.toFixed(3);
+    is.style.transform = 'translateY(' + ((1 - q) * 30).toFixed(1) + 'px) scale(' + (.94 + q * .06).toFixed(3) + ')';
+  }
+  if (S.RM) { items.forEach(function (li) { setItem(li, 1); }); setIs(1); return; }
+  var D = N + 1.6;
+  S.reg(seq, function (p) {
+    items.forEach(function (li, i) {
+      var a = i / D, b = (i + 1) / D;
+      setItem(li, S.smooth(S.clamp((p - a) / (b - a), 0, 1)));
+    });
+    setIs(S.smooth(S.clamp((p - N / D) / (1 - N / D), 0, 1)));
+  }, { s: .88, e: .04 });
+})();
+</script>
 </body>
 </html>
