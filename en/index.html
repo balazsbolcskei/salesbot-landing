@@ -318,6 +318,10 @@ section{position:relative}
 .b2seq .notlist li s::after{content:"";position:absolute;left:-1%;top:54%;height:2px;width:102%;border-radius:2px;background:var(--aurora);transform:scaleX(var(--k,0));transform-origin:left center}
 .b2seq .notlist em{opacity:0;transform:translateY(6px)}
 .b2seq .istile{opacity:0;transform:translateY(30px) scale(.94)}
+.b2pin{height:250vh}
+.b2sticky{position:sticky;top:0;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:30px}
+@media(max-width:860px){.b2pin{height:auto}.b2sticky{position:static;min-height:0;padding-block:0}}
+
 
 .istile{display:flex;flex-direction:column;gap:20px;justify-content:space-between}
 .istile .big{font-size:clamp(1.1rem,1.75vw,1.42rem);line-height:1.45;color:var(--text);letter-spacing:-.02em}
@@ -947,8 +951,8 @@ body.lock{overflow:hidden}
 </section>
 
 <!-- ===================== 2 · WHAT IS B2B OUTREACH ===================== -->
-<section class="sec" id="about">
-  <div class="wrap">
+<section class="sec" id="about" style="padding-block:0">
+  <div class="b2pin"><div class="b2sticky"><div class="wrap">
     <div class="head" data-rev>
       <span class="pill">The definition</span>
       <h2>What is B2B outreach?</h2>
@@ -982,7 +986,7 @@ body.lock{overflow:hidden}
         </div>
       </div>
     </div>
-  </div>
+  </div></div></div>
 </section>
 
 <!-- ===================== 3 · THE SOLUTION (horizontal rail) ===================== -->
@@ -2007,13 +2011,15 @@ body.lock{overflow:hidden}
   }
   if (S.RM) { items.forEach(function (li) { setItem(li, 1); }); setIs(1); return; }
   var D = N + 1.6;
-  S.reg(seq, function (p) {
+  var pinEl = document.querySelector('.b2pin');
+  var mobileScene = matchMedia('(max-width:860px)').matches || !pinEl;
+  S.reg(mobileScene ? seq : pinEl, function (p) {
     items.forEach(function (li, i) {
       var a = i / D, b = (i + 1) / D;
       setItem(li, S.smooth(S.clamp((p - a) / (b - a), 0, 1)));
     });
     setIs(S.smooth(S.clamp((p - N / D) / (1 - N / D), 0, 1)));
-  }, { s: .88, e: .04 });
+  }, mobileScene ? { s: .9, e: .06 } : { mode: 'pin' });
 })();
 </script>
 </body>
