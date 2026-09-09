@@ -147,6 +147,7 @@ section{position:relative}
 .mnav{position:relative;display:none;flex-direction:column;padding:.5rem var(--pad) 1.4rem;background:rgba(5,5,7,.96);border-bottom:1px solid var(--line)}
 .mnav a{display:flex;align-items:center;min-height:48px;color:var(--dim);border-bottom:1px solid var(--line)}
 .mnav .btn{margin-top:1rem}
+.mnav a.btn-p{color:#07070b;border-bottom:0;justify-content:center}
 .nav.open .mnav{display:flex}
 
 /* =====================================================================
@@ -840,6 +841,7 @@ body.lock{overflow:hidden}
     <a href="/rolunk">Rólunk</a>
       <a href="/blog">Blog</a>
     <a href="/kapcsolat">Kapcsolat</a>
+    <a href="/en/about" onclick="localStorage.setItem('lang_override','en')">English</a>
     <a class="btn btn-p" href="#demo" data-demo>Foglalj demót <span class="ar">&#8594;</span></a>
   </div>
 </header>
