@@ -542,7 +542,10 @@ body.lock{overflow:hidden}
   .sat-c{display:none}
 }
 @media (max-width:860px){
-  .navlinks,.navact{display:none}
+  .navlinks{display:none}
+  .navact .btn{display:none}
+  .navact{margin-left:auto}
+  .burger{margin-left:.6rem}
   .burger{display:grid}
   .railwrap{height:auto}
   .railpin{position:relative;height:auto;padding-block:0}
@@ -842,7 +845,6 @@ body.lock{overflow:hidden}
     <a href="/en/about">About</a>
       <a href="/en/blog">Blog</a>
     <a href="/en/contact">Contact</a>
-    <a href="/arak" onclick="localStorage.setItem('lang_override','hu')">Magyar</a>
     <a class="btn btn-p" href="#demo" data-demo>Book a demo <span class="ar">&#8594;</span></a>
   </div>
 </header>
