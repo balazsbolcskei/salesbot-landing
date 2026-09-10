@@ -11,7 +11,7 @@
      deliberate assignment); the generic pages are first-touch only, so
      navigating around never reassigns; a rep is ALWAYS stored so the
      lead is never saved null. */
-  var ROMAN  = { name: 'Roman Mamedov',           url: 'https://calendly.com/roman-blackholegrowth/salesbot-demo' };
+  var ROMAN  = { name: 'Roman Mamedov',           url: 'https://idofoglalo.com/en/romanmamedov/salesbot-discovery' };
   var BOGATA = { name: 'Boross-Nagy Bogáta Luca', url: 'https://calendly.com/bogata-nagy/salesbot-demo' };
   var REP_MAP = {
     '/':        BOGATA,
@@ -140,15 +140,21 @@
       card.style.maxHeight = '88vh';
       card.style.overflowY = 'auto';
       var embed = box.querySelector('#calendlyEmbed');
-      withCalendly(function () {
-        if (window.Calendly) {
-          window.Calendly.initInlineWidget({ url: rep.url, parentElement: embed });
-        } else {
-          embed.innerHTML =
-            '<a href="' + rep.url + '" target="_blank" rel="noopener" class="btn btn-p btn-lg" ' +
-            'style="display:inline-flex;text-decoration:none">' + T.book + '</a>';
-        }
-      });
+      if (rep.url.indexOf('idofoglalo.com') !== -1) {
+        /* Időfoglaló (our own product) embeds as a plain iframe */
+        embed.innerHTML = '<iframe src="' + rep.url + '" title="Booking" ' +
+          'style="width:100%;height:100%;border:0;border-radius:12px;background:#fff"></iframe>';
+      } else {
+        withCalendly(function () {
+          if (window.Calendly) {
+            window.Calendly.initInlineWidget({ url: rep.url, parentElement: embed });
+          } else {
+            embed.innerHTML =
+              '<a href="' + rep.url + '" target="_blank" rel="noopener" class="btn btn-p btn-lg" ' +
+              'style="display:inline-flex;text-decoration:none">' + T.book + '</a>';
+          }
+        });
+      }
     });
   }
 
