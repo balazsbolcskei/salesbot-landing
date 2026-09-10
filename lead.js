@@ -145,8 +145,10 @@
       card.style.overflowY = 'auto';
       var embed = box.querySelector('#calendlyEmbed');
       if (rep.url.indexOf('idofoglalo.com') !== -1) {
-        /* Időfoglaló (our own product) embeds as a plain iframe */
-        embed.innerHTML = '<iframe src="' + rep.url + '" title="Booking" ' +
+        /* Időfoglaló (our own product) embeds as a plain iframe; the
+           fragment jumps straight to the calendar so the long event
+           description stays out of the way */
+        embed.innerHTML = '<iframe src="' + rep.url + '#next-slot-shortcut" title="Booking" ' +
           'style="width:100%;height:100%;border:0;border-radius:12px;background:#fff"></iframe>';
       } else {
         withCalendly(function () {
