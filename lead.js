@@ -23,10 +23,14 @@
     '/go-en':   { name: 'Bukovics Eszter', url: 'https://calendly.com/eszter-bukovics/salesbot--ai-b2b-business-development' }
   };
   var DEFAULT_REP = isEN ? ROMAN : BOGATA;
-  var EXPLICIT_REPS = ['/start', '/go', '/welcome', '/go-en'];
+  /* campaign links: arriving from OUTSIDE (ad, LinkedIn, direct) assigns
+     their rep even over a stored one; internal navigation (language
+     toggle, menu) never reassigns — first-touch wins inside the site */
+  var EXPLICIT_REPS = ['/start', '/go', '/welcome', '/go-en', '/home', '/en'];
   var path = location.pathname.replace(/\/$/, '') || '/';
   var stored = localStorage.getItem('sb_rep');
-  if (REP_MAP[path] && (EXPLICIT_REPS.indexOf(path) !== -1 || !stored)) {
+  var internalNav = document.referrer.indexOf(location.origin) === 0;
+  if (REP_MAP[path] && ((!internalNav && EXPLICIT_REPS.indexOf(path) !== -1) || !stored)) {
     localStorage.setItem('sb_rep', JSON.stringify(REP_MAP[path]));
   } else if (!stored) {
     localStorage.setItem('sb_rep', JSON.stringify(DEFAULT_REP));
