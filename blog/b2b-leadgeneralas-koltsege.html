@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SalesBot Blog: outbound playbookok és tanulságok</title>
-<meta name="description" content="Playbookok, esettanulmányok és tanulságok több ezer B2B outbound kampányból.">
+<title>Mennyibe kerül valójában a B2B leadgenerálás 2026-ban? Saját Sales-es, ügynökség vagy automatizálás | SalesBot Blog</title>
+<meta name="description" content="Ebben az iparágban szinte senki nem írja ki az árait. Ha leadgenerálásban keresel partnert, száz landing page-et találsz, amelyik elmagyarázza az érté">
 <meta name="theme-color" content="#050507">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -845,7 +845,7 @@ body.lock{overflow:hidden}
       <a href="/kapcsolat">Kapcsolat</a>
     </nav>
     <div class="navact">
-      <a class="lang" href="/en/blog" onclick="localStorage.setItem('lang_override','en')" aria-label="English version">EN</a>
+      <a class="lang" href="/en/blog/b2b-lead-generation-cost" onclick="localStorage.setItem('lang_override','en')" aria-label="English version">EN</a>
       <a class="btn btn-p mag" href="#demo" data-demo>Foglalj demót</a>
     </div>
     <button class="burger" type="button" id="burger" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mnav"><i></i></button>
@@ -872,8 +872,14 @@ body.lock{overflow:hidden}
   <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="in">
-      <h1 id="heroTitle">Tanulságok az outbound frontvonalából</h1>
-      <p class="lede fade">Playbookok, elemzések és tanulságok több ezer B2B kampányból. Az első cikkek már készülnek.</p>
+      <h1 id="heroTitle" style="font-size:clamp(1.7rem,3.4vw,2.7rem);max-width:20ch">Mennyibe kerül valójában a B2B leadgenerálás 2026-ban? Saját Sales-es, ügynökség vagy automatizálás</h1>
+      <div class="art-hero fade"><svg viewBox="0 0 720 240" role="img"><defs><linearGradient id="ag3" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#b776ff"/><stop offset=".25" stop-color="#9c8fff"/><stop offset=".5" stop-color="#52d5ff"/><stop offset=".75" stop-color="#21e6a5"/><stop offset="1" stop-color="#ff9d42"/></linearGradient></defs><rect x="200" y="60" width="56" height="150" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><rect x="330" y="114" width="56" height="96" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><rect x="460" y="152" width="56" height="58" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+        <rect x="460" y="152" width="56" height="58" rx="8" fill="url(#ag3)" opacity=".8"/>
+        <line x1="150" y1="210" x2="570" y2="210" stroke="rgba(255,255,255,.15)"/>
+        <text x="196" y="230" fill="rgba(255,255,255,.4)" font-family="monospace" font-size="10">SDR</text>
+        <text x="316" y="230" fill="rgba(255,255,255,.4)" font-family="monospace" font-size="10">agency</text>
+        <text x="448" y="230" fill="rgba(255,255,255,.4)" font-family="monospace" font-size="10">SalesBot</text></svg></div>
       <div class="cta fade">
         <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Foglalj egy ingyenes demót <span class="ar">&#8594;</span></a>
         
@@ -882,52 +888,60 @@ body.lock{overflow:hidden}
   </div>
 </section>
 
-<!-- ===== POSTS ===== -->
 <style>
-.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(22px,3vw,38px)}
-a.post{text-decoration:none;transition:border-color .3s,transform .3s}
-a.post:hover{border-color:var(--line2);transform:translateY(-3px)}
-.post{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
-.post .ptag{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-.post h3{font-size:1.12rem;letter-spacing:-.02em}
-.post p{color:var(--dim);font-size:.92rem;flex:1}
-.post .soon{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--aurora);-webkit-background-clip:text;background-clip:text;color:transparent}
-@media(max-width:860px){.posts{grid-template-columns:1fr}}
+.art-hero{margin-top:clamp(8px,1.5vw,18px);border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:clamp(14px,2vw,26px);overflow:hidden}
+.art-hero svg{display:block;width:100%;height:auto}
+.art-wrap{max-width:760px}
+.art-wrap h2{font-size:1.2rem;letter-spacing:-.02em;margin:34px 0 12px}
+.art-wrap p,.art-wrap li{color:var(--dim);font-size:.98rem;line-height:1.75}
+.art-wrap ul{padding-left:22px;margin:12px 0}
+.art-wrap a{color:#52d5ff}
+.art-tablewrap{overflow-x:auto;margin:16px 0}
+.art-wrap table{width:100%;border-collapse:collapse;font-size:.9rem}
+.art-wrap th,.art-wrap td{border:1px solid var(--line);padding:10px 13px;text-align:left;color:var(--dim)}
+.art-wrap th{color:var(--text);font-weight:600}
 </style>
-<section class="sec" id="posts" style="padding-top:clamp(30px,4vw,60px)">
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">Friss</span>
-      <h2>Amit <span class="grad">éppen most</span> írunk</h2>
-      <p class="lede">Valódi kampányok, valódi számok, semmi mellébeszélés. Ha nem akarsz a cikkekre várni, foglalj demót, ott úgyis mindent megosztunk.</p>
-    </div>
-    <div class="posts" data-rev><a class="post" href="/blog/5-ai-feladat">
-        <span class="ptag">AI és automatizáció</span>
-        <h3>5 AI-feladat, amit már ma sem érdemes manuálisan csinálni</h3>
-        <p>Az AI akkor igazán hasznos az értékesítésben, amikor nem akarja átvenni az értékesítő szerepét, csak leveszi róla azokat a feladatokat, amelyek sok id&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/b2b-leadgeneralas-koltsege">
-        <span class="ptag">Árazás</span>
-        <h3>Mennyibe kerül valójában a B2B leadgenerálás 2026-ban? Saját Sales-es, ügynökség vagy automatizálás</h3>
-        <p>Ebben az iparágban szinte senki nem írja ki az árait. Ha leadgenerálásban keresel partnert, száz landing page-et találsz, amelyik elmagyarázza az érté&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/hogyan-valassz-ai-ertekesitesi-rendszert">
-        <span class="ptag">Útmutató</span>
-        <h3>Hogyan válassz AI értékesítési rendszert: hét kérdés, ami valóban számít</h3>
-        <p>Minden AI értékesítési platform demója lenyűgöző. Megtalálja a potenciális ügyfeleket, megírja az üzeneteket, kezeli a válaszokat, és megjelennek a tá&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/legjobb-linkedin-toolok-2026">
-        <span class="ptag">Eszközök</span>
-        <h3>A legjobb LinkedIn toolok 2026-ban: tartalomgyártástól az ügyfélszerzésig</h3>
-        <p>A LinkedIn ma már jóval több, mint egy platform, ahol időnként megosztunk egy karrierrel kapcsolatos hírt. B2B-ben egyszerre lehet tartalom csatorna, &hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/miert-tunik-el-a-legtobb-lead">
-        <span class="ptag">Outbound stratégia</span>
-        <h3>Miért tűnik el a leadek többsége az első válasz után?</h3>
-        <p>Ismerős a helyzet: valaki válaszol a LinkedIn megkeresésedre, érdeklődik, feltesz egy kérdést, aztán csend. Nem mond nemet, csak eltűnik. A statisztik&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a></div>
-  </div>
+<section class="sec" style="padding-top:clamp(14px,2vw,28px)">
+  <div class="wrap"><div class="art-wrap"><p>Ebben az iparágban szinte senki nem írja ki az árait. Ha leadgenerálásban keresel partnert, száz landing page-et találsz, amelyik elmagyarázza az értéket, bemutatja a folyamatot, kirakja a logókat, aztán megkér, hogy foglalj demót, mielőtt egyetlen számot is megmutatna.</p>
+<p>Szerintünk ez fordítva van, ezért ez a cikk pont az ellenkezőjét csinálja. Az alábbiakban végigmegyünk azon, hogy 2026-ban ténylegesen mennyibe kerül B2B tárgyalásokat generálni, mit tartalmaznak valójában az egyes megoldások árai, és melyik az az egyetlen számítás, ami megmondja, hogy megéri-e egyáltalán belevágni.</p>
+<h2>Kezdd a jó viszonyítási alappal</h2>
+<p>A legtöbb cég a havidíjakat hasonlítja össze. Ez az összehasonlítás gyakran félrevezető, mert az olcsóbb havidíj, ami kevesebb tárgyalást hoz, valójában nem olcsóbb.</p>
+<p>Az a szám számít, hogy mennyibe kerül egy megtartott, kvalifikált tárgyalás. Nem leadenként, nem válaszonként, nem lefoglalt tárgyalásonként. Egy olyan tárgyalásra vetítve, ami tényleg létrejön valakivel, és aki illeszkedik az ideális ügyfélprofilodhoz.</p>
+<p>A képlet egyszerű:</p>
+<p>Havi összköltség osztva a havonta megtartott kvalifikált tárgyalások számával.</p>
+<p>Minden, ami lentebb következik, ehhez a számhoz viszonyítva értelmezhető, mert csak így lehet összehasonlítani olyan megoldásokat, amelyek papíron egyáltalán nem hasonlítanak egymásra.</p>
+<h2>1. lehetőség: saját Sales-es felvétele</h2>
+<p>Az ösztönös feltételezés az, hogy felvenni valakit olcsóbb, mint kiszervezni. Ha viszont végig számolod, ez általában nem igaz, legalábbis az első évben nem.</p>
+<p>A 2026-os publikált benchmarkok szerint egy saját értékesítési képviselő teljes költsége az Egyesült Államokban nagyjából évi 110 000 és 160 000 dollár között mozog, ami produktív főre vetítve havi 9 000 és 14 000 dollár közötti összeg. A teljes költségbe beletartozik a fizetés, a jutalék, a járulékok, a juttatások, az eszközök, az adatbázis-előfizetések, a toborzás, és az a vezetői idő is, ami a felügyeletükre megy el. Nyugat-Európában hasonló a nagyságrend. Közép-Kelet-Európában lényegesen alacsonyabb, de a költség szerkezete pontosan ugyanaz.</p>
+<p>Két tényezőt szinte mindenki alábecsül.</p>
+<p>A felfutási idő. Az iparági benchmarkok három-hat hónapra teszik egy Sales-es kolléga betanulását, és ez még a toborzás előtt van. A döntéstől az első kvalifikált pipeline-ig reálisan öt-hét hónap telik el. Ez alatt az idő alatt teljes költséget fizetsz nagyon kevés eredményért.</p>
+<p>A fluktuáció. A Sales pozíciókban a legmagasabb a fluktuáció az egész B2B értékesítésen belül. Ha valaki a kilencedik hónapban felmond, a ráfordításod jelentős része egy olyan betanulási időszakba ment, amit most újra ki kell fizetned.</p>
+<p>Egy tapasztalt sales-es teljes kapacitáson jellemzően havi 12–15 kvalifikált tárgyalást tud megtartani. Magyarországon egy ilyen kolléga teljes havi munkáltatói költsége nagyjából 1,8–2,4 millió forint, így egy kvalifikált tárgyalás költsége körülbelül 120–200 ezer forint lehet, amikor már teljes kapacitáson működik.</p>
+<h2>2. lehetőség: kiszervezett Sales csapat vagy leadgeneráló ügynökség</h2>
+<p>Ez a szokásos alternatíva, és nagyon széles a skála.</p>
+<p>A 2026-os árazási útmutatók szerint a menedzselt B2B leadgeneráló programok havi 250.000 és 1.200.000 Forint között mozognak.</p>
+<p>Vannak ügynökségek, amelyek tárgyalásonként áraznak. Egy általános B2B tárgyalás ára jellemzően 45.000 és 150.000 Forint között van, enterprise vagy több országot érintő célzásnál 280.000 Forint fölé is mehet, és még feljebb ott, ahol a döntéshozók kifejezetten magas beosztásúak, technikaiak vagy nehezen elérhetőek.</p>
+<p>Amit ezért kapsz, az valós érték: stratégia, listaépítés, szövegírás, többcsatornás végrehajtás, riportálás, és egy csapat, amelyik ezt már sokszor csinálta. Az ügynökségek ráadásul jóval gyorsabbak, mint a csapattag felvétel. Az első tárgyalások általában négy-hat hét alatt megérkeznek, nem öt hónap alatt.</p>
+<h2>3. lehetőség: előfizetsz egy platformra és magad használod</h2>
+<p>Papíron ez a legolcsóbb megoldás. A LinkedIn megkeresésre és értékesítésre használt eszközök nagyjából 35.000 és 65.000 Forint között vannak felhasználónként havonta, az újabb, autonóm AI értékesítési ügynökök pedig jóval feljebb kezdődnek, gyakran 150.000 és 370.000 forint között, az enterprise szerződések pedig évi hétszámjegyű összegeknél járnak.</p>
+<p>Az eszközökkel az igazi probléma nem a szoftver. Hanem az, hogy egy eszköz nem dönti el, kit érdemes megkeresni, nem tudja, mi érdekli a piacodat, nem ír olyan üzenetet, amire válaszolni akarnak, és nem válaszol a bejövő érdeklődőknek. Ez mind a csapatodnál marad.</p>
+<p>Ezért félrevezető a listaár. Egy 30.000 Forintos platform, ami heti nyolc órát megtakarít egy értékesítőd idejéből, nem 30.000 forintos megoldás. Ha beárazod az órákat, általában valahol az eszköz és az ügynökség között landolsz, azzal a plusz kockázattal, hogy akinek ezt csinálnia kellene, még négy másik dolgot is csinál, és egy sűrű negyedévben csendben abbahagyja.</p>
+<h2>4. lehetőség: a köztes opció, amiről a legtöbben nem tudnak</h2>
+<p>A „tessék, itt egy platform, sok sikert” és a havi több ezer eurós ügynökségi retainer között van egy harmadik modell: egy olyan rendszer, amelybe a működő sales stratégia már eleve be van építve. Nem neked kell kitalálnod a célzást, felépítened az adatbázist vagy megírnod az üzeneteket: a SalesBot a mögötte álló B2B ügynökség több száz kampányból felépített stratégiái és logikája alapján végzi el ezeket a feladatokat.</p>
+<p>A SalesBot pontosan ezt a helyet foglalja el. Az onboarding során megadod a megoldásodat, a célközönségedet, a piacodat és a kommunikáció fő irányait. Ezek alapján a rendszer felépíti a célzott adatbázist és az üzenetsorozatokat, majd a kampány elindítása után automatizálja a megkereséseket, az utánkövetést, a beérkező válaszok első szakaszának kezelését és a leadek kvalifikációját.</p>
+<p>Mindezt LinkedIn-profilonként havi 49 990 Ft-tól, egyszeri beállítási díjjal és három hónapos minimum futamidővel. Az árat ugyanazért tesszük ki nyíltan, amiért a többi számot is: ha valakinek végig kell ülnie egy demót csak azért, hogy megtudja, belefér-e a keretébe, az egyik félnek sem jó felhasználása az idejének.</p>
+<h2>Hogyan hasonlítsd össze a lehetőségeket</h2>
+<p>Vedd sorra az opciókat, és mindegyiknél töltsd ki ezt a három számot.</p>
+<ul><li>Havi összköltség. Mindent számolj bele: eszközök, adatok, felhasználói helyek, belső munkaidő, és a futamidőre elosztott beállítási díj.</li><li>Havonta megtartott kvalifikált tárgyalások száma. Legyél óvatos, és a szolgáltató reális számával számolj, ne a legjobb esettel. A legtöbb B2B outbound program a megkeresett döntéshozók 4 és 10 százaléka között hoz tárgyalást.</li><li>Az első tárgyalásig eltelt idő. Saját kollega felvételénél reálisan öt-hét hónap. Ügynökségnél vagy menedzselt rendszernél négy-nyolc hét.</li></ul>
+<p>Oszd el a költséget a tárgyalások számával, aztán vesd össze az eredményt a saját üzleti számaiddal. Ha az átlagos üzleted 20 000 eurót ér, és minden ötödik kvalifikált tárgyalásból lesz üzlet, akkor egy tárgyalás várható értéke 4 000 euró. Ezzel a matekkal a fenti megoldások szinte mindegyike kitermeli magát. Ha viszont az átlagos üzleted 2 000 euró, és minden tizedikből lesz üzlet, akkor egészen más a kép, és egy magas retainer soha nem fog megtérülni.</p>
+<p>Ez a számítás dönti el a kérdést, nem a havidíj.</p>
+<h2>Amit a számok nem mutatnak meg</h2>
+<p>Két dolog kimarad a táblázatból, és mindkettő fontos.</p>
+<p>A folyamatosság. A legdrágább outbound program az, amelyik leáll. A legtöbb belső próbálkozás nem azért bukik el, mert rossz volt a stratégia, hanem azért, mert az ügyfélszerzés az első dolog, ami kiesik, amikor a csapat elkezd pörögni. A pipeline-ban keletkezett lyuk aztán két negyedévvel később jelentkezik, amikor már sokkal drágább betömni.</p>
+<p>A felelősség. Az első naptól legyen világos, ki felel az eredményért. Ha senki nem felelős a megtartott tárgyalásokért, akkor a végén aktivitást fogsz fizetni eredmény helyett, bármelyik modellt is választod.</p>
+<h2>Röviden összefoglalva</h2>
+<ul><li>Mindig a megtartott kvalifikált tárgyalás költségét hasonlítsd össze, soha ne a havidíjat.</li><li>Saját Sales-es kolléga: az Egyesült Államokban nagyjából havi 9 000 és 14 000 dollár közötti teljes költség, és öt-hét hónap az első pipeline-ig.</li><li>Ügynökség vagy kiszervezett Sales: havi 250.000 és 1.200.000 forint, vagy 45.000 és 150.000 Forint egy általános B2B tárgyalásért.</li><li>Önállóan használt eszköz: papíron olcsó, az értékesítőid óráiban drága.</li><li>Menedzselt rendszer: a középső lépcsőfok, profilonként havi 49.990 Forinttól.</li><li>Bármit is választasz, előbb rögzítsétek írásban, mit jelent a kvalifikált tárgyalás.</li></ul>
+<p>Ha látni szeretnéd, hogy ez konkrétan a te piacodon hogyan néz ki, megmutatjuk, hány releváns döntéshozó érhető el ténylegesen a szegmensedben, és mire célozna egy kampány, mielőtt bármit is fizetnél. <a href="#demo" data-demo>Itt tudsz demót foglalni</a>.</p></div></div>
 </section>
 
 <section class="closing" id="closing">

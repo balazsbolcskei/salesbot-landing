@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SalesBot Blog: outbound playbookok és tanulságok</title>
-<meta name="description" content="Playbookok, esettanulmányok és tanulságok több ezer B2B outbound kampányból.">
+<title>Miért tűnik el a leadek többsége az első válasz után? | SalesBot Blog</title>
+<meta name="description" content="Ismerős a helyzet: valaki válaszol a LinkedIn megkeresésedre, érdeklődik, feltesz egy kérdést, aztán csend. Nem mond nemet, csak eltűnik. A statisztik">
 <meta name="theme-color" content="#050507">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -845,7 +845,7 @@ body.lock{overflow:hidden}
       <a href="/kapcsolat">Kapcsolat</a>
     </nav>
     <div class="navact">
-      <a class="lang" href="/en/blog" onclick="localStorage.setItem('lang_override','en')" aria-label="English version">EN</a>
+      <a class="lang" href="/en/blog/why-most-leads-disappear" onclick="localStorage.setItem('lang_override','en')" aria-label="English version">EN</a>
       <a class="btn btn-p mag" href="#demo" data-demo>Foglalj demót</a>
     </div>
     <button class="burger" type="button" id="burger" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mnav"><i></i></button>
@@ -872,8 +872,16 @@ body.lock{overflow:hidden}
   <div class="aurora" aria-hidden="true"><i></i><i></i></div>
   <div class="wrap">
     <div class="in">
-      <h1 id="heroTitle">Tanulságok az outbound frontvonalából</h1>
-      <p class="lede fade">Playbookok, elemzések és tanulságok több ezer B2B kampányból. Az első cikkek már készülnek.</p>
+      <h1 id="heroTitle" style="font-size:clamp(1.7rem,3.4vw,2.7rem);max-width:20ch">Miért tűnik el a leadek többsége az első válasz után?</h1>
+      <div class="art-hero fade"><svg viewBox="0 0 720 220" role="img"><defs><linearGradient id="ag2" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#b776ff"/><stop offset=".25" stop-color="#9c8fff"/><stop offset=".5" stop-color="#52d5ff"/><stop offset=".75" stop-color="#21e6a5"/><stop offset="1" stop-color="#ff9d42"/></linearGradient></defs>
+        <path d="M60 40 C240 40 300 60 360 110 C420 160 520 180 660 182" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="26" stroke-linecap="round"/>
+        <path d="M60 40 C240 40 300 60 360 110" fill="none" stroke="url(#ag2)" stroke-width="26" stroke-linecap="round" opacity=".85"/>
+        <circle cx="360" cy="110" r="9" fill="#52d5ff"/><circle cx="470" cy="158" r="6" fill="rgba(255,255,255,.25)"/>
+        <circle cx="660" cy="182" r="11" fill="none" stroke="url(#ag2)" stroke-width="3"/>
+        <circle cx="660" cy="182" r="4" fill="#21e6a5"/>
+        <text x="60" y="24" fill="rgba(255,255,255,.45)" font-family="monospace" font-size="11">100%</text>
+        <text x="628" y="165" fill="rgba(255,255,255,.45)" font-family="monospace" font-size="11">lead</text></svg></div>
       <div class="cta fade">
         <a class="btn btn-p btn-lg mag" href="#demo" data-demo>Foglalj egy ingyenes demót <span class="ar">&#8594;</span></a>
         
@@ -882,52 +890,37 @@ body.lock{overflow:hidden}
   </div>
 </section>
 
-<!-- ===== POSTS ===== -->
 <style>
-.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(22px,3vw,38px)}
-a.post{text-decoration:none;transition:border-color .3s,transform .3s}
-a.post:hover{border-color:var(--line2);transform:translateY(-3px)}
-.post{border:1px solid var(--line);border-radius:18px;padding:26px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
-.post .ptag{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-.post h3{font-size:1.12rem;letter-spacing:-.02em}
-.post p{color:var(--dim);font-size:.92rem;flex:1}
-.post .soon{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--aurora);-webkit-background-clip:text;background-clip:text;color:transparent}
-@media(max-width:860px){.posts{grid-template-columns:1fr}}
+.art-hero{margin-top:clamp(8px,1.5vw,18px);border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:clamp(14px,2vw,26px);overflow:hidden}
+.art-hero svg{display:block;width:100%;height:auto}
+.art-wrap{max-width:760px}
+.art-wrap h2{font-size:1.2rem;letter-spacing:-.02em;margin:34px 0 12px}
+.art-wrap p,.art-wrap li{color:var(--dim);font-size:.98rem;line-height:1.75}
+.art-wrap ul{padding-left:22px;margin:12px 0}
+.art-wrap a{color:#52d5ff}
+.art-tablewrap{overflow-x:auto;margin:16px 0}
+.art-wrap table{width:100%;border-collapse:collapse;font-size:.9rem}
+.art-wrap th,.art-wrap td{border:1px solid var(--line);padding:10px 13px;text-align:left;color:var(--dim)}
+.art-wrap th{color:var(--text);font-weight:600}
 </style>
-<section class="sec" id="posts" style="padding-top:clamp(30px,4vw,60px)">
-  <div class="wrap">
-    <div class="head" data-rev>
-      <span class="pill">Friss</span>
-      <h2>Amit <span class="grad">éppen most</span> írunk</h2>
-      <p class="lede">Valódi kampányok, valódi számok, semmi mellébeszélés. Ha nem akarsz a cikkekre várni, foglalj demót, ott úgyis mindent megosztunk.</p>
-    </div>
-    <div class="posts" data-rev><a class="post" href="/blog/5-ai-feladat">
-        <span class="ptag">AI és automatizáció</span>
-        <h3>5 AI-feladat, amit már ma sem érdemes manuálisan csinálni</h3>
-        <p>Az AI akkor igazán hasznos az értékesítésben, amikor nem akarja átvenni az értékesítő szerepét, csak leveszi róla azokat a feladatokat, amelyek sok id&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/b2b-leadgeneralas-koltsege">
-        <span class="ptag">Árazás</span>
-        <h3>Mennyibe kerül valójában a B2B leadgenerálás 2026-ban? Saját Sales-es, ügynökség vagy automatizálás</h3>
-        <p>Ebben az iparágban szinte senki nem írja ki az árait. Ha leadgenerálásban keresel partnert, száz landing page-et találsz, amelyik elmagyarázza az érté&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/hogyan-valassz-ai-ertekesitesi-rendszert">
-        <span class="ptag">Útmutató</span>
-        <h3>Hogyan válassz AI értékesítési rendszert: hét kérdés, ami valóban számít</h3>
-        <p>Minden AI értékesítési platform demója lenyűgöző. Megtalálja a potenciális ügyfeleket, megírja az üzeneteket, kezeli a válaszokat, és megjelennek a tá&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/legjobb-linkedin-toolok-2026">
-        <span class="ptag">Eszközök</span>
-        <h3>A legjobb LinkedIn toolok 2026-ban: tartalomgyártástól az ügyfélszerzésig</h3>
-        <p>A LinkedIn ma már jóval több, mint egy platform, ahol időnként megosztunk egy karrierrel kapcsolatos hírt. B2B-ben egyszerre lehet tartalom csatorna, &hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a><a class="post" href="/blog/miert-tunik-el-a-legtobb-lead">
-        <span class="ptag">Outbound stratégia</span>
-        <h3>Miért tűnik el a leadek többsége az első válasz után?</h3>
-        <p>Ismerős a helyzet: valaki válaszol a LinkedIn megkeresésedre, érdeklődik, feltesz egy kérdést, aztán csend. Nem mond nemet, csak eltűnik. A statisztik&hellip;</p>
-        <span class="soon" style="-webkit-background-clip:text;background-clip:text">Olvasd el →</span>
-      </a></div>
-  </div>
+<section class="sec" style="padding-top:clamp(14px,2vw,28px)">
+  <div class="wrap"><div class="art-wrap"><p>Ismerős a helyzet: valaki válaszol a LinkedIn megkeresésedre, érdeklődik, feltesz egy kérdést, aztán csend. Nem mond nemet, csak eltűnik. A statisztikák szerint a B2B outbound kampányok leadjeinek jelentős része pontosan itt vész el: nem az első “hideg” üzenetindításnál, hanem közvetlenül az első válasz után.</p>
+<p>Ez a cikk azt járja körül, miért történik ez, és mit lehet vele kezdeni.</p>
+<h2>1. Az első válasz csak egy nyitott ajtó, nem egy megkötött üzlet</h2>
+<p>Amikor valaki reagál egy megkeresésre, az még nem érdeklődés, csak kíváncsiság. A döntéshozó ilyenkor még nem biztos abban, hogy tényleg szüksége van a termékedre vagy szolgáltatásodra. Ha erre a bizonytalan pillanatra nem érkezik tőled gyors, releváns, a beszélgetés kontextusához illeszkedő válasz, a lead egyszerűen visszasüllyed a napi rutinba, és elfelejt téged újra felkeresni.</p>
+<h2>2. A válaszidő fontos tényező</h2>
+<p>A legtöbb sales csapat órákat, néha napokat vár, mire reagál egy beérkező üzenetre. A döntéshozók figyelme viszont percek alatt elillan — 20-30 másik üzenet, meeting és feladat közt versenyeznek a figyelmükért. Minél tovább vár a válaszra, annál kisebb az esély, hogy a lead egyáltalán emlékszik, miért is írt vissza.</p>
+<h2>3. Nincs strukturált follow-up folyamat</h2>
+<p>A legtöbb cégnél a follow-up ad hoc: az sales kolléga emlékezetből, kézzel, esetlegesen követi a beszélgetéseket. Ha éppen elfoglalt, a lead lemarad. Egy jól felépített kampányban a follow-up szekvencia, az időzítés és a válaszkezelés nem a pillanatnyi kapacitáson múlik, hanem egy előre megtervezett, következetes folyamaton.</p>
+<h2>4. A kvalifikáció hiánya</h2>
+<p>Sok cég ugyanazt az energiát fekteti minden érdeklődőbe — pedig nem minden válaszoló egyformán "forró" lead. Ha nincs, aki előszűri, megválaszolja a kezdeti kérdéseket és eldönti, mikor érdemes meetinget ajánlani, a valóban komoly érdeklődők könnyen elvesznek a kevésbé releváns beszélgetések között.</p>
+<h2>5. A megkeresés és a follow-up hangneme nem konzisztens</h2>
+<p>Ha az első üzenet személyre szabott és releváns volt, de a follow-up sablonos, gépies vagy túl tolakodó, a lead érzi a váltást, és ez bizalmat ronthat. A konzisztens hangnem és a beszélgetés kontextusának megtartása kulcsfontosságú ahhoz, hogy a kapcsolat ne szakadjon meg.</p>
+<h2>Mit lehet tenni?</h2>
+<p>A megoldás nem több munka, hanem jobb folyamat:</p>
+<ul><li>Gyors reakcióidő minden beérkező válaszra</li><li>Előre megtervezett follow-up szekvenciák, amelyek a beszélgetés állapotához igazodnak és aktiválják a leadeket</li><li>Kvalifikáció, ami elválasztja a valóban érdeklődőket a udvarias vissza utasítóktól</li><li>Konzisztens, emberi hangnem a teljes beszélgetés alatt</li></ul>
+<p>Ez pontosan az a terület, ahol egy AI-alapú sales rendszer, mint a SalesBot AI, érdemi különbséget tud tenni: a beérkező válaszokat kezeli, kvalifikálja az érdeklődőket, megválaszolja a kérdéseiket, és jelzi ahol follow-up szükséges — így egyetlen érdeklődő sem vész el csendben az első válasz után.</p>
+<p>Ha kíváncsi vagy, hogyan nézne ki ez a folyamat a te piacodon, <a href="#demo" data-demo>foglalj egy ingyenes demót</a>.</p></div></div>
 </section>
 
 <section class="closing" id="closing">
