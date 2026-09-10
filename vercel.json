@@ -1,15 +1,10 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/en", "destination": "/en/index.html" },
-    { "source": "/home", "destination": "/en/index.html" },
-    { "source": "/go-en", "destination": "/en/index.html" },
-    { "source": "/case/blackhole", "destination": "/case/blackhole.html" },
-    { "source": "/case/kiszervezett-penzugy", "destination": "/case/kiszervezett-penzugy.html" },
-    { "source": "/case/outsourced-finance", "destination": "/case/outsourced-finance.html" },
-    { "source": "/case/blackhole-en", "destination": "/case/blackhole-en.html" },
-    { "source": "/adatkezelesi-tajekoztato", "destination": "/legal/adatkezelesi-tajekoztato.html" },
-    { "source": "/aszf", "destination": "/legal/aszf.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/home", "destination": "/en" },
+    { "source": "/go-en", "destination": "/en" },
+    { "source": "/adatkezelesi-tajekoztato", "destination": "/legal/adatkezelesi-tajekoztato" },
+    { "source": "/aszf", "destination": "/legal/aszf" },
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
